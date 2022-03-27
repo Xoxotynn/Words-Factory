@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Words Factory
-//
-//  Created by Эдуард Логинов on 27.03.2022.
-//
-
 import UIKit
 
 @main
