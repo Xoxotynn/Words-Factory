@@ -1,6 +1,6 @@
 import Foundation
 
-enum Strings {
+extension String {
     // MARK: Onboarding screens
     static let learnTitle = "Learn anytime\nand anywhere"
     static let learnDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
