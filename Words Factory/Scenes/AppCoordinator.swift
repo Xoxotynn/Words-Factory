@@ -5,8 +5,8 @@ class AppCoordinator: Coordinator {
     // MARK: Properties
     let dependencies: Dependencies
     
-    var childCoordinators: [Coordinator]
     var rootNavigationController: UINavigationController
+    var childCoordinators: [Coordinator]
     
     private let window: UIWindow
     
@@ -16,6 +16,7 @@ class AppCoordinator: Coordinator {
         dependencies = Dependencies(networkService: NetworkService())
         childCoordinators = []
         rootNavigationController = UINavigationController()
+        rootNavigationController.isNavigationBarHidden = true
     }
     
     // MARK: Public methods
@@ -23,10 +24,6 @@ class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         showOnBoardingScene()
-    }
-    
-    func finish() {
-        
     }
     
     // MARK: Private methods
