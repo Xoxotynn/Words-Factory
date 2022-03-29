@@ -15,16 +15,16 @@ private extension Strings {
     static let start = "Let's Start"
 }
 
-// MARK: OnboardingViewModelDelegate
-protocol OnboardingViewModelDelegate: AnyObject {
-    func showSignUpScene()
-}
-
 // MARK: Images
 private extension UIImage {
     static let relationshipKids = UIImage(named: "LongDistanceRelationshipKids")
     static let stayingHomeKid = UIImage(named: "StayingHomeKid")
     static let hiTechKid = UIImage(named: "HiTechKid")
+}
+
+// MARK: OnboardingViewModelDelegate
+protocol OnboardingViewModelDelegate: AnyObject {
+    func showSignUpScene()
 }
 
 class OnboardingViewModel {
@@ -33,6 +33,7 @@ class OnboardingViewModel {
     weak var delegate: OnboardingViewModelDelegate?
     
     var didChangeNextButtonTitle: ((String) -> Void)?
+    var didChangePage: ((Int) -> Void)?
     
     var pagesCount: Int {
         pageCellViewModels.count
@@ -64,6 +65,15 @@ class OnboardingViewModel {
     func changeNextButtonTitleIfNeeded(page: Int) {
         let newTitle = page == pagesCount - 1 ? Strings.start : Strings.next
         didChangeNextButtonTitle?(newTitle)
+    }
+    
+    func showPage(at page: Int) {
+        guard page < pagesCount else {
+            delegate?.showSignUpScene()
+            return
+        }
+        
+        didChangePage?(page)
     }
     
     func showSignUpScene() {

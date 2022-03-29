@@ -33,6 +33,7 @@
 		A966879C27F216D600B320B3 /* TopicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966879B27F216D600B320B3 /* TopicInfo.swift */; };
 		A966879E27F219D800B320B3 /* StandartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966879D27F219D800B320B3 /* StandartButton.swift */; };
 		A96687A327F2ADF800B320B3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96687A227F2ADF700B320B3 /* SignUpViewController.swift */; };
+		A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96687A427F2C00000B320B3 /* SignUpCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		A966879B27F216D600B320B3 /* TopicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicInfo.swift; sourceTree = "<group>"; };
 		A966879D27F219D800B320B3 /* StandartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartButton.swift; sourceTree = "<group>"; };
 		A96687A227F2ADF700B320B3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A96687A427F2C00000B320B3 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		EA3F547F9916CF3CB09DCAF9 /* Pods-Words Factory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Words Factory.release.xcconfig"; path = "Target Support Files/Pods-Words Factory/Pods-Words Factory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A96687A027F2AD7B00B320B3 /* ViewController */,
+				A96687A427F2C00000B320B3 /* SignUpCoordinator.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				A966879627F2166400B320B3 /* PageControl.swift in Sources */,
 				A966879427F215F100B320B3 /* OnboardingViewModel.swift in Sources */,
 				A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */,
+				A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */,
 				A966879827F2169D00B320B3 /* OnboardingPageCell.swift in Sources */,
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,
 				A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */,

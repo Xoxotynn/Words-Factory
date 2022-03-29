@@ -27,6 +27,27 @@ class AppCoordinator: Coordinator {
         let startCoordinator = OnboardingCoordinator(
             rootNavigationController: rootNavigationController,
             dependencies: dependencies)
+        startCoordinator.delegate = self
+        childCoordinators.append(startCoordinator)
         startCoordinator.start()
+    }
+}
+
+// MARK: OnboardingCoordinatorDelegate
+extension AppCoordinator: OnboardingCoordinatorDelegate {
+    func replaceOnboardingWithSignUp(_ onboardingCoordinator: OnboardingCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: onboardingCoordinator))
+        let coordinator = SignUpCoordinator(
+            rootNavigationController: rootNavigationController,
+            dependencies: dependencies)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+}
+
+// MARK: SignUpCoordinatorDelegate
+extension AppCoordinator: SignUpCoordinatorDelegate {
+    func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: signUpCoordinator))
     }
 }

@@ -1,16 +1,16 @@
 import UIKit
 
-// MARK: OnboardingCoordinatorDelegate
-protocol OnboardingCoordinatorDelegate: AnyObject {
-    func replaceOnboardingWithSignUp(_ onboardingCoordinator: OnboardingCoordinator)
+// MARK: SignUpCoordinatorDelegate
+protocol SignUpCoordinatorDelegate: AnyObject {
+    func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator)
 }
 
-class OnboardingCoordinator: Coordinator {
+class SignUpCoordinator: Coordinator {
     
     // MARK: Properties
     let dependencies: Dependencies
     
-    weak var delegate: OnboardingCoordinatorDelegate?
+    weak var delegate: SignUpCoordinatorDelegate?
     var rootNavigationController: UINavigationController
     var childCoordinators: [Coordinator]
     
@@ -24,17 +24,8 @@ class OnboardingCoordinator: Coordinator {
     
     // MARK: Public methods
     func start() {
-        let viewModel = OnboardingViewModel()
-        viewModel.delegate = self
-        let viewController = OnboardingViewController(viewModel: viewModel)
+        let viewController = SignUpViewController()
         rootNavigationController.setViewControllers([viewController],
                                                     animated: true)
-    }
-}
-
-// MARK: OnboardingViewModelDelegate
-extension OnboardingCoordinator: OnboardingViewModelDelegate {
-    func showSignUpScene() {
-        delegate?.replaceOnboardingWithSignUp(self)
     }
 }

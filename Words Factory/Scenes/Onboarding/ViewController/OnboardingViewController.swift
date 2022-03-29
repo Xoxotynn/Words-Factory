@@ -45,6 +45,10 @@ class OnboardingViewController: UIViewController {
         viewModel.didChangeNextButtonTitle = { [weak self] title in
             self?.nextButton.setTitle(title, for: .normal)
         }
+        
+        viewModel.didChangePage = { [weak self] page in
+            self?.scrollToPage(at: page)
+        }
     }
     
     private func setup() {
@@ -103,6 +107,10 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupSkipButton() {
+        skipButton.addTarget(
+            self,
+            action: #selector(skipOnboarding),
+            for: .touchUpInside)
         skipButton.titleLabel?.font = .buttonSmall
         skipButton.setTitleColor(.darkGray, for: .normal)
         skipButton.setTitle(Strings.skip, for: .normal)
@@ -114,6 +122,11 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupNextButton() {
+        nextButton.addTarget(
+            self,
+            action: #selector(showNextPage),
+            for: .touchUpInside)
+        
         nextButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.standart)
@@ -123,21 +136,25 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    // MARK: Actions
-    @objc private func pageControlTapped(_ sender: UIPageControl) {
-        let page = CGFloat(sender.currentPage)
+    // MARK: Private methods
+    private func scrollToPage(at page: Int) {
         var frame = pagesCollectionView.frame
-        frame.origin = CGPoint(x: frame.width * page, y: 0)
+        frame.origin = CGPoint(x: frame.width * CGFloat(page), y: 0)
         pagesCollectionView.scrollRectToVisible(frame, animated: true)
-        pageControl.currentPage = sender.currentPage
+        pageControl.currentPage = page
     }
     
-    @objc private func showNextSlide() {
-        
+    // MARK: Actions
+    @objc private func pageControlTapped(_ sender: UIPageControl) {
+        viewModel.showPage(at: sender.currentPage)
+    }
+    
+    @objc private func showNextPage() {
+        viewModel.showPage(at: pageControl.currentPage + 1)
     }
     
     @objc private func skipOnboarding() {
-        
+        viewModel.showSignUpScene()
     }
 }
 
