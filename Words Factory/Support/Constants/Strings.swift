@@ -1,16 +1,6 @@
 import Foundation
 
 enum Strings {
-    // MARK: Onboarding screens
-    static let learnTitle = "Learn anytime\nand anywhere"
-    static let learnDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
-    static let findCourseTitle = "Find a course\nfor you"
-    static let findCourseDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
-    static let improveSkillsTitle = "Improve your skills"
-    static let improveSkillsDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
     // MARK: Button titles
     static let next = "Next"
     static let skip = "Skip"

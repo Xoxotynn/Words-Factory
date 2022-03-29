@@ -23,15 +23,10 @@ class AppCoordinator: Coordinator {
     func start() {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
-        showOnBoardingScene()
-    }
-    
-    // MARK: Private methods
-    func showOnBoardingScene() {
         
-    }
-    
-    func showSignUpScene() {
-        
+        let startCoordinator = OnboardingCoordinator(
+            rootNavigationController: rootNavigationController,
+            dependencies: dependencies)
+        startCoordinator.start()
     }
 }

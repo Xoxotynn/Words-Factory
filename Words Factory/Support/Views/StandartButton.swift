@@ -1,11 +1,8 @@
 import UIKit
 
-private extension Dimensions {
-    static let cornerRadius: CGFloat = 16
-}
-
 class StandartButton: UIButton {
     
+    // MARK: Init
     init() {
         super.init(frame: .zero)
         setup()
@@ -15,9 +12,10 @@ class StandartButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Private methods
     private func setup() {
         backgroundColor = .primary
-        layer.cornerRadius = Dimensions.cornerRadius
+        layer.cornerRadius = Dimensions.standart
         layer.masksToBounds = true
         
         titleLabel?.font = .buttonMedium

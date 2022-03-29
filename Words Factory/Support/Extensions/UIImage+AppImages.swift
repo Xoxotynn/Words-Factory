@@ -2,12 +2,9 @@ import UIKit
 
 extension UIImage {
     // MARK: Images
-    static let hiTechKid = UIImage(named: "HiTechKid")
-    static let relationshipKids = UIImage(named: "LongDistanceRelationshipKids")
     static let skateboardKid = UIImage(named: "SkateboardKid")
     static let standingKid = UIImage(named: "StandingKid")
     static let standingKid2 = UIImage(named: "StandingKid2")
-    static let stayingHomeKid = UIImage(named: "StayingHomeKid")
     
     // MARK: Icons
     static let hideIcon = UIImage(named: "HideIcon")
