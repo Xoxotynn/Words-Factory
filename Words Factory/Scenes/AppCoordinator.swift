@@ -5,8 +5,8 @@ class AppCoordinator: Coordinator {
     // MARK: Properties
     let dependencies: Dependencies
     
-    var childCoordinators: [Coordinator]
     var rootNavigationController: UINavigationController
+    var childCoordinators: [Coordinator]
     
     private let window: UIWindow
     
@@ -16,25 +16,38 @@ class AppCoordinator: Coordinator {
         dependencies = Dependencies(networkService: NetworkService())
         childCoordinators = []
         rootNavigationController = UINavigationController()
+        rootNavigationController.isNavigationBarHidden = true
     }
     
     // MARK: Public methods
     func start() {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
-        showOnBoardingScene()
-    }
-    
-    func finish() {
         
+        let startCoordinator = OnboardingCoordinator(
+            rootNavigationController: rootNavigationController,
+            dependencies: dependencies)
+        startCoordinator.delegate = self
+        childCoordinators.append(startCoordinator)
+        startCoordinator.start()
     }
-    
-    // MARK: Private methods
-    func showOnBoardingScene() {
-        
+}
+
+// MARK: OnboardingCoordinatorDelegate
+extension AppCoordinator: OnboardingCoordinatorDelegate {
+    func replaceOnboardingWithSignUp(_ onboardingCoordinator: OnboardingCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: onboardingCoordinator))
+        let coordinator = SignUpCoordinator(
+            rootNavigationController: rootNavigationController,
+            dependencies: dependencies)
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
-    
-    func showSignUpScene() {
-        
+}
+
+// MARK: SignUpCoordinatorDelegate
+extension AppCoordinator: SignUpCoordinatorDelegate {
+    func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: signUpCoordinator))
     }
 }
