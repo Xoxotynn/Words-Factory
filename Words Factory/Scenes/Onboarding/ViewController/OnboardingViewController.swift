@@ -3,7 +3,7 @@ import SnapKit
 
 // MARK: Strings
 private extension Strings {
-    static let slideCellIdentifier = String(describing: OnboardingSlideCell.self)
+    static let pageCellIdentifier = String(describing: OnboardingPageCell.self)
 }
 
 // MARK: Dimensions
@@ -16,7 +16,7 @@ class OnboardingViewController: UIViewController {
     // MARK: Properties
     private let viewModel: OnboardingViewModel
     
-    private lazy var slidesCollectionView = UICollectionView(
+    private lazy var pagesCollectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout())
     private let pageControl = PageControl()
@@ -35,13 +35,14 @@ class OnboardingViewController: UIViewController {
     
     // MARK: Lifecycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         setup()
     }
     
     // MARK: Private setup methods
     private func setup() {
         setupView()
-        setupSlidesCollectionView()
+        setupPagesCollectionView()
         setupPageControl()
         setupSkipButton()
         setupNextButton()
@@ -50,26 +51,26 @@ class OnboardingViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .appWhite
         
-        view.addSubview(slidesCollectionView)
+        view.addSubview(pagesCollectionView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)
         view.addSubview(nextButton)
     }
     
-    private func setupSlidesCollectionView() {
+    private func setupPagesCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        slidesCollectionView.delegate = self
-        slidesCollectionView.dataSource = self
-        slidesCollectionView.isPagingEnabled = true
-        slidesCollectionView.showsHorizontalScrollIndicator = false
-        slidesCollectionView.register(
-            OnboardingSlideCell.self,
-            forCellWithReuseIdentifier: Strings.slideCellIdentifier)
-        slidesCollectionView.setCollectionViewLayout(layout, animated: true)
+        pagesCollectionView.delegate = self
+        pagesCollectionView.dataSource = self
+        pagesCollectionView.isPagingEnabled = true
+        pagesCollectionView.showsHorizontalScrollIndicator = false
+        pagesCollectionView.register(
+            OnboardingPageCell.self,
+            forCellWithReuseIdentifier: Strings.pageCellIdentifier)
+        pagesCollectionView.setCollectionViewLayout(layout, animated: true)
         
-        slidesCollectionView.snp.makeConstraints { make in
+        pagesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(skipButton.snp.bottom)
                 .offset(Dimensions.standart)
             make.bottom.equalTo(pageControl.snp.top)
@@ -83,7 +84,7 @@ class OnboardingViewController: UIViewController {
             self,
             action: #selector(pageControlTapped(_:)),
             for: .valueChanged)
-        pageControl.numberOfPages = viewModel.slidesCount
+        pageControl.numberOfPages = viewModel.pagesCount
         pageControl.currentPage = 0
         
         pageControl.snp.makeConstraints { make in
@@ -119,38 +120,48 @@ class OnboardingViewController: UIViewController {
     // MARK: Actions
     @objc func pageControlTapped(_ sender: UIPageControl) {
         let page = CGFloat(sender.currentPage)
-        var frame = slidesCollectionView.frame
+        var frame = pagesCollectionView.frame
         frame.origin = CGPoint(x: frame.width * page, y: 0)
-        slidesCollectionView.scrollRectToVisible(frame, animated: true)
+        pagesCollectionView.scrollRectToVisible(frame, animated: true)
+    }
+    
+    @objc func showNextSlide() {
+        
     }
 }
 
 // MARK: UICollectionViewDelegate & UICollectionViewDataSource
-extension OnboardingViewController: UICollectionViewDelegate & UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.slidesCount
+extension OnboardingViewController:
+    UICollectionViewDelegate & UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        viewModel.pagesCount
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Strings.slideCellIdentifier,
-            for: indexPath) as? OnboardingSlideCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.configure(with: viewModel.slideCellViewModel(at: indexPath.row))
-        return cell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Strings.pageCellIdentifier,
+                for: indexPath) as? OnboardingPageCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.configure(with: viewModel.getPageCellViewModel(at: indexPath.row))
+            return cell
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
-        pageControl.currentPage = currentPage
+        pageControl.currentPage = Int(scrollView.contentOffset.x /
+                                      scrollView.frame.width)
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.frame.size
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.frame.size
     }
 }

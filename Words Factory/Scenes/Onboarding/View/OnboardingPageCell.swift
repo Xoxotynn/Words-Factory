@@ -7,10 +7,10 @@ private extension Dimensions {
     static let mediumHorizontalMargin: CGFloat = 34
 }
 
-class OnboardingSlideCell: UICollectionViewCell {
+class OnboardingPageCell: UICollectionViewCell {
     
     // MARK: Properties
-    private let slideImageView = UIImageView()
+    private let pageImageView = UIImageView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     
@@ -25,28 +25,32 @@ class OnboardingSlideCell: UICollectionViewCell {
     }
     
     // MARK: Public methods
-    func configure(with viewModel: OnboardingSlideCellViewModel) {
-        slideImageView.image = viewModel.slideImage
-        titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.description
+    func configure(with viewModel: OnboardingPageCellViewModel) {
+        viewModel.didUpdatePageInfo = { [weak self] page in
+            self?.pageImageView.image = page.image
+            self?.titleLabel.text = page.title
+            self?.descriptionLabel.text = page.description
+        }
+        
+        viewModel.setup()
     }
     
     // MARK: Private setup methods
     private func setup() {
         backgroundColor = .clear
-        addSubview(slideImageView)
+        addSubview(pageImageView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         
-        setupSlideImageView()
+        setupPageImageView()
         setupTitleLabel()
         setupDescriptionLabel()
     }
     
-    private func setupSlideImageView() {
-        slideImageView.contentMode = .scaleAspectFit
+    private func setupPageImageView() {
+        pageImageView.contentMode = .scaleAspectFit
         
-        slideImageView.snp.makeConstraints { make in
+        pageImageView.snp.makeConstraints { make in
             make.top.lessThanOrEqualToSuperview()
                 .offset(Dimensions.topCellPadding)
             make.bottom.equalTo(titleLabel.snp.top)

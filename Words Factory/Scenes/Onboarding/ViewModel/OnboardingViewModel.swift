@@ -2,14 +2,14 @@ import UIKit
 
 // MARK: Strings
 private extension Strings {
-    static let firstSlideTitle = "Learn anytime\nand anywhere"
-    static let firstSlideDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
+    static let firstPageTitle = "Learn anytime\nand anywhere"
+    static let firstPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
     
-    static let secondSlideTitle = "Find a course\nfor you"
-    static let secondSlideDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
+    static let secondPageTitle = "Find a course\nfor you"
+    static let secondPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
     
-    static let thirdSlideTitle = "\nImprove your skills"
-    static let thirdSlideDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
+    static let thirdPageTitle = "\nImprove your skills"
+    static let thirdPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
 }
 
 // MARK: Images
@@ -22,40 +22,30 @@ private extension UIImage {
 class OnboardingViewModel {
     
     // MARK: Properties
-    private let slideCellViewModels = [
-        OnboardingSlideCellViewModel(
-            slide: OnboardingSlide(
-                title: Strings.firstSlideTitle,
-                description: Strings.firstSlideDescription,
+    private let pageCellViewModels = [
+        OnboardingPageCellViewModel(
+            page: TopicInfo(
+                title: Strings.firstPageTitle,
+                description: Strings.firstPageDescription,
                 image: .relationshipKids ?? UIImage())),
-        OnboardingSlideCellViewModel(
-            slide: OnboardingSlide(
-                title: Strings.secondSlideTitle,
-                description: Strings.secondSlideDescription,
+        OnboardingPageCellViewModel(
+            page: TopicInfo(
+                title: Strings.secondPageTitle,
+                description: Strings.secondPageDescription,
                 image: .stayingHomeKid ?? UIImage())),
-        OnboardingSlideCellViewModel(
-            slide: OnboardingSlide(
-                title: Strings.thirdSlideTitle,
-                description: Strings.thirdSlideDescription,
+        OnboardingPageCellViewModel(
+            page: TopicInfo(
+                title: Strings.thirdPageTitle,
+                description: Strings.thirdPageDescription,
                 image: .hiTechKid ?? UIImage()))
     ]
     
-    var currentPage: Int {
-        get {
-            self.currentPage
-        }
-        
-        set(newPage) {
-            self.currentPage = newPage > slidesCount - 1 ? 0 : newPage
-        }
-    }
-    
-    var slidesCount: Int {
-        slideCellViewModels.count
+    var pagesCount: Int {
+        pageCellViewModels.count
     }
     
     // MARK: Public methods
-    func slideCellViewModel(at index: Int) -> OnboardingSlideCellViewModel {
-        slideCellViewModels[index]
+    func getPageCellViewModel(at index: Int) -> OnboardingPageCellViewModel {
+        pageCellViewModels[index]
     }
 }
