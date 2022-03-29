@@ -1,13 +1,21 @@
 import UIKit
 
+// MARK: PageControlDelegate
+protocol PageControlDelegate: AnyObject {
+    func pageControl(selectedPageAt page: Int)
+}
+
 class PageControl: UIPageControl {
     
     // MARK: Properties
     override var currentPage: Int {
         didSet {
+            delegate?.pageControl(selectedPageAt: currentPage)
             setupDots()
         }
     }
+    
+    weak var delegate: PageControlDelegate?
     
     // MARK: Init
     init() {

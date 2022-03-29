@@ -10,6 +10,14 @@ private extension Strings {
     
     static let thirdPageTitle = "\nImprove your skills"
     static let thirdPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
+    
+    static let next = "Next"
+    static let start = "Let's Start"
+}
+
+// MARK: OnboardingViewModelDelegate
+protocol OnboardingViewModelDelegate: AnyObject {
+    func showSignUpScene()
 }
 
 // MARK: Images
@@ -22,6 +30,14 @@ private extension UIImage {
 class OnboardingViewModel {
     
     // MARK: Properties
+    weak var delegate: OnboardingViewModelDelegate?
+    
+    var didChangeNextButtonTitle: ((String) -> Void)?
+    
+    var pagesCount: Int {
+        pageCellViewModels.count
+    }
+    
     private let pageCellViewModels = [
         OnboardingPageCellViewModel(
             page: TopicInfo(
@@ -40,12 +56,17 @@ class OnboardingViewModel {
                 image: .hiTechKid ?? UIImage()))
     ]
     
-    var pagesCount: Int {
-        pageCellViewModels.count
-    }
-    
     // MARK: Public methods
     func getPageCellViewModel(at index: Int) -> OnboardingPageCellViewModel {
         pageCellViewModels[index]
+    }
+    
+    func changeNextButtonTitleIfNeeded(page: Int) {
+        let newTitle = page == pagesCount - 1 ? Strings.start : Strings.next
+        didChangeNextButtonTitle?(newTitle)
+    }
+    
+    func showSignUpScene() {
+        delegate?.showSignUpScene()
     }
 }

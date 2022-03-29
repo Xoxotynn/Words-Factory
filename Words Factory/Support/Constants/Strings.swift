@@ -2,9 +2,7 @@ import Foundation
 
 enum Strings {
     // MARK: Button titles
-    static let next = "Next"
     static let skip = "Skip"
-    static let start = "Let's Start"
     static let signUp = "Sign Up"
     static let addToDictionary = "Add to Dictionary"
     

@@ -36,10 +36,17 @@ class OnboardingViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindToViewModel()
         setup()
     }
     
     // MARK: Private setup methods
+    private func bindToViewModel() {
+        viewModel.didChangeNextButtonTitle = { [weak self] title in
+            self?.nextButton.setTitle(title, for: .normal)
+        }
+    }
+    
     private func setup() {
         setupView()
         setupPagesCollectionView()
@@ -80,6 +87,7 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupPageControl() {
+        pageControl.delegate = self
         pageControl.addTarget(
             self,
             action: #selector(pageControlTapped(_:)),
@@ -106,8 +114,6 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupNextButton() {
-        nextButton.setTitle(Strings.next, for: .normal)
-        
         nextButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.standart)
@@ -118,14 +124,19 @@ class OnboardingViewController: UIViewController {
     }
     
     // MARK: Actions
-    @objc func pageControlTapped(_ sender: UIPageControl) {
+    @objc private func pageControlTapped(_ sender: UIPageControl) {
         let page = CGFloat(sender.currentPage)
         var frame = pagesCollectionView.frame
         frame.origin = CGPoint(x: frame.width * page, y: 0)
         pagesCollectionView.scrollRectToVisible(frame, animated: true)
+        pageControl.currentPage = sender.currentPage
     }
     
-    @objc func showNextSlide() {
+    @objc private func showNextSlide() {
+        
+    }
+    
+    @objc private func skipOnboarding() {
         
     }
 }
@@ -163,5 +174,12 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         collectionView.frame.size
+    }
+}
+
+// MARK: PageControlDelegate
+extension OnboardingViewController: PageControlDelegate {
+    func pageControl(selectedPageAt page: Int) {
+        viewModel.changeNextButtonTitleIfNeeded(page: page)
     }
 }
