@@ -9,4 +9,9 @@ class SignUpViewModel {
     
     // MARK: Properties
     weak var delegate: SignUpViewModelDelegate?
+    
+    // MARK: Public methods
+    func signUp(name: String?, email: String?, password: String?) {
+        
+    }
 }

@@ -169,4 +169,12 @@ class SignUpViewController: UIViewController {
             make.height.equalTo(Dimensions.standartButtonHeight)
         }
     }
+    
+    // MARK: Actions
+    @objc private func signUp() {
+        viewModel.signUp(
+            name: nameTextField.text,
+            email: emailTextField.text,
+            password: passwordTextField.text)
+    }
 }

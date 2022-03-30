@@ -15,6 +15,9 @@
 		A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */; };
 		A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */; };
 		A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A927F4CF3D00FB3658 /* TextField.swift */; };
+		A9500E6227F50977001D50B4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6127F50977001D50B4 /* Validator.swift */; };
+		A9500E6427F50D27001D50B4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6327F50D27001D50B4 /* Errors.swift */; };
+		A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
 		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
 		A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877127F109EB00B320B3 /* UIImage+AppImages.swift */; };
@@ -51,6 +54,9 @@
 		A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppLabels.swift"; sourceTree = "<group>"; };
 		A948A9A927F4CF3D00FB3658 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		A9500E6127F50977001D50B4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		A9500E6327F50D27001D50B4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		A966877127F109EB00B320B3 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 				A966878027F1287D00B320B3 /* Dependencies.swift */,
 				A966878527F129FE00B320B3 /* Coordinator.swift */,
 				A966879B27F216D600B320B3 /* TopicInfo.swift */,
+				A9500E6327F50D27001D50B4 /* Errors.swift */,
+				A9500E6127F50977001D50B4 /* Validator.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 				A966877127F109EB00B320B3 /* UIImage+AppImages.swift */,
 				A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */,
 				A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */,
+				A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,9 +418,12 @@
 				A96687A327F2ADF800B320B3 /* SignUpViewController.swift in Sources */,
 				A966877427F10A2200B320B3 /* Dimensions.swift in Sources */,
 				A966879E27F219D800B320B3 /* StandartButton.swift in Sources */,
+				A9500E6427F50D27001D50B4 /* Errors.swift in Sources */,
 				A966879A27F216C200B320B3 /* OnboardingPageCellViewModel.swift in Sources */,
 				A966879C27F216D600B320B3 /* TopicInfo.swift in Sources */,
+				A9500E6227F50977001D50B4 /* Validator.swift in Sources */,
 				A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */,
+				A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */,
 				A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

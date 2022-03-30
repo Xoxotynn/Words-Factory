@@ -36,8 +36,7 @@ class TextField: UITextField {
         attributedPlaceholder = NSAttributedString(
             string: text,
             attributes: [
-                NSAttributedString.Key.foregroundColor:
-                    UIColor.darkGray ?? .systemGray3
+                .foregroundColor: UIColor.darkGray ?? .systemGray3
             ])
     }
     
