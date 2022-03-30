@@ -72,6 +72,7 @@ class OnboardingViewController: UIViewController {
     private func setupPagesCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         
         pagesCollectionView.delegate = self
         pagesCollectionView.dataSource = self

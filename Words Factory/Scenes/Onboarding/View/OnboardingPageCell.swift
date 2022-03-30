@@ -60,9 +60,7 @@ class OnboardingPageCell: UICollectionViewCell {
     }
     
     private func setupTitleLabel() {
-        titleLabel.font = .heading4
-        titleLabel.textColor = .dark
-        titleLabel.textAlignment = .center
+        titleLabel.setupAsTitle()
         titleLabel.numberOfLines = 2
         
         titleLabel.snp.makeConstraints { make in
@@ -74,9 +72,8 @@ class OnboardingPageCell: UICollectionViewCell {
     }
     
     private func setupDescriptionLabel() {
-        descriptionLabel.textColor = .darkGray
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.numberOfLines = 2
+        descriptionLabel.setupAsSubtitle()
+        descriptionLabel.numberOfLines = 0
         
         descriptionLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(Dimensions.standart)
