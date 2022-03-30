@@ -8,5 +8,6 @@ target 'Words Factory' do
   # Pods for Words Factory
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.5'
+  pod 'IQKeyboardManagerSwift'
 
 end
