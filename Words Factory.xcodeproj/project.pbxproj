@@ -20,6 +20,8 @@
 		A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */; };
 		A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6827F64B20001D50B4 /* ActionTextField.swift */; };
 		A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */; };
+		A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7027F663DA001D50B4 /* TopicView.swift */; };
+		A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7227F663F2001D50B4 /* TopicViewModel.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
 		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
 		A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877127F109EB00B320B3 /* UIImage+AppImages.swift */; };
@@ -61,6 +63,8 @@
 		A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		A9500E6827F64B20001D50B4 /* ActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTextField.swift; sourceTree = "<group>"; };
 		A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		A9500E7027F663DA001D50B4 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		A9500E7227F663F2001D50B4 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		A966877127F109EB00B320B3 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
@@ -165,6 +169,40 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
+		A9500E6C27F663A3001D50B4 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E6F27F663BF001D50B4 /* Model */,
+				A9500E6E27F663BA001D50B4 /* ViewModel */,
+				A9500E6D27F663B4001D50B4 /* View */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		A9500E6D27F663B4001D50B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E7027F663DA001D50B4 /* TopicView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9500E6E27F663BA001D50B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E7227F663F2001D50B4 /* TopicViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9500E6F27F663BF001D50B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A966879B27F216D600B320B3 /* TopicInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A966876B27F1096800B320B3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +250,6 @@
 				A966879027F215A700B320B3 /* Views */,
 				A966878027F1287D00B320B3 /* Dependencies.swift */,
 				A966878527F129FE00B320B3 /* Coordinator.swift */,
-				A966879B27F216D600B320B3 /* TopicInfo.swift */,
 				A9500E6327F50D27001D50B4 /* Errors.swift */,
 				A9500E6127F50977001D50B4 /* Validator.swift */,
 			);
@@ -262,6 +299,7 @@
 		A966879027F215A700B320B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9500E6C27F663A3001D50B4 /* Topic */,
 				A9500E6727F643F9001D50B4 /* TextFields */,
 				A966879527F2166400B320B3 /* PageControl.swift */,
 				A966879D27F219D800B320B3 /* StandartButton.swift */,
@@ -424,8 +462,10 @@
 				A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */,
 				A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */,
 				A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */,
+				A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */,
 				A966879827F2169D00B320B3 /* OnboardingPageCell.swift in Sources */,
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,
+				A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */,
 				A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */,
 				A966878627F129FE00B320B3 /* Coordinator.swift in Sources */,
 				A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */,

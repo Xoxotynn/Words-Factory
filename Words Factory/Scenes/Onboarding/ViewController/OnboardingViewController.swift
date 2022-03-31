@@ -177,7 +177,13 @@ extension OnboardingViewController:
                 return UICollectionViewCell()
             }
             
-            cell.configure(with: viewModel.getPageCellViewModel(at: indexPath.row))
+            do {
+                try cell.configure(with: viewModel
+                    .getPageCellViewModel(at: indexPath.row))
+            } catch {
+                showError(error)
+            }
+            
             return cell
     }
     
