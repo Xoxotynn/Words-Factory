@@ -3,8 +3,6 @@ import SnapKit
 
 // MARK: Strings
 private extension Strings {
-    static let signUp = "Sign Up"
-    static let createAccount = "Create your account"
     static let namePlaceholder = "Name"
     static let emailPlaceholder = "E-mail"
     static let passwordPlaceholder = "Password"
@@ -22,9 +20,7 @@ class SignUpViewController: UIViewController {
     // MARK: Properties
     private let viewModel: SignUpViewModel
     
-    private let welcomeImageView = UIImageView()
-    private let titleLabel = UILabel()
-    private let subtitleLabel = UILabel()
+    private let topicView = TopicView()
     private let signUpFormStack = UIStackView()
     private let nameTextField = TextField()
     private let emailTextField = TextField()
@@ -45,11 +41,16 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
+        viewModel.setupTopic()
         setup()
     }
     
     // MARK: Private setup methods
     private func bindToViewModel() {
+        viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
+            self?.topicView.configure(with: topicViewModel)
+        }
+        
         viewModel.didRecieveErrors = { [weak self] errors in
             self?.showMultipleErrors(errors)
         }
@@ -57,9 +58,7 @@ class SignUpViewController: UIViewController {
     
     private func setup() {
         setupView()
-        setupWelcomeImageView()
-        setupTitleLabel()
-        setupSubtitleLabel()
+        setupTopicView()
         setupSignUpFormStack()
         setupNameTextField()
         setupEmailTextField()
@@ -70,9 +69,7 @@ class SignUpViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .appWhite
         
-        view.addSubview(welcomeImageView)
-        view.addSubview(titleLabel)
-        view.addSubview(subtitleLabel)
+        view.addSubview(topicView)
         view.addSubview(signUpFormStack)
         signUpFormStack.addArrangedSubview(nameTextField)
         signUpFormStack.addArrangedSubview(emailTextField)
@@ -80,40 +77,13 @@ class SignUpViewController: UIViewController {
         signUpFormStack.addArrangedSubview(signUpButton)
     }
     
-    private func setupWelcomeImageView() {
-        welcomeImageView.image = .standingKid2
-        welcomeImageView.contentMode = .scaleAspectFit
-        
-        welcomeImageView.snp.makeConstraints { make in
+    private func setupTopicView() {
+        topicView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.standart)
                 .priority(.high)
             make.top.lessThanOrEqualTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.topScreenMargin)
-            make.bottom.equalTo(titleLabel.snp.top)
-                .offset(-Dimensions.standart)
-            make.centerX.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func setupTitleLabel() {
-        titleLabel.text = Strings.signUp
-        titleLabel.setupAsTitle()
-        titleLabel.numberOfLines = 1
-        
-        titleLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(subtitleLabel.snp.top)
-                .offset(-Dimensions.small)
-            make.centerX.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func setupSubtitleLabel() {
-        subtitleLabel.text = Strings.createAccount
-        subtitleLabel.setupAsSubtitle()
-        subtitleLabel.numberOfLines = 0
-        
-        subtitleLabel.snp.makeConstraints { make in
             make.bottom.equalTo(signUpFormStack.snp.top)
                 .offset(-Dimensions.standart)
             make.centerX.equalTo(view.safeAreaLayoutGuide)

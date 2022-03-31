@@ -15,6 +15,5 @@ class OnboardingPageCellViewModel {
     // MARK: Public methods
     func setupTopicInfo() {
         didSetupTopicInfo?(topicViewModel)
-        topicViewModel.updateTopicInfo()
     }
 }

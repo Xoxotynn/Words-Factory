@@ -3,7 +3,7 @@ import Foundation
 final class TopicViewModel {
     
     // MARK: Properties
-    var didUpdateTopicInfo: ((TopicInfo) -> Void)?
+    var didSetupTopicInfo: ((TopicInfo) -> Void)?
     
     private let topic: TopicInfo
     
@@ -13,7 +13,7 @@ final class TopicViewModel {
     }
     
     // MARK: Public methods
-    func updateTopicInfo() {
-        didUpdateTopicInfo?(topic)
+    func setupTopicInfo() {
+        didSetupTopicInfo?(topic)
     }
 }
