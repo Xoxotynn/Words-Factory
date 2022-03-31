@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
     private let signUpFormStack = UIStackView()
     private let nameTextField = TextField()
     private let emailTextField = TextField()
-    private let passwordTextField = TextField()
+    private let passwordTextField = PasswordTextField()
     private let signUpButton = StandartButton()
     
     // MARK: Init
@@ -79,7 +79,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupWelcomeImageView() {
-        welcomeImageView.image = .standingKid
+        welcomeImageView.image = .standingKid2
         welcomeImageView.contentMode = .scaleAspectFit
         
         welcomeImageView.snp.makeConstraints { make in
@@ -135,6 +135,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupNameTextField() {
+        nameTextField.textContentType = .name
         nameTextField.setPlaceholder(Strings.namePlaceholder)
         
         nameTextField.snp.makeConstraints { make in
@@ -145,6 +146,7 @@ class SignUpViewController: UIViewController {
     private func setupEmailTextField() {
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
+        emailTextField.textContentType = .emailAddress
         emailTextField.setPlaceholder(Strings.emailPlaceholder)
         
         emailTextField.snp.makeConstraints { make in
@@ -153,8 +155,6 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupPasswordTextField() {
-        passwordTextField.autocapitalizationType = .none
-        passwordTextField.isSecureTextEntry = true
         passwordTextField.setPlaceholder(Strings.passwordPlaceholder)
         
         passwordTextField.snp.makeConstraints { make in

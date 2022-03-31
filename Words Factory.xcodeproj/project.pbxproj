@@ -18,6 +18,8 @@
 		A9500E6227F50977001D50B4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6127F50977001D50B4 /* Validator.swift */; };
 		A9500E6427F50D27001D50B4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6327F50D27001D50B4 /* Errors.swift */; };
 		A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */; };
+		A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6827F64B20001D50B4 /* ActionTextField.swift */; };
+		A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
 		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
 		A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877127F109EB00B320B3 /* UIImage+AppImages.swift */; };
@@ -57,6 +59,8 @@
 		A9500E6127F50977001D50B4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		A9500E6327F50D27001D50B4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		A9500E6827F64B20001D50B4 /* ActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTextField.swift; sourceTree = "<group>"; };
+		A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		A966877127F109EB00B320B3 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
@@ -149,6 +153,16 @@
 				A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9500E6727F643F9001D50B4 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				A948A9A927F4CF3D00FB3658 /* TextField.swift */,
+				A9500E6827F64B20001D50B4 /* ActionTextField.swift */,
+				A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		A966876B27F1096800B320B3 /* Scenes */ = {
@@ -248,9 +262,9 @@
 		A966879027F215A700B320B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9500E6727F643F9001D50B4 /* TextFields */,
 				A966879527F2166400B320B3 /* PageControl.swift */,
 				A966879D27F219D800B320B3 /* StandartButton.swift */,
-				A948A9A927F4CF3D00FB3658 /* TextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -405,8 +419,10 @@
 				A966878327F1288800B320B3 /* NetworkService.swift in Sources */,
 				A966877627F10A3E00B320B3 /* UIFont+RubikFont.swift in Sources */,
 				A966879627F2166400B320B3 /* PageControl.swift in Sources */,
+				A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */,
 				A966879427F215F100B320B3 /* OnboardingViewModel.swift in Sources */,
 				A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */,
+				A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */,
 				A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */,
 				A966879827F2169D00B320B3 /* OnboardingPageCell.swift in Sources */,
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,

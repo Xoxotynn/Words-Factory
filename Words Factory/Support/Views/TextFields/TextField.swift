@@ -4,7 +4,11 @@ import UIKit
 private extension Dimensions {
     static let cornerRadius: CGFloat = 12
     static let borderWidth: CGFloat = 1
-    static let padding: CGFloat = 16
+    static let textPadding: UIEdgeInsets = UIEdgeInsets(
+        top: Dimensions.standart,
+        left: Dimensions.standart,
+        bottom: Dimensions.standart,
+        right: Dimensions.standart)
 }
 
 class TextField: UITextField {
@@ -21,14 +25,15 @@ class TextField: UITextField {
     
     // MARK: Overrided methods
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        textRect(forBounds: bounds)
+        bounds.inset(by: Dimensions.textPadding)
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        CGRect(x: bounds.origin.x + Dimensions.padding,
-               y: bounds.origin.y + Dimensions.padding,
-               width: bounds.width - 2 * Dimensions.padding,
-               height: bounds.height - 2 * Dimensions.padding)
+        bounds.inset(by: Dimensions.textPadding)
+    }
+    
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: Dimensions.textPadding)
     }
     
     // MARK: Public methods

@@ -7,8 +7,6 @@ extension UIImage {
     static let standingKid2 = UIImage(named: "StandingKid2")
     
     // MARK: Icons
-    static let hideIcon = UIImage(named: "HideIcon")
-    static let showIcon = UIImage(named: "ShowIcon")
     static let searchIcon = UIImage(named: "SearchIcon")
     static let soundIcon = UIImage(named: "SoundIcon")
     
