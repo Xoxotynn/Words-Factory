@@ -34,7 +34,7 @@ class SignUpCoordinator: Coordinator {
 
 // MARK: SignUpViewModelDelegate
 extension SignUpCoordinator: SignUpViewModelDelegate {
-    func showDictionaryScene() {
+    func showTabBarScene() {
         
     }
 }

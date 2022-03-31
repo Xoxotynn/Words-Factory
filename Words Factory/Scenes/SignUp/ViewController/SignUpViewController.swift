@@ -50,7 +50,9 @@ class SignUpViewController: UIViewController {
     
     // MARK: Private setup methods
     private func bindToViewModel() {
-        
+        viewModel.didRecieveErrors = { [weak self] errors in
+            self?.showMultipleErrors(errors)
+        }
     }
     
     private func setup() {
@@ -162,7 +164,12 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // MARK: Private methods
     private func setupSignUpButton() {
+        signUpButton.addTarget(
+            self,
+            action: #selector(signUp),
+            for: .touchUpInside)
         signUpButton.setTitle(Strings.signUp, for: .normal)
         
         signUpButton.snp.makeConstraints { make in

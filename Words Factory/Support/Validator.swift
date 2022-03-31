@@ -17,6 +17,11 @@ final class Validator {
             return errors
         }
         
+        guard !name.isEmpty && !email.isEmpty && !password.isEmpty else {
+            errors.append(ValidationError.emptyField)
+            return errors
+        }
+        
         if let error = validate(name: name) {
             errors.append(error)
         }

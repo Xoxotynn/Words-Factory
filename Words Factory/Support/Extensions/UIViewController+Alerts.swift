@@ -21,14 +21,14 @@ extension UIViewController {
                 NSAttributedString(
                     string: title ?? Strings.defaultTitle,
                     attributes: [
-                        .font: UIFont.heading5,
+                        .font: UIFont.heading4,
                         .foregroundColor: UIColor.dark ?? .black
                        ]),
             Strings.attributedMessageKey:
                 NSAttributedString(
                     string: message ?? Strings.defaultMessage,
                     attributes: [
-                        .font: UIFont.paragraphMedium,
+                        .font: UIFont.paragraphLarge,
                         .foregroundColor: UIColor.darkGray ?? .systemGray4
                        ])
         ])
@@ -45,5 +45,14 @@ extension UIViewController {
     func showError(_ error: Error, withTitle title: String? = nil) {
         showAlert(title: title,
                   message: error.localizedDescription)
+    }
+    
+    func showMultipleErrors(_ errors: [Error],
+                            withTitle title: String? = nil) {
+        showAlert(
+            title: title,
+            message: errors.reduce("") { partialResult, error in
+                partialResult + "• \(error.localizedDescription)\n"
+            }.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 }
