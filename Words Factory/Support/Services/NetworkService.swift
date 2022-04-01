@@ -7,7 +7,7 @@ class NetworkService {
     
     // MARK: Public word methods
     func signUpRequest(word: String,
-                       onSuccess success: @escaping (_ words: [Word]) -> Void,
+                       onSuccess success: @escaping (_ words: Word) -> Void,
                        onFailure failure: @escaping (_ error: Error) -> Void) {
         AF.request(
             baseUrl + word,
@@ -18,8 +18,9 @@ class NetworkService {
             switch response.result {
             case .success(let data):
                 let decoder = JSONDecoder()
-                if let words = try? decoder.decode([Word].self, from: data) {
-                    success(words)
+                if let words = try? decoder.decode([Word].self, from: data),
+                   let word = Word.reduce(contentsOf: words) {
+                    success(word)
                 } else {
                     failure(NetworkError.unexpected)
                 }

@@ -8,7 +8,7 @@ enum Dimensions {
     /// 32
     static let medium: CGFloat = 32
     /// 56
-    static let standartButtonHeight: CGFloat = 56
+    static let standartHeight: CGFloat = 56
     /// 1
     static let smallBorderWidth: CGFloat = 1
 }

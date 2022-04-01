@@ -134,7 +134,7 @@ class OnboardingViewController: UIViewController {
                 .inset(Dimensions.standart)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.medium)
-            make.height.equalTo(Dimensions.standartButtonHeight)
+            make.height.equalTo(Dimensions.standartHeight)
         }
     }
     

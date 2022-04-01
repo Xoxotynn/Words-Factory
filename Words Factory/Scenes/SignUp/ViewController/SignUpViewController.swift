@@ -13,7 +13,6 @@ private extension Strings {
 private extension Dimensions {
     static let topScreenMargin: CGFloat = 58
     static let bottomScreenMaxMargin: CGFloat = 67
-    static let textFieldHeight: CGFloat = 53
 }
 
 class SignUpViewController: UIViewController {
@@ -118,7 +117,7 @@ class SignUpViewController: UIViewController {
         nameTextField.setPlaceholder(Strings.namePlaceholder)
         
         nameTextField.snp.makeConstraints { make in
-            make.height.equalTo(Dimensions.textFieldHeight)
+            make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
@@ -129,7 +128,7 @@ class SignUpViewController: UIViewController {
         emailTextField.setPlaceholder(Strings.emailPlaceholder)
         
         emailTextField.snp.makeConstraints { make in
-            make.height.equalTo(Dimensions.textFieldHeight)
+            make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
@@ -137,7 +136,7 @@ class SignUpViewController: UIViewController {
         passwordTextField.setPlaceholder(Strings.passwordPlaceholder)
         
         passwordTextField.snp.makeConstraints { make in
-            make.height.equalTo(Dimensions.textFieldHeight)
+            make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
@@ -150,7 +149,7 @@ class SignUpViewController: UIViewController {
         signUpButton.setTitle(Strings.signUp, for: .normal)
         
         signUpButton.snp.makeConstraints { make in
-            make.height.equalTo(Dimensions.standartButtonHeight)
+            make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
