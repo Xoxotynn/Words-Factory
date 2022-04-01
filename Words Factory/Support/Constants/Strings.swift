@@ -10,7 +10,7 @@ enum Strings {
     static let training = "Training"
     static let video = "Video"
     
-    // MARK: Word screen placeholder
-    static let noWordTitle = "No word"
-    static let noWordDescription = "Input something to find it in dictionary"
+    // MARK: Titles for screens that not ready
+    static let sceneNotReadyTitle = "Coming soon..."
+    static let sceneNotReadySubtitle = "It seems we didn't finish this screen yet :c"
 }

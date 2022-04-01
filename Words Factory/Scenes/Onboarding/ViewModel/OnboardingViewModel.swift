@@ -15,13 +15,6 @@ private extension Strings {
     static let start = "Let's Start"
 }
 
-// MARK: Images
-private extension UIImage {
-    static let relationshipKids = UIImage(named: "LongDistanceRelationshipKids")
-    static let stayingHomeKid = UIImage(named: "StayingHomeKid")
-    static let hiTechKid = UIImage(named: "HiTechKid")
-}
-
 // MARK: OnboardingViewModelDelegate
 protocol OnboardingViewModelDelegate: AnyObject {
     func showSignUpScene()

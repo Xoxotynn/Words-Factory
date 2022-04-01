@@ -5,6 +5,9 @@ extension UIImage {
     static let skateboardKid = UIImage(named: "SkateboardKid")
     static let standingKid = UIImage(named: "StandingKid")
     static let standingKid2 = UIImage(named: "StandingKid2")
+    static let relationshipKids = UIImage(named: "LongDistanceRelationshipKids")
+    static let stayingHomeKid = UIImage(named: "StayingHomeKid")
+    static let hiTechKid = UIImage(named: "HiTechKid")
     
     // MARK: Icons
     static let searchIcon = UIImage(named: "SearchIcon")
