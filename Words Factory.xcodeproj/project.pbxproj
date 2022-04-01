@@ -57,6 +57,10 @@
 		A9B247AB27F69A7A00FCE45A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247AA27F69A7A00FCE45A /* VideoViewController.swift */; };
 		A9B247AD27F69A8700FCE45A /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247AC27F69A8700FCE45A /* VideoViewModel.swift */; };
 		A9B247B127F69FD300FCE45A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B027F69FD300FCE45A /* TabBar.swift */; };
+		A9B247B627F6CC8D00FCE45A /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B527F6CC8D00FCE45A /* Word.swift */; };
+		A9B247B827F6CCB800FCE45A /* Phonetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B727F6CCB800FCE45A /* Phonetic.swift */; };
+		A9B247BA27F6CCD200FCE45A /* Meaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B927F6CCD200FCE45A /* Meaning.swift */; };
+		A9B247BC27F6CCE900FCE45A /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247BB27F6CCE900FCE45A /* Definition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +117,10 @@
 		A9B247AA27F69A7A00FCE45A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		A9B247AC27F69A8700FCE45A /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 		A9B247B027F69FD300FCE45A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		A9B247B527F6CC8D00FCE45A /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		A9B247B727F6CCB800FCE45A /* Phonetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phonetic.swift; sourceTree = "<group>"; };
+		A9B247B927F6CCD200FCE45A /* Meaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meaning.swift; sourceTree = "<group>"; };
+		A9B247BB27F6CCE900FCE45A /* Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		EA3F547F9916CF3CB09DCAF9 /* Pods-Words Factory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Words Factory.release.xcconfig"; path = "Target Support Files/Pods-Words Factory/Pods-Words Factory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +284,7 @@
 			children = (
 				A966876C27F1097300B320B3 /* Constants */,
 				A966878927F12EAE00B320B3 /* Extensions */,
+				A9B247B327F6CC6800FCE45A /* DomainModel */,
 				A966877F27F1287200B320B3 /* Services */,
 				A966879027F215A700B320B3 /* Views */,
 				A966878027F1287D00B320B3 /* Dependencies.swift */,
@@ -468,6 +477,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A9B247B327F6CC6800FCE45A /* DomainModel */ = {
+			isa = PBXGroup;
+			children = (
+				A9B247B427F6CC7E00FCE45A /* Word */,
+			);
+			path = DomainModel;
+			sourceTree = "<group>";
+		};
+		A9B247B427F6CC7E00FCE45A /* Word */ = {
+			isa = PBXGroup;
+			children = (
+				A9B247B527F6CC8D00FCE45A /* Word.swift */,
+				A9B247B727F6CCB800FCE45A /* Phonetic.swift */,
+				A9B247B927F6CCD200FCE45A /* Meaning.swift */,
+				A9B247BB27F6CCE900FCE45A /* Definition.swift */,
+			);
+			path = Word;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -587,6 +615,10 @@
 			files = (
 				A966879227F215C300B320B3 /* OnboardingViewController.swift in Sources */,
 				A966878827F12B1A00B320B3 /* AppCoordinator.swift in Sources */,
+				A9B247BA27F6CCD200FCE45A /* Meaning.swift in Sources */,
+				A9B247B627F6CC8D00FCE45A /* Word.swift in Sources */,
+				A9B247BC27F6CCE900FCE45A /* Definition.swift in Sources */,
+				A9B247B827F6CCB800FCE45A /* Phonetic.swift in Sources */,
 				A9B2478E27F690D500FCE45A /* TabBarCoordinator.swift in Sources */,
 				A966878C27F2104100B320B3 /* OnboardingCoordinator.swift in Sources */,
 				A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */,

@@ -14,6 +14,12 @@ enum ValidationError {
     case unexpected
 }
 
+// MARK: NetworkError
+enum NetworkError {
+    case notFound
+    case unexpected
+}
+
 // MARK: SystemError description
 extension SystemError: LocalizedError {
     public var errorDescription: String? {
@@ -38,6 +44,18 @@ extension ValidationError: LocalizedError {
             return "Password must contains 8 or more symbols"
         case .unexpected:
             return "Unexpected error"
+        }
+    }
+}
+
+// MARK: NetworkError description
+extension NetworkError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .notFound:
+            return "We can't find this word"
+        case .unexpected:
+            return "Something went wrong during retrieving a word"
         }
     }
 }
