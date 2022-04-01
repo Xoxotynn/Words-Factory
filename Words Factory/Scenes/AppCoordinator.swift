@@ -40,6 +40,7 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
         let coordinator = SignUpCoordinator(
             rootNavigationController: rootNavigationController,
             dependencies: dependencies)
+        coordinator.delegate = self
         childCoordinators.append(coordinator)
         coordinator.start()
     }
@@ -49,5 +50,10 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
 extension AppCoordinator: SignUpCoordinatorDelegate {
     func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: signUpCoordinator))
+        let coordinator = TabBarCoordinator(
+            rootNavigationController: rootNavigationController,
+            dependencies: dependencies)
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }

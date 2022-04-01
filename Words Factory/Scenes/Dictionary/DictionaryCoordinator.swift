@@ -1,16 +1,10 @@
 import UIKit
 
-// MARK: SignUpCoordinatorDelegate
-protocol SignUpCoordinatorDelegate: AnyObject {
-    func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator)
-}
-
-class SignUpCoordinator: Coordinator {
+class DictionaryCoordinator: Coordinator {
     
     // MARK: Properties
     let dependencies: Dependencies
     
-    weak var delegate: SignUpCoordinatorDelegate?
     var rootNavigationController: UINavigationController
     var childCoordinators: [Coordinator]
     
@@ -24,17 +18,9 @@ class SignUpCoordinator: Coordinator {
     
     // MARK: Public methods
     func start() {
-        let viewModel = SignUpViewModel()
-        viewModel.delegate = self
-        let viewController = SignUpViewController(viewModel: viewModel)
+        let viewModel = DictionaryViewModel()
+        let viewController = DictionaryViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController],
                                                     animated: true)
-    }
-}
-
-// MARK: SignUpViewModelDelegate
-extension SignUpCoordinator: SignUpViewModelDelegate {
-    func showTabBarScene() {
-        delegate?.replaceSignUpWithTabBar(self)
     }
 }

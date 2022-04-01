@@ -3,7 +3,6 @@ import UIKit
 // MARK: Dimensions
 private extension Dimensions {
     static let cornerRadius: CGFloat = 12
-    static let borderWidth: CGFloat = 1
     static let textPadding: UIEdgeInsets = UIEdgeInsets(
         top: Dimensions.standart,
         left: Dimensions.standart,
@@ -51,7 +50,7 @@ class TextField: UITextField {
         font = .paragraphMedium
         textColor = .dark
         layer.borderColor = UIColor.gray?.cgColor
-        layer.borderWidth = Dimensions.borderWidth
+        layer.borderWidth = Dimensions.smallBorderWidth
         layer.cornerRadius = Dimensions.cornerRadius
         layer.masksToBounds = true
     }
