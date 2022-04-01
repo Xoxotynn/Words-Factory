@@ -1,16 +1,12 @@
-//
-//  DictionaryViewController.swift
-//  Words Factory
-//
-//  Created by Эдуард Логинов on 01.04.2022.
-//
-
 import UIKit
+import SnapKit
 
 class DictionaryViewController: UIViewController {
 
     // MARK: Properties
     private let viewModel: DictionaryViewModel
+    
+    private let topicView = TopicView()
     
     // MARK: Init
     init(viewModel: DictionaryViewModel) {
@@ -25,11 +21,32 @@ class DictionaryViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindToViewModel()
+        viewModel.setupTopic()
         setup()
     }
     
     // MARK: Private setup methods
+    private func bindToViewModel() {
+        viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
+            self?.topicView.configure(with: topicViewModel)
+        }
+    }
+    
     private func setup() {
+        setupView()
+        setupTopicView()
+    }
+    
+    private func setupView() {
         view.backgroundColor = .appWhite
+        
+        view.addSubview(topicView)
+    }
+    
+    private func setupTopicView() {
+        topicView.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 }

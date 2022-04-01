@@ -29,8 +29,7 @@ class AppCoordinator: Coordinator {
             dependencies: dependencies)
         startCoordinator.delegate = self
         childCoordinators.append(startCoordinator)
-        startCoordinator.start()
-    }
+        startCoordinator.start()    }
 }
 
 // MARK: OnboardingCoordinatorDelegate
