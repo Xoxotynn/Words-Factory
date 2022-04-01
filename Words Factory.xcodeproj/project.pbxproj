@@ -12,6 +12,16 @@
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
 		A93C149727F00AA500299004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93C149527F00AA500299004 /* LaunchScreen.storyboard */; };
+		A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */; };
+		A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */; };
+		A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A927F4CF3D00FB3658 /* TextField.swift */; };
+		A9500E6227F50977001D50B4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6127F50977001D50B4 /* Validator.swift */; };
+		A9500E6427F50D27001D50B4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6327F50D27001D50B4 /* Errors.swift */; };
+		A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */; };
+		A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6827F64B20001D50B4 /* ActionTextField.swift */; };
+		A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */; };
+		A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7027F663DA001D50B4 /* TopicView.swift */; };
+		A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7227F663F2001D50B4 /* TopicViewModel.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
 		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
 		A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877127F109EB00B320B3 /* UIImage+AppImages.swift */; };
@@ -45,6 +55,16 @@
 		A93C149327F00AA500299004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93C149627F00AA500299004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93C149827F00AA500299004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppLabels.swift"; sourceTree = "<group>"; };
+		A948A9A927F4CF3D00FB3658 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		A9500E6127F50977001D50B4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		A9500E6327F50D27001D50B4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		A9500E6827F64B20001D50B4 /* ActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTextField.swift; sourceTree = "<group>"; };
+		A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		A9500E7027F663DA001D50B4 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		A9500E7227F663F2001D50B4 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		A966877127F109EB00B320B3 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
@@ -131,6 +151,58 @@
 			path = "Words Factory";
 			sourceTree = "<group>";
 		};
+		A948A9A327F4C9AD00FB3658 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9500E6727F643F9001D50B4 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				A948A9A927F4CF3D00FB3658 /* TextField.swift */,
+				A9500E6827F64B20001D50B4 /* ActionTextField.swift */,
+				A9500E6A27F64C6A001D50B4 /* PasswordTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		A9500E6C27F663A3001D50B4 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E6F27F663BF001D50B4 /* Model */,
+				A9500E6E27F663BA001D50B4 /* ViewModel */,
+				A9500E6D27F663B4001D50B4 /* View */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		A9500E6D27F663B4001D50B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E7027F663DA001D50B4 /* TopicView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9500E6E27F663BA001D50B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A9500E7227F663F2001D50B4 /* TopicViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A9500E6F27F663BF001D50B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A966879B27F216D600B320B3 /* TopicInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A966876B27F1096800B320B3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +250,8 @@
 				A966879027F215A700B320B3 /* Views */,
 				A966878027F1287D00B320B3 /* Dependencies.swift */,
 				A966878527F129FE00B320B3 /* Coordinator.swift */,
-				A966879B27F216D600B320B3 /* TopicInfo.swift */,
+				A9500E6327F50D27001D50B4 /* Errors.swift */,
+				A9500E6127F50977001D50B4 /* Validator.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -189,6 +262,8 @@
 				A966876F27F109C600B320B3 /* UIColor+AppColors.swift */,
 				A966877127F109EB00B320B3 /* UIImage+AppImages.swift */,
 				A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */,
+				A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */,
+				A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,6 +299,8 @@
 		A966879027F215A700B320B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9500E6C27F663A3001D50B4 /* Topic */,
+				A9500E6727F643F9001D50B4 /* TextFields */,
 				A966879527F2166400B320B3 /* PageControl.swift */,
 				A966879D27F219D800B320B3 /* StandartButton.swift */,
 			);
@@ -233,6 +310,7 @@
 		A966879F27F2AD6B00B320B3 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				A948A9A327F4C9AD00FB3658 /* ViewModel */,
 				A96687A027F2AD7B00B320B3 /* ViewController */,
 				A96687A427F2C00000B320B3 /* SignUpCoordinator.swift */,
 			);
@@ -375,23 +453,33 @@
 				A966879227F215C300B320B3 /* OnboardingViewController.swift in Sources */,
 				A966878827F12B1A00B320B3 /* AppCoordinator.swift in Sources */,
 				A966878C27F2104100B320B3 /* OnboardingCoordinator.swift in Sources */,
+				A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */,
 				A966878327F1288800B320B3 /* NetworkService.swift in Sources */,
 				A966877627F10A3E00B320B3 /* UIFont+RubikFont.swift in Sources */,
 				A966879627F2166400B320B3 /* PageControl.swift in Sources */,
+				A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */,
 				A966879427F215F100B320B3 /* OnboardingViewModel.swift in Sources */,
 				A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */,
+				A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */,
 				A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */,
+				A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */,
 				A966879827F2169D00B320B3 /* OnboardingPageCell.swift in Sources */,
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,
+				A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */,
 				A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */,
 				A966878627F129FE00B320B3 /* Coordinator.swift in Sources */,
+				A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */,
 				A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */,
 				A966876E27F1099B00B320B3 /* Strings.swift in Sources */,
 				A96687A327F2ADF800B320B3 /* SignUpViewController.swift in Sources */,
 				A966877427F10A2200B320B3 /* Dimensions.swift in Sources */,
 				A966879E27F219D800B320B3 /* StandartButton.swift in Sources */,
+				A9500E6427F50D27001D50B4 /* Errors.swift in Sources */,
 				A966879A27F216C200B320B3 /* OnboardingPageCellViewModel.swift in Sources */,
 				A966879C27F216D600B320B3 /* TopicInfo.swift in Sources */,
+				A9500E6227F50977001D50B4 /* Validator.swift in Sources */,
+				A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */,
+				A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */,
 				A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

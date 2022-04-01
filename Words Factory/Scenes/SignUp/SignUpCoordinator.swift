@@ -24,8 +24,17 @@ class SignUpCoordinator: Coordinator {
     
     // MARK: Public methods
     func start() {
-        let viewController = SignUpViewController()
+        let viewModel = SignUpViewModel()
+        viewModel.delegate = self
+        let viewController = SignUpViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController],
                                                     animated: true)
+    }
+}
+
+// MARK: SignUpViewModelDelegate
+extension SignUpCoordinator: SignUpViewModelDelegate {
+    func showTabBarScene() {
+        
     }
 }

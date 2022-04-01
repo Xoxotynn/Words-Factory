@@ -41,25 +41,30 @@ class OnboardingViewModel {
     
     private let pageCellViewModels = [
         OnboardingPageCellViewModel(
-            page: TopicInfo(
+            topic: TopicInfo(
+                image: .relationshipKids ?? UIImage(),
                 title: Strings.firstPageTitle,
-                description: Strings.firstPageDescription,
-                image: .relationshipKids ?? UIImage())),
+                subtitle: Strings.firstPageDescription)),
         OnboardingPageCellViewModel(
-            page: TopicInfo(
+            topic: TopicInfo(
+                image: .stayingHomeKid ?? UIImage(),
                 title: Strings.secondPageTitle,
-                description: Strings.secondPageDescription,
-                image: .stayingHomeKid ?? UIImage())),
+                subtitle: Strings.secondPageDescription)),
         OnboardingPageCellViewModel(
-            page: TopicInfo(
+            topic: TopicInfo(
+                image: .hiTechKid ?? UIImage(),
                 title: Strings.thirdPageTitle,
-                description: Strings.thirdPageDescription,
-                image: .hiTechKid ?? UIImage()))
+                subtitle: Strings.thirdPageDescription))
     ]
     
     // MARK: Public methods
-    func getPageCellViewModel(at index: Int) -> OnboardingPageCellViewModel {
-        pageCellViewModels[index]
+    func getPageCellViewModel(at index: Int) throws
+    -> OnboardingPageCellViewModel {
+        guard index >= 0 && index < pagesCount else {
+            throw SystemError.indexOutOfRange
+        }
+        
+        return pageCellViewModels[index]
     }
     
     func changeNextButtonTitleIfNeeded(page: Int) {

@@ -4,15 +4,12 @@ import SnapKit
 // MARK: Dimensions
 private extension Dimensions {
     static let topCellPadding: CGFloat = 96
-    static let mediumHorizontalMargin: CGFloat = 34
 }
 
 class OnboardingPageCell: UICollectionViewCell {
     
     // MARK: Properties
-    private let pageImageView = UIImageView()
-    private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private let topicView = TopicView()
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -26,62 +23,28 @@ class OnboardingPageCell: UICollectionViewCell {
     
     // MARK: Public methods
     func configure(with viewModel: OnboardingPageCellViewModel) {
-        viewModel.didUpdatePageInfo = { [weak self] page in
-            self?.pageImageView.image = page.image
-            self?.titleLabel.text = page.title
-            self?.descriptionLabel.text = page.description
+        viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
+            self?.topicView.configure(with: topicViewModel)
         }
         
-        viewModel.setup()
+        viewModel.setupTopicInfo()
     }
     
     // MARK: Private setup methods
     private func setup() {
         backgroundColor = .clear
-        addSubview(pageImageView)
-        addSubview(titleLabel)
-        addSubview(descriptionLabel)
+        addSubview(topicView)
         
-        setupPageImageView()
-        setupTitleLabel()
-        setupDescriptionLabel()
+        setupTopicView()
     }
     
-    private func setupPageImageView() {
-        pageImageView.contentMode = .scaleAspectFit
-        
-        pageImageView.snp.makeConstraints { make in
+    private func setupTopicView() {
+        topicView.snp.makeConstraints { make in
             make.top.lessThanOrEqualToSuperview()
                 .offset(Dimensions.topCellPadding)
-            make.bottom.equalTo(titleLabel.snp.top)
-                .offset(-Dimensions.standart)
-            make.leading.trailing.equalToSuperview()
-        }
-    }
-    
-    private func setupTitleLabel() {
-        titleLabel.font = .heading4
-        titleLabel.textColor = .dark
-        titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 2
-        
-        titleLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(descriptionLabel.snp.top)
-                .offset(-Dimensions.small)
-            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
                 .inset(Dimensions.standart)
-        }
-    }
-    
-    private func setupDescriptionLabel() {
-        descriptionLabel.textColor = .darkGray
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.numberOfLines = 2
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(Dimensions.standart)
             make.leading.trailing.equalToSuperview()
-                .inset(Dimensions.mediumHorizontalMargin)
         }
     }
 }

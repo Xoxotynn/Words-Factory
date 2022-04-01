@@ -3,6 +3,7 @@ import SnapKit
 
 // MARK: Strings
 private extension Strings {
+    static let skip = "Skip"
     static let pageCellIdentifier = String(describing: OnboardingPageCell.self)
 }
 
@@ -16,7 +17,7 @@ class OnboardingViewController: UIViewController {
     // MARK: Properties
     private let viewModel: OnboardingViewModel
     
-    private lazy var pagesCollectionView = UICollectionView(
+    private let pagesCollectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout())
     private let pageControl = PageControl()
@@ -71,6 +72,7 @@ class OnboardingViewController: UIViewController {
     private func setupPagesCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         
         pagesCollectionView.delegate = self
         pagesCollectionView.dataSource = self
@@ -175,7 +177,13 @@ extension OnboardingViewController:
                 return UICollectionViewCell()
             }
             
-            cell.configure(with: viewModel.getPageCellViewModel(at: indexPath.row))
+            do {
+                try cell.configure(with: viewModel
+                    .getPageCellViewModel(at: indexPath.row))
+            } catch {
+                showError(error)
+            }
+            
             return cell
     }
     

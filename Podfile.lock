@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.5.0)
   - SnapKit (5.0.1)
+  - TPKeyboardAvoidingSwift (3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
   - SnapKit (~> 5.0.0)
+  - TPKeyboardAvoidingSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SnapKit
+    - TPKeyboardAvoidingSwift
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
 
-PODFILE CHECKSUM: 03218a11b44cd14c102da55c189c911e0ac69c88
+PODFILE CHECKSUM: eb1a83996e20acc1b433e38839af4bf7b3f4a46b
 
 COCOAPODS: 1.11.3
