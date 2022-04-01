@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import TPKeyboardAvoidingSwift
 
 // MARK: Strings
 private extension Strings {
@@ -20,6 +21,7 @@ class SignUpViewController: UIViewController {
     // MARK: Properties
     private let viewModel: SignUpViewModel
     
+    private let scrollView = TPKeyboardAvoidingScrollView()
     private let topicView = TopicView()
     private let signUpFormStack = UIStackView()
     private let nameTextField = TextField()
@@ -58,6 +60,7 @@ class SignUpViewController: UIViewController {
     
     private func setup() {
         setupView()
+        setupScrollView()
         setupTopicView()
         setupSignUpFormStack()
         setupNameTextField()
@@ -69,24 +72,30 @@ class SignUpViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .appWhite
         
-        view.addSubview(topicView)
-        view.addSubview(signUpFormStack)
+        view.addSubview(scrollView)
+        scrollView.addSubview(topicView)
+        scrollView.addSubview(signUpFormStack)
         signUpFormStack.addArrangedSubview(nameTextField)
         signUpFormStack.addArrangedSubview(emailTextField)
         signUpFormStack.addArrangedSubview(passwordTextField)
         signUpFormStack.addArrangedSubview(signUpButton)
     }
     
+    private func setupScrollView() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        scrollView.contentLayoutGuide.snp.makeConstraints { make in
+            make.width.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
     private func setupTopicView() {
         topicView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(view.safeAreaLayoutGuide)
-                .inset(Dimensions.standart)
-                .priority(.high)
-            make.top.lessThanOrEqualTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview()
                 .inset(Dimensions.topScreenMargin)
-            make.bottom.equalTo(signUpFormStack.snp.top)
-                .offset(-Dimensions.standart)
-            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
@@ -95,13 +104,11 @@ class SignUpViewController: UIViewController {
         signUpFormStack.spacing = Dimensions.standart
         
         signUpFormStack.snp.makeConstraints { make in
-            make.bottom.greaterThanOrEqualTo(view.safeAreaLayoutGuide)
-                .inset(Dimensions.standart)
-                .priority(.medium)
-            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide)
+            make.top.greaterThanOrEqualTo(topicView.snp.bottom)
+                .offset(Dimensions.standart)
+            make.bottom.equalToSuperview()
                 .inset(Dimensions.bottomScreenMaxMargin)
-                .priority(.high)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
                 .inset(Dimensions.standart)
         }
     }

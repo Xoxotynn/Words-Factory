@@ -1,5 +1,4 @@
 import UIKit
-import IQKeyboardManagerSwift
 
 class AppCoordinator: Coordinator {
     
@@ -22,7 +21,6 @@ class AppCoordinator: Coordinator {
     
     // MARK: Public methods
     func start() {
-        IQKeyboardManager.shared.enable = true
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
