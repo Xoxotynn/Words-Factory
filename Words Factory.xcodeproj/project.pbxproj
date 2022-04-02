@@ -61,6 +61,9 @@
 		A9B247B827F6CCB800FCE45A /* Phonetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B727F6CCB800FCE45A /* Phonetic.swift */; };
 		A9B247BA27F6CCD200FCE45A /* Meaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247B927F6CCD200FCE45A /* Meaning.swift */; };
 		A9B247BC27F6CCE900FCE45A /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247BB27F6CCE900FCE45A /* Definition.swift */; };
+		A9B247C027F7AB7C00FCE45A /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247BF27F7AB7C00FCE45A /* WordCell.swift */; };
+		A9B247C627F7AC3B00FCE45A /* MeaningsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247C527F7AC3B00FCE45A /* MeaningsHeader.swift */; };
+		A9B247C827F7AC4E00FCE45A /* DefinitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B247C727F7AC4E00FCE45A /* DefinitionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +124,9 @@
 		A9B247B727F6CCB800FCE45A /* Phonetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phonetic.swift; sourceTree = "<group>"; };
 		A9B247B927F6CCD200FCE45A /* Meaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meaning.swift; sourceTree = "<group>"; };
 		A9B247BB27F6CCE900FCE45A /* Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
+		A9B247BF27F7AB7C00FCE45A /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		A9B247C527F7AC3B00FCE45A /* MeaningsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsHeader.swift; sourceTree = "<group>"; };
+		A9B247C727F7AC4E00FCE45A /* DefinitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionCell.swift; sourceTree = "<group>"; };
 		EA3F547F9916CF3CB09DCAF9 /* Pods-Words Factory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Words Factory.release.xcconfig"; path = "Target Support Files/Pods-Words Factory/Pods-Words Factory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -396,6 +402,7 @@
 			children = (
 				A9B247A127F6999100FCE45A /* ViewModel */,
 				A9B2479C27F698CF00FCE45A /* ViewController */,
+				A9B247BD27F7AB3800FCE45A /* View */,
 				A9B2479627F6988800FCE45A /* DictionaryCoordinator.swift */,
 			);
 			path = Dictionary;
@@ -494,6 +501,24 @@
 				A9B247BB27F6CCE900FCE45A /* Definition.swift */,
 			);
 			path = Word;
+			sourceTree = "<group>";
+		};
+		A9B247BD27F7AB3800FCE45A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9B247BE27F7AB4E00FCE45A /* WordTableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9B247BE27F7AB4E00FCE45A /* WordTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A9B247BF27F7AB7C00FCE45A /* WordCell.swift */,
+				A9B247C527F7AC3B00FCE45A /* MeaningsHeader.swift */,
+				A9B247C727F7AC4E00FCE45A /* DefinitionCell.swift */,
+			);
+			path = WordTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,6 +646,7 @@
 				A9B247B827F6CCB800FCE45A /* Phonetic.swift in Sources */,
 				A9B2478E27F690D500FCE45A /* TabBarCoordinator.swift in Sources */,
 				A966878C27F2104100B320B3 /* OnboardingCoordinator.swift in Sources */,
+				A9B247C627F7AC3B00FCE45A /* MeaningsHeader.swift in Sources */,
 				A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */,
 				A966878327F1288800B320B3 /* NetworkService.swift in Sources */,
 				A9B2479727F6988800FCE45A /* DictionaryCoordinator.swift in Sources */,
@@ -643,6 +669,7 @@
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,
 				A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */,
 				A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */,
+				A9B247C027F7AB7C00FCE45A /* WordCell.swift in Sources */,
 				A966878627F129FE00B320B3 /* Coordinator.swift in Sources */,
 				A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */,
 				A9B247A527F699BD00FCE45A /* DictionaryViewModel.swift in Sources */,
@@ -654,6 +681,7 @@
 				A966879E27F219D800B320B3 /* StandartButton.swift in Sources */,
 				A9500E6427F50D27001D50B4 /* Errors.swift in Sources */,
 				A966879A27F216C200B320B3 /* OnboardingPageCellViewModel.swift in Sources */,
+				A9B247C827F7AC4E00FCE45A /* DefinitionCell.swift in Sources */,
 				A966879C27F216D600B320B3 /* TopicInfo.swift in Sources */,
 				A9500E6227F50977001D50B4 /* Validator.swift in Sources */,
 				A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */,
