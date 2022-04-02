@@ -24,10 +24,16 @@ class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = OnboardingCoordinator(
+//        let startCoordinator = OnboardingCoordinator(
+//            rootNavigationController: rootNavigationController,
+//            dependencies: dependencies)
+//        startCoordinator.delegate = self
+//        childCoordinators.append(startCoordinator)
+//        startCoordinator.start()
+        
+        let startCoordinator = TabBarCoordinator(
             rootNavigationController: rootNavigationController,
             dependencies: dependencies)
-        startCoordinator.delegate = self
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
     }

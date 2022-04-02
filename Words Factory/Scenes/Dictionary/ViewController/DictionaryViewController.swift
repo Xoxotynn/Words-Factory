@@ -11,6 +11,12 @@ private extension Strings {
     static let definitionCellId = String(describing: DefinitionCell.self)
 }
 
+// MARK: Dimensions
+private extension Dimensions {
+    static let additionalSafeAreaInsets: CGFloat = -22
+    static let showingNavBarHeight: CGFloat = 0.25
+}
+
 class DictionaryViewController: UIViewController {
 
     // MARK: Properties
@@ -54,6 +60,8 @@ class DictionaryViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .appWhite
+        title = Strings.appTitle
+        additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
         view.addSubview(searchTextField)
         view.addSubview(wordTableView)
@@ -165,11 +173,14 @@ extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        let height = min(max(Dimensions.standartHeight - offset, 1), Dimensions.standartHeight)
+        let height = min(max(Dimensions.standartHeight - offset, 0), Dimensions.standartHeight)
         searchTextField.updateContent(forChangedHeight: height)
         searchTextField.snp.updateConstraints { make in
             make.height.equalTo(height)
         }
+        
+        navigationController?.isNavigationBarHidden =
+        (height / Dimensions.standartHeight) > Dimensions.showingNavBarHeight
     }
 }
 
