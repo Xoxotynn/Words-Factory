@@ -18,7 +18,8 @@ class DictionaryCoordinator: Coordinator {
     
     // MARK: Public methods
     func start() {
-        let viewModel = DictionaryViewModel()
+        let viewModel = DictionaryViewModel(
+            networkService: dependencies.networkService)
         let viewController = DictionaryViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController],
                                                     animated: true)

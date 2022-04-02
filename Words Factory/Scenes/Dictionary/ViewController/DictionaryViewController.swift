@@ -5,16 +5,11 @@ import TPKeyboardAvoidingSwift
 // MARK: Strings
 private extension Strings {
     static let searchPlaceholder = "Enter a word"
-    
-    static let wordCellId = String(describing: WordCell.self)
-    static let meaningsHeaderId = String(describing: MeaningsHeader.self)
-    static let definitionCellId = String(describing: DefinitionCell.self)
 }
 
 // MARK: Dimensions
 private extension Dimensions {
     static let additionalSafeAreaInsets: CGFloat = -22
-    static let showingNavBarHeight: CGFloat = 0.25
 }
 
 class DictionaryViewController: UIViewController {
@@ -49,13 +44,22 @@ class DictionaryViewController: UIViewController {
         viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
         }
+        
+        viewModel.didUpdateWord = { [weak self] in
+            self?.togglePlaceholder(isHidden: true)
+            self?.wordTableView.reloadData()
+        }
+        
+        viewModel.didRecieveError = { [weak self] error in
+            self?.showError(error)
+        }
     }
     
     private func setup() {
         setupView()
         setupTableView()
         setupSearchTextField()
-//        setupTopicView()
+        setupTopicView()
     }
     
     private func setupView() {
@@ -65,7 +69,7 @@ class DictionaryViewController: UIViewController {
         
         view.addSubview(searchTextField)
         view.addSubview(wordTableView)
-//        view.addSubview(topicView)
+        view.addSubview(topicView)
     }
     
     private func setupTableView() {
@@ -74,15 +78,17 @@ class DictionaryViewController: UIViewController {
         wordTableView.keyboardDismissMode = .interactive
         wordTableView.backgroundColor = .appWhite
         wordTableView.separatorStyle = .none
+        wordTableView.isHidden = true
+        
         wordTableView.register(
             WordCell.self,
-            forCellReuseIdentifier: Strings.wordCellId)
+            forCellReuseIdentifier: ReuseIdentifiers.wordCellId)
         wordTableView.register(
             MeaningsHeader.self,
-            forHeaderFooterViewReuseIdentifier: Strings.meaningsHeaderId)
+            forHeaderFooterViewReuseIdentifier: ReuseIdentifiers.meaningsHeaderId)
         wordTableView.register(
             DefinitionCell.self,
-            forCellReuseIdentifier: Strings.definitionCellId)
+            forCellReuseIdentifier: ReuseIdentifiers.definitionCellId)
         
         wordTableView.snp.makeConstraints { make in
             make.top.equalTo(searchTextField.snp.bottom)
@@ -111,82 +117,130 @@ class DictionaryViewController: UIViewController {
             make.centerX.centerY.equalToSuperview()
         }
     }
+    
+    // MARK: Private methods
+    private func togglePlaceholder(isHidden: Bool) {
+        topicView.isHidden = isHidden
+        wordTableView.isHidden = !isHidden
+    }
+    
+    private func dequeueWordCell(_ tableView: UITableView, )
+    -> UITableViewCell {
+        guard let wordCell = tableView.dequeueReusableCell(
+            withIdentifier: identifier,
+            for: indexPath) as? WordCell else {
+                return UITableViewCell()
+        }
+        
+        do {
+            try wordCell.configure(
+                with: viewModel.getWordCellViewModel())
+        } catch {
+            showError(error)
+        }
+    }
 }
 
 // MARK: UITableViewDelegate & UITableViewDataSource
 extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return 10
-        }
+        viewModel.getRowsNumber(inSection: section)
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            if indexPath.section == 0 {
+            let identifier = viewModel.getReuseIdentifier(
+                inSection: indexPath.section)
+            
+            switch identifier {
+            case ReuseIdentifiers.wordCellId:
                 guard let wordCell = tableView.dequeueReusableCell(
-                    withIdentifier: Strings.wordCellId,
+                    withIdentifier: identifier,
                     for: indexPath) as? WordCell else {
                         return UITableViewCell()
                 }
                 
+                do {
+                    try wordCell.configure(
+                        with: viewModel.getWordCellViewModel())
+                } catch {
+                    showError(error)
+                }
+                
                 return wordCell
+            default:
+                guard let definitionCell = tableView.dequeueReusableCell(
+                    withIdentifier: identifier,
+                    for: indexPath) as? DefinitionCell else {
+                        return UITableViewCell()
+                }
+                
+                do {
+                    try definitionCell.configure(
+                        with: viewModel.getDefinitionCellViewModel(
+                            forRow: indexPath.row,
+                            inSection: indexPath.section))
+                } catch {
+                    showError(error)
+                }
+                
+                return definitionCell
             }
-            
-            guard let definitionCell = tableView.dequeueReusableCell(
-                withIdentifier: Strings.definitionCellId,
-                for: indexPath) as? DefinitionCell else {
-                    return UITableViewCell()
-            }
-            
-            return definitionCell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: Strings.meaningsHeaderId) as? MeaningsHeader,
-              section > 0 else {
+        let identifier = viewModel.getHeaderReuseIdentifier(inSection: section)
+        guard let identifier = identifier else { return nil }
+
+        switch identifier {
+        case ReuseIdentifiers.meaningsHeaderId:
+            guard let headerCell = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: identifier) as? MeaningsHeader else {
+                return nil
+            }
+            
+            do {
+                try headerCell.configure(
+                    with: viewModel.getMeaningsHeaderViewModel(
+                        inSection: section))
+            } catch {
+                showError(error)
+            }
+            
+            return headerCell
+        default:
             return nil
         }
-        
-        return header
     }
     
     func tableView(_ tableView: UITableView,
                    heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return 0
-        default:
-            return UITableView.automaticDimension
-        }
+        viewModel.getHeightForHeader(inSection: section)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y
-        let height = min(max(Dimensions.standartHeight - offset, 0), Dimensions.standartHeight)
+        let height = viewModel.getSearchTextFieldHeight(
+            withOffset: scrollView.contentOffset.y)
+        
+        navigationController?.isNavigationBarHidden = viewModel
+            .isNavigationBarHidden(forHeight: height)
+        
         searchTextField.updateContent(forChangedHeight: height)
         searchTextField.snp.updateConstraints { make in
             make.height.equalTo(height)
         }
-        
-        navigationController?.isNavigationBarHidden =
-        (height / Dimensions.standartHeight) > Dimensions.showingNavBarHeight
     }
 }
 
 // MARK: ActionTextFieldDelegate
 extension DictionaryViewController: ActionTextFieldDelegate {
     func actionTextFieldDidTapAction(_ sender: ActionTextField) {
-        sender.text = "Success!"
+        viewModel.getWord(sender.text)
     }
 }

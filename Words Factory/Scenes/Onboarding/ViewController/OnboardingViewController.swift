@@ -4,7 +4,6 @@ import SnapKit
 // MARK: Strings
 private extension Strings {
     static let skip = "Skip"
-    static let pageCellIdentifier = String(describing: OnboardingPageCell.self)
 }
 
 // MARK: Dimensions
@@ -80,7 +79,7 @@ class OnboardingViewController: UIViewController {
         pagesCollectionView.showsHorizontalScrollIndicator = false
         pagesCollectionView.register(
             OnboardingPageCell.self,
-            forCellWithReuseIdentifier: Strings.pageCellIdentifier)
+            forCellWithReuseIdentifier: ReuseIdentifiers.pageCellIdentifier)
         pagesCollectionView.setCollectionViewLayout(layout, animated: true)
         
         pagesCollectionView.snp.makeConstraints { make in
@@ -171,7 +170,7 @@ extension OnboardingViewController:
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Strings.pageCellIdentifier,
+                withReuseIdentifier: ReuseIdentifiers.pageCellIdentifier,
                 for: indexPath) as? OnboardingPageCell else {
                 return UICollectionViewCell()
             }

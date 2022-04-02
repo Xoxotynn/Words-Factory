@@ -1,11 +1,6 @@
 import UIKit
 import SnapKit
 
-// MARK: Strings
-private extension Strings {
-    static let example = "Example: "
-}
-
 // MARK: Dimensions
 private extension Dimensions {
     static let cellBottomMargin: CGFloat = 10
@@ -31,9 +26,21 @@ class DefinitionCell: UITableViewCell {
     }
     
     // MARK: Public methods
-//    func configure(with viewModel) {
-//
-//    }
+    func configure(with viewModel: DefinitionCellViewModel) {
+        viewModel.didSetupDefinition = { [weak self] in
+            self?.definitionLabel.text = viewModel.definition
+        }
+        
+        viewModel.didSetupExample = { [weak self] in
+            self?.exampleLabel.attributedText = viewModel.attributedExample
+        }
+        
+        viewModel.didNotFoundExample = { [weak self] in
+            self?.exampleLabel.isHidden = true
+        }
+        
+        viewModel.setupDefinition()
+    }
     
     // MARK: Private setup methods
     private func setup() {
@@ -78,14 +85,12 @@ class DefinitionCell: UITableViewCell {
     }
     
     private func setupDefinitionLabel() {
-        definitionLabel.text = "The practice or skill of preparing food by combining, mixing, and heating ingredients."
         definitionLabel.textColor = .dark
         definitionLabel.font = .paragraphMedium
         definitionLabel.numberOfLines = 0
     }
     
     private func setupExampleLabel() {
-        exampleLabel.text = "\(Strings.example)he developed an interest in cooking."
         exampleLabel.textColor = .dark
         exampleLabel.font = .paragraphMedium
         exampleLabel.numberOfLines = 0

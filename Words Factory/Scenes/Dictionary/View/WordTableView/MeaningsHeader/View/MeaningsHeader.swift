@@ -30,9 +30,13 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     // MARK: Public methods
-//    func configure(with viewModel) {
-//
-//    }
+    func configure(with viewModel: MeaningsHeaderViewModel) {
+        viewModel.didSetupSpeechPart = { [weak self] in
+            self?.speechPartLabel.text = viewModel.speechPart
+        }
+        
+        viewModel.setupSpeechPArt()
+    }
     
     // MARK: Private setup methods
     private func setup() {
@@ -58,7 +62,6 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupSpeechPartLabel() {
-        speechPartLabel.text = "Noun"
         speechPartLabel.textColor = .dark
         speechPartLabel.font = .paragraphMedium
         

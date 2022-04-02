@@ -8,6 +8,8 @@ class WordCell: UITableViewCell {
     private let phoneticsStackView = UIStackView()
     private let phoneticsLabel = UILabel()
     private let audioImageView = UIImageView()
+    
+    private var viewModel: WordCellViewModel?
 
     // MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -20,9 +22,15 @@ class WordCell: UITableViewCell {
     }
     
     // MARK: Public methods
-//    func configure(with viewModel) {
-//        
-//    }
+    func configure(with viewModel: WordCellViewModel) {
+        self.viewModel = viewModel
+        
+        viewModel.didSetupWord = { [weak self] in
+            self?.updateWord()
+        }
+        
+        viewModel.setupWord()
+    }
     
     // MARK: Private setup methods
     private func setup() {
@@ -40,7 +48,6 @@ class WordCell: UITableViewCell {
     }
     
     private func setupWordLabel() {
-        wordLabel.text = "Cooking"
         wordLabel.textColor = .dark
         wordLabel.font = .heading4
         
@@ -63,7 +70,6 @@ class WordCell: UITableViewCell {
     }
     
     private func setupPhoneticsLabel() {
-        phoneticsLabel.text = "[ˈkʊkɪŋ]"
         phoneticsLabel.textColor = .primary
         phoneticsLabel.font = .paragraphMedium
     }
@@ -72,5 +78,11 @@ class WordCell: UITableViewCell {
         audioImageView.image = .soundIcon
         audioImageView.tintColor = .primary
         audioImageView.contentMode = .scaleAspectFit
+    }
+    
+    // MARK: Private methods
+    func updateWord() {
+        wordLabel.text = viewModel?.word
+        phoneticsLabel.text = viewModel?.phoneticText
     }
 }

@@ -6,9 +6,9 @@ class NetworkService {
     private let baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
     
     // MARK: Public word methods
-    func signUpRequest(word: String,
-                       onSuccess success: @escaping (_ words: Word) -> Void,
-                       onFailure failure: @escaping (_ error: Error) -> Void) {
+    func wordRequest(word: String,
+                     onSuccess success: @escaping (_ word: Word) -> Void,
+                     onFailure failure: @escaping (_ error: Error) -> Void) {
         AF.request(
             baseUrl + word,
             method: .get,
