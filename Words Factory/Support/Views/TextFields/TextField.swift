@@ -48,6 +48,8 @@ class TextField: UITextField {
     
     func updateContent(forChangedHeight height: CGFloat) {
         let relativeHeight = height / Dimensions.standartHeight
+        isHidden = relativeHeight < 0.5
+        isEnabled = height == Dimensions.standartHeight
         layer.cornerRadius = relativeHeight * Dimensions.cornerRadius
         if height == Dimensions.standartHeight {
             alpha = 1

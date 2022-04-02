@@ -166,8 +166,6 @@ extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         let height = min(max(Dimensions.standartHeight - offset, 1), Dimensions.standartHeight)
-        let relativeHeight = height / Dimensions.standartHeight
-        searchTextField.isHidden = relativeHeight < 0.5
         searchTextField.updateContent(forChangedHeight: height)
         searchTextField.snp.updateConstraints { make in
             make.height.equalTo(height)

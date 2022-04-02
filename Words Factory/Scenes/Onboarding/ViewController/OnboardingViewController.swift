@@ -85,7 +85,6 @@ class OnboardingViewController: UIViewController {
         
         pagesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(skipButton.snp.bottom)
-                .offset(Dimensions.standart)
             make.bottom.equalTo(pageControl.snp.top)
                 .offset(-Dimensions.standart)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)

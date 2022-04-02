@@ -3,7 +3,7 @@ import SnapKit
 
 // MARK: Dimensions
 private extension Dimensions {
-    static let topCellPadding: CGFloat = 96
+    static let topCellPadding: CGFloat = 112
 }
 
 class OnboardingPageCell: UICollectionViewCell {
