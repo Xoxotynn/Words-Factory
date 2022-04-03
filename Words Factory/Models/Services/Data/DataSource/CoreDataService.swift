@@ -38,7 +38,7 @@ class CoreDataService: WordsDataSource {
         saveContext()
         
         guard let addedWord = word.toDomainModel() else {
-            failure(DataError.unexpected)
+            failure(DataError.creationFailed)
             return
         }
         success(addedWord)

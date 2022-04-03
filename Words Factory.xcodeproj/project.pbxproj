@@ -37,8 +37,8 @@
 		A93C675227F9C6C3008C2015 /* Dictionary.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93C675427F9C6C3008C2015 /* Dictionary.strings */; };
 		A93C675527F9C6C8008C2015 /* SignUp.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93C675727F9C6C8008C2015 /* SignUp.strings */; };
 		A93C675827F9C6CD008C2015 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93C675A27F9C6CD008C2015 /* Localizable.strings */; };
-		A93C675D27F9C70C008C2015 /* AlertKeys.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93C675C27F9C70C008C2015 /* AlertKeys.strings */; };
 		A93C676127F9CAEF008C2015 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93C676327F9CAEF008C2015 /* Errors.strings */; };
+		A93C676527F9CC85008C2015 /* AttributedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C676427F9CC85008C2015 /* AttributedKeys.swift */; };
 		A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */; };
 		A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */; };
 		A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A927F4CF3D00FB3658 /* TextField.swift */; };
@@ -128,8 +128,8 @@
 		A93C675327F9C6C3008C2015 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Dictionary.strings; sourceTree = "<group>"; };
 		A93C675627F9C6C8008C2015 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignUp.strings; sourceTree = "<group>"; };
 		A93C675927F9C6CD008C2015 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A93C675C27F9C70C008C2015 /* AlertKeys.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AlertKeys.strings; sourceTree = "<group>"; };
 		A93C676227F9CAEF008C2015 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
+		A93C676427F9CC85008C2015 /* AttributedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedKeys.swift; sourceTree = "<group>"; };
 		A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppLabels.swift"; sourceTree = "<group>"; };
 		A948A9A927F4CF3D00FB3658 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -344,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				A93C675E27F9C7E9008C2015 /* Errors */,
-				A93C675B27F9C6EA008C2015 /* AlertKeys */,
 				A93C674A27F9C1AF008C2015 /* SignUp */,
 				A93C674727F9C165008C2015 /* Dictionary */,
 				A93C674427F9C064008C2015 /* Onboarding */,
@@ -375,14 +374,6 @@
 				A93C675727F9C6C8008C2015 /* SignUp.strings */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		A93C675B27F9C6EA008C2015 /* AlertKeys */ = {
-			isa = PBXGroup;
-			children = (
-				A93C675C27F9C70C008C2015 /* AlertKeys.strings */,
-			);
-			path = AlertKeys;
 			sourceTree = "<group>";
 		};
 		A93C675E27F9C7E9008C2015 /* Errors */ = {
@@ -465,6 +456,7 @@
 			children = (
 				A966877327F10A2200B320B3 /* Dimensions.swift */,
 				A9B247C927F8EAC300FCE45A /* ReuseIdentifiers.swift */,
+				A93C676427F9CC85008C2015 /* AttributedKeys.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -861,7 +853,6 @@
 				A93C675527F9C6C8008C2015 /* SignUp.strings in Resources */,
 				A93C675227F9C6C3008C2015 /* Dictionary.strings in Resources */,
 				A93C149727F00AA500299004 /* LaunchScreen.storyboard in Resources */,
-				A93C675D27F9C70C008C2015 /* AlertKeys.strings in Resources */,
 				A93C675827F9C6CD008C2015 /* Localizable.strings in Resources */,
 				A966877C27F1142500B320B3 /* Rubik-Regular.ttf in Resources */,
 				A93C674F27F9C6BD008C2015 /* Onboarding.strings in Resources */,
@@ -959,6 +950,7 @@
 				A91F54E527F9573F00D0DB85 /* WordCoreData+CoreDataProperties.swift in Sources */,
 				A9B247AB27F69A7A00FCE45A /* VideoViewController.swift in Sources */,
 				A9B247CA27F8EAC300FCE45A /* ReuseIdentifiers.swift in Sources */,
+				A93C676527F9CC85008C2015 /* AttributedKeys.swift in Sources */,
 				A9B2479927F6989400FCE45A /* TrainingCoordinator.swift in Sources */,
 				A91F54F827F987DD00D0DB85 /* AudioService.swift in Sources */,
 				A966879627F2166400B320B3 /* PageControl.swift in Sources */,

@@ -8,14 +8,14 @@ extension UIViewController {
                                       message: "",
                                       preferredStyle: .alert)
         alert.setValuesForKeys([
-            R.string.alertKeys.attributedTitle():
+            AttributedKeys.alertTitle:
                 NSAttributedString(
                     string: title ?? R.string.localizable.alertTitle(),
                     attributes: [
                         .font: UIFont.heading4 ?? UIFont.systemLarge,
                         .foregroundColor: R.color.black() ?? .black
                        ]),
-            R.string.alertKeys.attributedMessage():
+            AttributedKeys.alertMessage:
                 NSAttributedString(
                     string: message ?? R.string.localizable.alertMessage(),
                     attributes: [
