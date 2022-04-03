@@ -45,7 +45,7 @@ class DictionaryViewModel {
         self.audioService = audioService
         topicViewModel = TopicViewModel(
             topic: TopicInfo(
-                image: .standingKid ?? UIImage(),
+                image: Images.standingKid,
                 title: Strings.noWordTitle,
                 subtitle: Strings.noWordSubtitle))
         meaningsSectionViewModels = []

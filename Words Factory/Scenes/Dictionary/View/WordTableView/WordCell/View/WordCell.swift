@@ -78,7 +78,7 @@ class WordCell: UITableViewCell {
     }
     
     private func setupAudioImageView() {
-        audioImageView.image = .soundIcon
+        audioImageView.image = UIImage(named: Images.soundIcon)
         audioImageView.tintColor = .primary
         audioImageView.contentMode = .scaleAspectFit
     }

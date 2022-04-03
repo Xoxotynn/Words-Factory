@@ -21,7 +21,7 @@ class TopicView: UIView {
     // MARK: - Public methods
     func configure(with viewModel: TopicViewModel) {
         viewModel.didSetupTopicInfo = { [weak self] topic in
-            self?.imageView.image = topic.image
+            self?.imageView.image = UIImage(named: topic.image)
             self?.titleLabel.text = topic.title
             self?.subtitleLabel.text = topic.subtitle
         }

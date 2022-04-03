@@ -28,6 +28,7 @@
 		A91F54F227F95EA700D0DB85 /* WordsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F127F95EA700D0DB85 /* WordsRepository.swift */; };
 		A91F54F427F95F1D00D0DB85 /* WordsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */; };
 		A91F54F827F987DD00D0DB85 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F727F987DD00D0DB85 /* AudioService.swift */; };
+		A91F54FA27F99F9200D0DB85 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F927F99F9200D0DB85 /* Images.swift */; };
 		A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148A27F00AA400299004 /* AppDelegate.swift */; };
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
@@ -44,7 +45,6 @@
 		A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7227F663F2001D50B4 /* TopicViewModel.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
 		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
-		A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877127F109EB00B320B3 /* UIImage+AppImages.swift */; };
 		A966877427F10A2200B320B3 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877327F10A2200B320B3 /* Dimensions.swift */; };
 		A966877627F10A3E00B320B3 /* UIFont+RubikFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */; };
 		A966877B27F1142500B320B3 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A966877827F1142500B320B3 /* Rubik-Bold.ttf */; };
@@ -113,6 +113,7 @@
 		A91F54F127F95EA700D0DB85 /* WordsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsRepository.swift; sourceTree = "<group>"; };
 		A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataRepository.swift; sourceTree = "<group>"; };
 		A91F54F727F987DD00D0DB85 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		A91F54F927F99F9200D0DB85 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A93C148727F00AA400299004 /* Words Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Words Factory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C148A27F00AA400299004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93C148C27F00AA400299004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		A9500E7227F663F2001D50B4 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
-		A966877127F109EB00B320B3 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
 		A966877327F10A2200B320B3 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+RubikFont.swift"; sourceTree = "<group>"; };
 		A966877827F1142500B320B3 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -404,6 +404,7 @@
 				A966877327F10A2200B320B3 /* Dimensions.swift */,
 				A966876D27F1099B00B320B3 /* Strings.swift */,
 				A9B247C927F8EAC300FCE45A /* ReuseIdentifiers.swift */,
+				A91F54F927F99F9200D0DB85 /* Images.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -446,7 +447,6 @@
 			children = (
 				A91F54C727F92F2400D0DB85 /* UIViewController */,
 				A966876F27F109C600B320B3 /* UIColor+AppColors.swift */,
-				A966877127F109EB00B320B3 /* UIImage+AppImages.swift */,
 				A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */,
 				A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */,
 				A9B2479127F6957C00FCE45A /* UINavigationController+AppNavigationControllers.swift */,
@@ -882,7 +882,6 @@
 				A91F54ED27F95C1400D0DB85 /* WordsDataSource.swift in Sources */,
 				A91F54E827F9573F00D0DB85 /* MeaningCoreData+CoreDataClass.swift in Sources */,
 				A9B247D727F8F93800FCE45A /* MeaningsHeaderViewModel.swift in Sources */,
-				A966877227F109EB00B320B3 /* UIImage+AppImages.swift in Sources */,
 				A9500E6B27F64C6A001D50B4 /* PasswordTextField.swift in Sources */,
 				A96687A527F2C00000B320B3 /* SignUpCoordinator.swift in Sources */,
 				A9B2479227F6957C00FCE45A /* UINavigationController+AppNavigationControllers.swift in Sources */,
@@ -903,6 +902,7 @@
 				A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */,
 				A91F54E627F9573F00D0DB85 /* PhoneticCoreData+CoreDataClass.swift in Sources */,
 				A9B247A527F699BD00FCE45A /* DictionaryViewModel.swift in Sources */,
+				A91F54FA27F99F9200D0DB85 /* Images.swift in Sources */,
 				A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */,
 				A9B247D927F8F9FB00FCE45A /* DefinitionCellViewModel.swift in Sources */,
 				A91F54D027F9355E00D0DB85 /* Meaning.swift in Sources */,

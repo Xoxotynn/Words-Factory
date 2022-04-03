@@ -39,7 +39,7 @@ class TabBarCoordinator: Coordinator {
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
             title: Strings.dictionary,
-            image: .dictionaryIcon,
+            image: UIImage(named: Images.dictionaryIcon),
             selectedImage: nil)
         
         item.setTitleTextAttributes(
@@ -61,7 +61,7 @@ class TabBarCoordinator: Coordinator {
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
             title: Strings.training,
-            image: .trainingIcon,
+            image: UIImage(named: Images.trainingIcon),
             selectedImage: nil)
         
         item.setTitleTextAttributes(
@@ -83,7 +83,7 @@ class TabBarCoordinator: Coordinator {
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
             title: Strings.video,
-            image: .videoIcon,
+            image: UIImage(named: Images.videoIcon),
             selectedImage: nil)
         
         item.setTitleTextAttributes(

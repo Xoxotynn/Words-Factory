@@ -7,7 +7,7 @@ class TrainingViewModel {
     
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
-            image: .hiTechKid ?? UIImage(),
+            image: Images.hiTechKid,
             title: Strings.sceneNotReadyTitle,
             subtitle: Strings.sceneNotReadySubtitle))
     
