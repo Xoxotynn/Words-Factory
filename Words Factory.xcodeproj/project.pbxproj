@@ -13,6 +13,7 @@
 		A91F54CE27F9355500D0DB85 /* Phonetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54CD27F9355500D0DB85 /* Phonetic.swift */; };
 		A91F54D027F9355E00D0DB85 /* Meaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54CF27F9355E00D0DB85 /* Meaning.swift */; };
 		A91F54D227F9356300D0DB85 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54D127F9356300D0DB85 /* Definition.swift */; };
+		A91F54D427F93F7D00D0DB85 /* MeaningsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54D327F93F7D00D0DB85 /* MeaningsSectionViewModel.swift */; };
 		A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148A27F00AA400299004 /* AppDelegate.swift */; };
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		A91F54CD27F9355500D0DB85 /* Phonetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phonetic.swift; sourceTree = "<group>"; };
 		A91F54CF27F9355E00D0DB85 /* Meaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meaning.swift; sourceTree = "<group>"; };
 		A91F54D127F9356300D0DB85 /* Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
+		A91F54D327F93F7D00D0DB85 /* MeaningsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningsSectionViewModel.swift; sourceTree = "<group>"; };
 		A93C148727F00AA400299004 /* Words Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Words Factory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C148A27F00AA400299004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93C148C27F00AA400299004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B247A427F699BD00FCE45A /* DictionaryViewModel.swift */,
+				A91F54D327F93F7D00D0DB85 /* MeaningsSectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				A91F54D227F9356300D0DB85 /* Definition.swift in Sources */,
 				A966879C27F216D600B320B3 /* TopicInfo.swift in Sources */,
 				A9500E6227F50977001D50B4 /* Validator.swift in Sources */,
+				A91F54D427F93F7D00D0DB85 /* MeaningsSectionViewModel.swift in Sources */,
 				A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */,
 				A9500E6627F518CA001D50B4 /* UIViewController+Alerts.swift in Sources */,
 				A9B247A027F6991B00FCE45A /* DictionaryViewController.swift in Sources */,

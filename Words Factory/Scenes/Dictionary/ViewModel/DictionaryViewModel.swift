@@ -38,15 +38,13 @@ class DictionaryViewModel {
             subtitle: Strings.noWordSubtitle))
     
     private var wordCellViewModel: WordCellViewModel?
-    private var meaningsHeaderViewModels: [MeaningsHeaderViewModel]
-    private var definitionCellViewModels: [[DefinitionCellViewModel]]
+    private var meaningsSectionViewModels: [MeaningsSectionViewModel]
     private var word: Word?
     
     // MARK: Init
     init(networkService: NetworkService) {
         self.networkService = networkService
-        meaningsHeaderViewModels = []
-        definitionCellViewModels = []
+        meaningsSectionViewModels = []
     }
     
     // MARK: Public methods
@@ -64,23 +62,22 @@ class DictionaryViewModel {
     
     func getMeaningsHeaderViewModel(inSection section: Int) throws
     -> MeaningsHeaderViewModel {
-        guard section > 0, section <= meaningsHeaderViewModels.count else {
+        guard section > 0, section <= meaningsSectionViewModels.count else {
             throw SystemError.indexOutOfRange
         }
         
-        return meaningsHeaderViewModels[section - 1]
+        return meaningsSectionViewModels[section - 1].meaningsHeaderViewModel
     }
     
     func getDefinitionCellViewModel(forRow row: Int, inSection section: Int)
     throws -> DefinitionCellViewModel {
         guard section > 0,
-              section <= definitionCellViewModels.count,
-              row >= 0,
-              row < definitionCellViewModels[section - 1].count else {
+              section <= meaningsSectionViewModels.count else {
             throw SystemError.indexOutOfRange
         }
         
-        return definitionCellViewModels[section - 1][row]
+        return try meaningsSectionViewModels[section - 1]
+            .getDefinitionCellViewModel(forRow: row)
     }
     
     func getWord(_ word: String?) {
@@ -94,11 +91,11 @@ class DictionaryViewModel {
     }
     
     func getRowsNumber(inSection section: Int) -> Int {
-        guard let word = word else { return 0 }
+        guard let _ = word,
+              section <= meaningsSectionViewModels.count else { return 0 }
         guard section > 0 else { return 1 }
-        guard section <= word.meanings.count else { return 0 }
         
-        return word.meanings[section - 1].definitions.count
+        return meaningsSectionViewModels[section - 1].rowsNumber
     }
     
     func getReuseIdentifier(inSection section: Int) -> String {
@@ -148,14 +145,8 @@ class DictionaryViewModel {
             word: word.word,
             phonetic: word.phonetic)
         
-        word.meanings.forEach { meaning in
-            meaningsHeaderViewModels.append(
-                MeaningsHeaderViewModel(speechPart: meaning.speechPart))
-            definitionCellViewModels.append(
-                meaning.definitions.map { definition in
-                    DefinitionCellViewModel(definition: definition)
-                })
-        }
+        meaningsSectionViewModels = word.meanings
+            .map { MeaningsSectionViewModel(meaning: $0 ) }
         
         didHidePlaceholder?(true)
         didUpdateWord?()
@@ -164,7 +155,6 @@ class DictionaryViewModel {
     private func clearWord() {
         word = nil
         wordCellViewModel = nil
-        meaningsHeaderViewModels = []
-        definitionCellViewModels = []
+        meaningsSectionViewModels = []
     }
 }
