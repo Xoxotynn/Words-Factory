@@ -2,17 +2,17 @@ import Foundation
 
 class MeaningsHeaderViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     let speechPart: String
     
     var didSetupSpeechPart: (() -> Void)?
     
-    // MARK: Init
+    // MARK: - Init
     init(speechPart: String) {
         self.speechPart = speechPart
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupSpeechPArt() {
         didSetupSpeechPart?()
     }

@@ -1,10 +1,13 @@
 import Foundation
 
 struct WordDTO: Codable {
+    
+    // MARK: - Properties
     let word: String
     let phonetics: [PhoneticDTO]
     let meanings: [MeaningDTO]
     
+    // MARK: - Public methods
     static func toDomainModel(contentsOf words: [WordDTO]) -> Word? {
         guard let firstWord = words.first else {
             return nil

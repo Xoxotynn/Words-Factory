@@ -1,24 +1,18 @@
 import UIKit
 
-// MARK: Images
-private extension UIImage {
-    static let hideIcon = UIImage(named: "HideIcon")
-    static let showIcon = UIImage(named: "ShowIcon")
-}
-
-// MARK: PasswordTextFieldDelegate
+// MARK: - PasswordTextFieldDelegate
 protocol PasswordTextFieldDelegate: AnyObject {
     func passwordTextFieldDidToggleVisibility(_ textField: PasswordTextField)
 }
 
 class PasswordTextField: ActionTextField {
     
-    // MARK: Properties
+    // MARK: - Properties
     weak var passwordTextFieldDelegate: PasswordTextFieldDelegate?
     
-    // MARK: Init
+    // MARK: - Init
     init() {
-        super.init(actionImage: .hideIcon)
+        super.init(actionImage: R.image.hideIcon())
         setup()
     }
     
@@ -34,11 +28,13 @@ class PasswordTextField: ActionTextField {
     }
 }
 
+// MARK: - ActionTextFieldDelegate
 extension PasswordTextField: ActionTextFieldDelegate {
     func actionTextFieldDidTapAction(_ sender: ActionTextField) {
         sender.isSecureTextEntry = !sender.isSecureTextEntry
         sender.setRightActionImage(withImage: isSecureTextEntry
-                                   ? .hideIcon : .showIcon)
+                                   ? R.image.hideIcon()
+                                   : R.image.showIcon())
         passwordTextFieldDelegate?.passwordTextFieldDidToggleVisibility(self)
     }
 }

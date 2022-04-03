@@ -1,24 +1,18 @@
 import UIKit
 
-// MARK: Strings
-extension Strings {
-    static let noWordTitle = "No word"
-    static let noWordSubtitle = "Input something to find it in dictionary"
-}
-
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let showingNavBarHeight: CGFloat = 0.25
 }
 
 class DictionaryViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     var title: String {
         if let word = word?.word {
             return word
         }
-        return Strings.appTitle
+        return R.string.localizable.appTitle()
     }
     
     var numberOfSections: Int {
@@ -38,20 +32,20 @@ class DictionaryViewModel {
     private var meaningsSectionViewModels: [MeaningsSectionViewModel]
     private var word: Word?
     
-    // MARK: Init
+    // MARK: - Init
     init(wordsRepository: WordsRepository,
          audioService: AudioService) {
         self.wordsRepository = wordsRepository
         self.audioService = audioService
         topicViewModel = TopicViewModel(
             topic: TopicInfo(
-                image: .standingKid ?? UIImage(),
-                title: Strings.noWordTitle,
-                subtitle: Strings.noWordSubtitle))
+                image: R.image.standingKid.name,
+                title: R.string.dictionary.noWordTitle(),
+                subtitle: R.string.dictionary.noWordSubtitle()))
         meaningsSectionViewModels = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupTopic() {
         didSetupPlaceholderTopicInfo?(topicViewModel)
     }
@@ -68,7 +62,7 @@ class DictionaryViewModel {
     
     func addToDictionary() {
         guard let word = word else {
-            didRecieveError?(NetworkError.unexpected)
+            didRecieveError?(DataError.unexpected)
             return
         }
 
@@ -104,7 +98,7 @@ class DictionaryViewModel {
     
     func getWordCellViewModel() throws -> WordCellViewModel {
         guard let wordCellViewModel = wordCellViewModel else {
-            throw NetworkError.notFound
+            throw DataError.notFound
         }
 
         return wordCellViewModel
@@ -143,7 +137,7 @@ class DictionaryViewModel {
         (height / Dimensions.standartHeight) > Dimensions.showingNavBarHeight
     }
  
-    // MARK: Private methods
+    // MARK: - Private methods
     private func loadWord(_ word: String) {
         wordsRepository.get(word: word)
         { [weak self] word in

@@ -2,7 +2,7 @@ import UIKit
 
 class VideoCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -16,7 +16,7 @@ class VideoCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let viewModel = VideoViewModel()
         let viewController = VideoViewController(viewModel: viewModel)

@@ -3,10 +3,10 @@ import Alamofire
 
 class NetworkService: WordsDataSource {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
     
-    // MARK: Public word methods
+    // MARK: - Public word methods
     func get(word: String,
              onSuccess success: @escaping (_ word: Word) -> Void,
              onFailure failure: @escaping (_ error: Error) -> Void) {
@@ -23,15 +23,15 @@ class NetworkService: WordsDataSource {
                    let word = WordDTO.toDomainModel(contentsOf: words) {
                     success(word)
                 } else {
-                    failure(NetworkError.unexpected)
+                    failure(DataError.unexpected)
                 }
             case .failure(let error):
                 if error.responseCode == 404 {
-                    failure(NetworkError.notFound)
+                    failure(DataError.notFound)
                     return
                 }
                 
-                failure(NetworkError.unexpected)
+                failure(DataError.unexpected)
             }
         }
     }

@@ -2,16 +2,16 @@ import UIKit
 
 class TrainingViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     var didSetupTopicInfo: ((TopicViewModel) -> Void)?
     
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
-            image: .hiTechKid ?? UIImage(),
-            title: Strings.sceneNotReadyTitle,
-            subtitle: Strings.sceneNotReadySubtitle))
+            image: R.image.hiTechKid.name,
+            title: R.string.localizable.notReadyTitle(),
+            subtitle: R.string.localizable.notReadySubtitle()))
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupTopic() {
         didSetupTopicInfo?(topicViewModel)
     }

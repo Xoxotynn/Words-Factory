@@ -1,13 +1,13 @@
 import UIKit
 
-// MARK: OnboardingCoordinatorDelegate
+// MARK: - OnboardingCoordinatorDelegate
 protocol OnboardingCoordinatorDelegate: AnyObject {
     func replaceOnboardingWithSignUp(_ onboardingCoordinator: OnboardingCoordinator)
 }
 
 class OnboardingCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     weak var delegate: OnboardingCoordinatorDelegate?
@@ -22,7 +22,7 @@ class OnboardingCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let viewModel = OnboardingViewModel()
         viewModel.delegate = self
@@ -32,7 +32,7 @@ class OnboardingCoordinator: Coordinator {
     }
 }
 
-// MARK: OnboardingViewModelDelegate
+// MARK: - OnboardingViewModelDelegate
 extension OnboardingCoordinator: OnboardingViewModelDelegate {
     func showSignUpScene() {
         delegate?.replaceOnboardingWithSignUp(self)

@@ -2,7 +2,7 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -23,27 +23,21 @@ class AppCoordinator: Coordinator {
         rootNavigationController.isNavigationBarHidden = true
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-//        let startCoordinator = OnboardingCoordinator(
-//            rootNavigationController: rootNavigationController,
-//            dependencies: dependencies)
-//        startCoordinator.delegate = self
-//        childCoordinators.append(startCoordinator)
-//        startCoordinator.start()
-        
-        let startCoordinator = TabBarCoordinator(
+        let startCoordinator = OnboardingCoordinator(
             rootNavigationController: rootNavigationController,
             dependencies: dependencies)
+        startCoordinator.delegate = self
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
     }
 }
 
-// MARK: OnboardingCoordinatorDelegate
+// MARK: - OnboardingCoordinatorDelegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
     func replaceOnboardingWithSignUp(_ onboardingCoordinator: OnboardingCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: onboardingCoordinator))
@@ -56,7 +50,7 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
     }
 }
 
-// MARK: SignUpCoordinatorDelegate
+// MARK: - SignUpCoordinatorDelegate
 extension AppCoordinator: SignUpCoordinatorDelegate {
     func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: signUpCoordinator))

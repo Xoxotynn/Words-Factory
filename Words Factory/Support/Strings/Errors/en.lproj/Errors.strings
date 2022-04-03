@@ -1,0 +1,14 @@
+"unexpected" = "Something went wrong";
+
+// MARK: - System errors
+"system.outOfRange" = "Element index is out of range";
+
+// MARK: - Validation errors
+"validation.emptyField" = "One or more fields are empty";
+"validation.name" = "Name must contains 3 or more symbols";
+"validation.email" = "Invalid email provided";
+"validation.password" = "Password must contains 8 or more symbols";
+
+// MARK: - Data errors
+"data.notFound" = "We can't find this word";
+"data.save" = "Failed to save a word";

@@ -3,7 +3,7 @@ import CoreData
 
 class CoreDataService: WordsDataSource {
     
-    // MARK: Properties
+    // MARK: - Properties
     private static let container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "WordsDatabase")
         container.loadPersistentStores { _, error in
@@ -18,13 +18,13 @@ class CoreDataService: WordsDataSource {
         Self.container.viewContext
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func get(word: String,
              onSuccess success: @escaping (Word) -> Void,
              onFailure failure: @escaping (Error) -> Void) {
         guard let wordCoreData = WordCoreData.get(word: word, context: context),
               let wordDomain = wordCoreData.toDomainModel() else {
-            failure(NetworkError.notFound)
+            failure(DataError.notFound)
             return
         }
         
@@ -38,13 +38,13 @@ class CoreDataService: WordsDataSource {
         saveContext()
         
         guard let addedWord = word.toDomainModel() else {
-            failure(NetworkError.unexpected)
+            failure(DataError.creationFailed)
             return
         }
         success(addedWord)
     }
     
-    // MARK: Private Methods
+    // MARK: - Private Methods
     private func saveContext() {
         if context.hasChanges {
             do {

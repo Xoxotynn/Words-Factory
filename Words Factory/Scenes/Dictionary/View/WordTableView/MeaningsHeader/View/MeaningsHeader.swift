@@ -1,12 +1,6 @@
 import UIKit
 import SnapKit
 
-// MARK: Strings
-private extension Strings {
-    static let partOfSpeech = "Part of Speech:"
-    static let meanings = "Meanings:"
-}
-
 // MARK: Dimensions
 private extension Dimensions {
     static let bottomHeaderPadding: CGFloat = 11
@@ -14,12 +8,12 @@ private extension Dimensions {
 
 class MeaningsHeader: UITableViewHeaderFooterView {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let speechPartTitleLabel = UILabel()
     private let speechPartLabel = UILabel()
     private let meaningsTitleLabel = UILabel()
 
-    // MARK: Init
+    // MARK: - Init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setup()
@@ -29,7 +23,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func configure(with viewModel: MeaningsHeaderViewModel) {
         viewModel.didSetupSpeechPart = { [weak self] in
             self?.speechPartLabel.text = viewModel.speechPart
@@ -38,7 +32,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
         viewModel.setupSpeechPArt()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func setup() {
         addSubview(speechPartTitleLabel)
         addSubview(speechPartLabel)
@@ -50,8 +44,8 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupSpeechPartTitleLabel() {
-        speechPartTitleLabel.text = Strings.partOfSpeech
-        speechPartTitleLabel.textColor = .dark
+        speechPartTitleLabel.text = R.string.dictionary.speechPartHeader()
+        speechPartTitleLabel.textColor = R.color.black()
         speechPartTitleLabel.font = .heading5
         
         speechPartTitleLabel.snp.makeConstraints { make in
@@ -62,7 +56,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupSpeechPartLabel() {
-        speechPartLabel.textColor = .dark
+        speechPartLabel.textColor = R.color.black()
         speechPartLabel.font = .paragraphMedium
         
         speechPartLabel.snp.makeConstraints { make in
@@ -73,8 +67,8 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupMeaningsTitleLabel() {
-        meaningsTitleLabel.text = Strings.meanings
-        meaningsTitleLabel.textColor = .dark
+        meaningsTitleLabel.text = R.string.dictionary.meaningsHeader()
+        meaningsTitleLabel.textColor = R.color.black()
         meaningsTitleLabel.font = .heading5
         
         meaningsTitleLabel.snp.makeConstraints { make in

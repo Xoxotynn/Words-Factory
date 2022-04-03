@@ -2,7 +2,7 @@ import UIKit
 
 class TabBarCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -16,7 +16,7 @@ class TabBarCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let tabBarController = TabBarController()
         
@@ -33,17 +33,17 @@ class TabBarCoordinator: Coordinator {
             animated: true)
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func createDictionaryController() -> UINavigationController {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.dictionary,
-            image: .dictionaryIcon,
+            title: R.string.localizable.tabBarDictionary(),
+            image: R.image.dictionaryIcon(),
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         
@@ -60,12 +60,12 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.training,
-            image: .trainingIcon,
+            title: R.string.localizable.tabBarTraining(),
+            image: R.image.trainingIcon(),
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         
@@ -82,12 +82,12 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.video,
-            image: .videoIcon,
+            title: R.string.localizable.tabBarVideo(),
+            image: R.image.videoIcon(),
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         

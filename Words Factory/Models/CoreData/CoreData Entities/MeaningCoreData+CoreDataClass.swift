@@ -4,7 +4,7 @@ import CoreData
 
 public class MeaningCoreData: NSManagedObject {
 
-    // MARK: Public methods
+    // MARK: - Public methods
     static func getOrAdd(domainMeaning: Meaning,
                          context: NSManagedObjectContext) -> MeaningCoreData {
         let request = MeaningCoreData.fetchRequest()
@@ -38,7 +38,7 @@ public class MeaningCoreData: NSManagedObject {
                        definitions: domainDefinitions)
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private static func add(domainMeaning: Meaning,
                             context: NSManagedObjectContext) -> MeaningCoreData {
         let meaningCoreData = MeaningCoreData(context: context)

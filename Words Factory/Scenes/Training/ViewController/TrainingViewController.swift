@@ -3,12 +3,12 @@ import SnapKit
 
 class TrainingViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let viewModel: TrainingViewModel
     
     private let topicView = TopicView()
     
-    // MARK: Init
+    // MARK: - Init
     init(viewModel: TrainingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -18,7 +18,7 @@ class TrainingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
@@ -26,7 +26,7 @@ class TrainingViewController: UIViewController {
         setup()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func bindToViewModel() {
         viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
@@ -39,7 +39,7 @@ class TrainingViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         
         view.addSubview(topicView)
     }

@@ -1,42 +1,34 @@
 import UIKit
 
-// MARK: Strings
-private extension Strings {
-    static let defaultTitle = "Oops..."
-    static let defaultMessage = "It seems something went wrong"
-    static let ok = "Ok"
-    static let attributedTitleKey = "attributedTitle"
-    static let attributedMessageKey = "attributedMessage"
-}
-
-// MARK: UIViewController+Alerts
 extension UIViewController {
     
+    // MARK: Public methods
     func showAlert(title: String? = nil, message: String? = nil) {
         let alert = UIAlertController(title: "",
                                       message: "",
                                       preferredStyle: .alert)
         alert.setValuesForKeys([
-            Strings.attributedTitleKey:
+            AttributedKeys.alertTitle:
                 NSAttributedString(
-                    string: title ?? Strings.defaultTitle,
+                    string: title ?? R.string.localizable.alertTitle(),
                     attributes: [
-                        .font: UIFont.heading4,
-                        .foregroundColor: UIColor.dark ?? .black
+                        .font: UIFont.heading4 ?? UIFont.systemLarge,
+                        .foregroundColor: R.color.black() ?? .black
                        ]),
-            Strings.attributedMessageKey:
+            AttributedKeys.alertMessage:
                 NSAttributedString(
-                    string: message ?? Strings.defaultMessage,
+                    string: message ?? R.string.localizable.alertMessage(),
                     attributes: [
-                        .font: UIFont.paragraphLarge,
-                        .foregroundColor: UIColor.darkGray ?? .systemGray4
+                        .font: UIFont.paragraphLarge ?? UIFont.systemMedium,
+                        .foregroundColor: R.color.darkGray() ?? .systemGray4
                        ])
         ])
         
-        let okAction = UIAlertAction(title: Strings.ok,
-                                     style: .default,
-                                     handler: nil)
-        alert.view.tintColor = .primary
+        let okAction = UIAlertAction(
+            title: R.string.localizable.alertButtonTitle(),
+            style: .default,
+            handler: nil)
+        alert.view.tintColor = R.color.orange()
         alert.addAction(okAction)
         
         present(alert, animated: true)

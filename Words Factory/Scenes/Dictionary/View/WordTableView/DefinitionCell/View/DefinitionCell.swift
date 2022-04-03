@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let cellBottomMargin: CGFloat = 10
     static let cellCornerRadius: CGFloat = 16
@@ -9,13 +9,13 @@ private extension Dimensions {
 
 class DefinitionCell: UITableViewCell {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let definitionContentView = UIView()
     private let definitionStackView = UIStackView()
     private let definitionLabel = UILabel()
     private let exampleLabel = UILabel()
 
-    // MARK: Init
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
@@ -25,7 +25,7 @@ class DefinitionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func configure(with viewModel: DefinitionCellViewModel) {
         viewModel.didSetupDefinition = { [weak self] in
             self?.definitionLabel.text = viewModel.definition
@@ -39,7 +39,7 @@ class DefinitionCell: UITableViewCell {
         viewModel.setupDefinition()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func setup() {
         setupCell()
         setupDefinitionContentView()
@@ -59,7 +59,7 @@ class DefinitionCell: UITableViewCell {
     
     private func setupDefinitionContentView() {
         definitionContentView.layer.cornerRadius = Dimensions.cellCornerRadius
-        definitionContentView.layer.borderColor = UIColor.gray?.cgColor
+        definitionContentView.layer.borderColor = R.color.gray()?.cgColor
         definitionContentView.layer.borderWidth = Dimensions.smallBorderWidth
         
         definitionContentView.snp.makeConstraints { make in
@@ -82,13 +82,13 @@ class DefinitionCell: UITableViewCell {
     }
     
     private func setupDefinitionLabel() {
-        definitionLabel.textColor = .dark
+        definitionLabel.textColor = R.color.black()
         definitionLabel.font = .paragraphMedium
         definitionLabel.numberOfLines = 0
     }
     
     private func setupExampleLabel() {
-        exampleLabel.textColor = .dark
+        exampleLabel.textColor = R.color.black()
         exampleLabel.font = .paragraphMedium
         exampleLabel.numberOfLines = 0
     }

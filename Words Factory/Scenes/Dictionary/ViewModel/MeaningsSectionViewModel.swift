@@ -2,7 +2,7 @@ import Foundation
 
 class MeaningsSectionViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     let meaningsHeaderViewModel: MeaningsHeaderViewModel
     
     var rowsNumber: Int {
@@ -11,7 +11,7 @@ class MeaningsSectionViewModel {
     
     private let definitionCellViewModels: [DefinitionCellViewModel]
     
-    // MARK: Init
+    // MARK: - Init
     init(meaning: Meaning) {
         meaningsHeaderViewModel = MeaningsHeaderViewModel(
             speechPart: meaning.speechPart)

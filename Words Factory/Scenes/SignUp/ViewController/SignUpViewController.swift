@@ -2,14 +2,7 @@ import UIKit
 import SnapKit
 import TPKeyboardAvoidingSwift
 
-// MARK: Strings
-private extension Strings {
-    static let namePlaceholder = "Name"
-    static let emailPlaceholder = "E-mail"
-    static let passwordPlaceholder = "Password"
-}
-
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let topScreenMargin: CGFloat = 58
     static let bottomScreenMaxMargin: CGFloat = 67
@@ -17,7 +10,7 @@ private extension Dimensions {
 
 class SignUpViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let viewModel: SignUpViewModel
     
     private let scrollView = TPKeyboardAvoidingScrollView()
@@ -28,7 +21,7 @@ class SignUpViewController: UIViewController {
     private let passwordTextField = PasswordTextField()
     private let signUpButton = StandartButton()
     
-    // MARK: Init
+    // MARK: - Init
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +31,7 @@ class SignUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
@@ -46,7 +39,7 @@ class SignUpViewController: UIViewController {
         setup()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func bindToViewModel() {
         viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
@@ -69,7 +62,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         
         view.addSubview(scrollView)
         scrollView.addSubview(topicView)
@@ -114,7 +107,7 @@ class SignUpViewController: UIViewController {
     
     private func setupNameTextField() {
         nameTextField.textContentType = .name
-        nameTextField.setPlaceholder(Strings.namePlaceholder)
+        nameTextField.setPlaceholder(R.string.signUp.namePlaceholder())
         
         nameTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
@@ -125,7 +118,7 @@ class SignUpViewController: UIViewController {
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
         emailTextField.textContentType = .emailAddress
-        emailTextField.setPlaceholder(Strings.emailPlaceholder)
+        emailTextField.setPlaceholder(R.string.signUp.emailPlaceholder())
         
         emailTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
@@ -133,27 +126,27 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupPasswordTextField() {
-        passwordTextField.setPlaceholder(Strings.passwordPlaceholder)
+        passwordTextField.setPlaceholder(R.string.signUp.passwordPlaceholder())
         
         passwordTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupSignUpButton() {
         signUpButton.addTarget(
             self,
             action: #selector(signUp),
             for: .touchUpInside)
-        signUpButton.setTitle(Strings.signUp, for: .normal)
+        signUpButton.setTitle(R.string.signUp.signUp(), for: .normal)
         
         signUpButton.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @objc private func signUp() {
         viewModel.signUp(
             name: nameTextField.text,

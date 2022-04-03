@@ -2,18 +2,18 @@ import Foundation
 
 class WordsDataRepository: WordsRepository {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let remoteDataSource: WordsDataSource
     private let localDataSource: WordsDataSource
     
-    // MARK: Init
+    // MARK: - Init
     init(remoteDataSource: WordsDataSource,
          localDataSource: WordsDataSource) {
         self.remoteDataSource = remoteDataSource
         self.localDataSource = localDataSource
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func get(word: String,
              onSuccess success: @escaping (Word) -> Void,
              onFailure failure: @escaping (Error) -> Void) {

@@ -2,12 +2,7 @@ import UIKit
 import SnapKit
 import TPKeyboardAvoidingSwift
 
-// MARK: Strings
-private extension Strings {
-    static let searchPlaceholder = "Enter a word"
-}
-
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let additionalSafeAreaInsets: CGFloat = -22
     static let tableViewInsets: UIEdgeInsets = UIEdgeInsets(
@@ -19,15 +14,16 @@ private extension Dimensions {
 
 class DictionaryViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let viewModel: DictionaryViewModel
     
-    private let searchTextField = ActionTextField(actionImage: .searchIcon)
+    private let searchTextField = ActionTextField(
+        actionImage: R.image.searchIcon())
     private let wordTableView = TPKeyboardAvoidingTableView()
     private let addToDictionaryButton = StandartButton()
     private let topicView = TopicView()
     
-    // MARK: Init
+    // MARK: - Init
     init(viewModel: DictionaryViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -37,7 +33,7 @@ class DictionaryViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
@@ -45,7 +41,7 @@ class DictionaryViewController: UIViewController {
         setup()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func bindToViewModel() {
         viewModel.didSetupPlaceholderTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
@@ -76,7 +72,7 @@ class DictionaryViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(hideKeyboard)))
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         title = viewModel.title
         additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
@@ -91,7 +87,7 @@ class DictionaryViewController: UIViewController {
         wordTableView.dataSource = self
         wordTableView.keyboardDismissMode = .interactive
         wordTableView.contentInset = Dimensions.tableViewInsets
-        wordTableView.backgroundColor = .appWhite
+        wordTableView.backgroundColor = R.color.white()
         wordTableView.separatorStyle = .none
         wordTableView.isHidden = true
         
@@ -119,7 +115,7 @@ class DictionaryViewController: UIViewController {
     private func setupSearchTextField() {
         searchTextField.delegate = self
         searchTextField.actionTextFieldDelegate = self
-        searchTextField.setPlaceholder(Strings.searchPlaceholder)
+        searchTextField.setPlaceholder(R.string.dictionary.searchPlaceholder())
         
         searchTextField.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -133,7 +129,9 @@ class DictionaryViewController: UIViewController {
             self,
             action: #selector(addToDictionary),
             for: .touchUpInside)
-        addToDictionaryButton.setTitle(Strings.addToDictionary, for: .normal)
+        addToDictionaryButton.setTitle(
+            R.string.dictionary.addToDictionary(),
+            for: .normal)
         addToDictionaryButton.isHidden = true
         
         addToDictionaryButton.snp.makeConstraints { make in
@@ -151,7 +149,7 @@ class DictionaryViewController: UIViewController {
         }
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func togglePlaceholder(isHidden: Bool) {
         topicView.isHidden = isHidden
         wordTableView.isHidden = !isHidden
@@ -223,13 +221,13 @@ class DictionaryViewController: UIViewController {
         return headerCell
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @objc private func addToDictionary() {
         viewModel.addToDictionary()
     }
 }
 
-// MARK: UITableViewDelegate & UITableViewDataSource
+// MARK: - UITableViewDelegate & UITableViewDataSource
 extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSections
@@ -284,7 +282,7 @@ extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource 
     }
 }
 
-// MARK: ActionTextFieldDelegate, UITextFieldDelegate
+// MARK: - ActionTextFieldDelegate, UITextFieldDelegate
 extension DictionaryViewController:
     ActionTextFieldDelegate, UITextFieldDelegate {
     func actionTextFieldDidTapAction(_ textField: ActionTextField) {

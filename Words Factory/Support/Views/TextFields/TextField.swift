@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let alphaOffset: CGFloat = 0.25
     static let cornerRadius: CGFloat = 12
@@ -13,7 +13,7 @@ private extension Dimensions {
 
 class TextField: UITextField {
     
-    // MARK: Init
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         setup()
@@ -23,7 +23,7 @@ class TextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Overrided methods
+    // MARK: - Overrided methods
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: Dimensions.textPadding)
     }
@@ -36,12 +36,12 @@ class TextField: UITextField {
         bounds.inset(by: Dimensions.textPadding)
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setPlaceholder(_ text: String, withAlpha alpha: CGFloat = 1) {
         attributedPlaceholder = NSAttributedString(
             string: text,
             attributes: [
-                .foregroundColor: (UIColor.darkGray ?? .systemGray3)
+                .foregroundColor: (R.color.darkGray() ?? .systemGray3)
                 .withAlphaComponent(alpha)
             ])
     }
@@ -63,12 +63,12 @@ class TextField: UITextField {
             withAlpha: relativeHeight - 2 * Dimensions.alphaOffset)
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setup() {
         autocorrectionType = .no
         font = .paragraphMedium
-        textColor = .dark
-        layer.borderColor = UIColor.gray?.cgColor
+        textColor = R.color.black()
+        layer.borderColor = R.color.gray()?.cgColor
         layer.borderWidth = Dimensions.smallBorderWidth
         layer.cornerRadius = Dimensions.cornerRadius
         layer.masksToBounds = true

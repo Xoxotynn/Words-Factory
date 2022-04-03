@@ -1,19 +1,13 @@
 import UIKit
 
-// MARK: Images
-private extension UIImage {
-    static let selectedDotIcon = UIImage(named: "SelectedDotIcon")
-    static let dotIcon = UIImage(named: "DotIcon")
-}
-
-// MARK: PageControlDelegate
+// MARK: - PageControlDelegate
 protocol PageControlDelegate: AnyObject {
     func pageControl(selectedPageAt page: Int)
 }
 
 class PageControl: UIPageControl {
     
-    // MARK: Properties
+    // MARK: - Properties
     override var numberOfPages: Int {
         didSet {
             setupDots()
@@ -29,11 +23,11 @@ class PageControl: UIPageControl {
     
     weak var delegate: PageControlDelegate?
     
-    // MARK: Init
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         pageIndicatorTintColor = .gray
-        currentPageIndicatorTintColor = .secondary
+        currentPageIndicatorTintColor = R.color.lightBlue()
         if #available(iOS 14.0, *) {
             allowsContinuousInteraction = false
         }
@@ -49,7 +43,7 @@ class PageControl: UIPageControl {
         setupDots()
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupDots() {
         let dots = getDots()
         
@@ -59,7 +53,7 @@ class PageControl: UIPageControl {
             if let existingImageView = getImageView(forSubview: dot) {
                 dotImageView = existingImageView
             } else {
-                dotImageView = UIImageView(image: .dotIcon)
+                dotImageView = UIImageView(image: R.image.dotIcon())
                 dotImageView.center = dot.center
                 dot.addSubview(dotImageView)
                 dot.clipsToBounds = false
@@ -67,10 +61,10 @@ class PageControl: UIPageControl {
             
             if currentPage == index {
                 UIView.animate(withDuration: 0.2) {
-                    dotImageView.image = .selectedDotIcon
+                    dotImageView.image = R.image.selectedDotIcon()
                 }
             } else {
-                dotImageView.image = .dotIcon
+                dotImageView.image = R.image.dotIcon()
             }
         }
     }

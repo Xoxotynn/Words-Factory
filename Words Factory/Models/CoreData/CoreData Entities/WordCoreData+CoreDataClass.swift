@@ -4,7 +4,7 @@ import CoreData
 
 public class WordCoreData: NSManagedObject {
 
-    // MARK: Public methods
+    // MARK: - Public methods
     static func get(word: String,
                     context: NSManagedObjectContext) -> WordCoreData? {
         let request = WordCoreData.fetchRequest()
@@ -39,7 +39,7 @@ public class WordCoreData: NSManagedObject {
                     meanings: meaningsDomain)
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private static func add(domainWord: Word,
                             context: NSManagedObjectContext) -> WordCoreData {
         let wordCoreData = WordCoreData(context: context)

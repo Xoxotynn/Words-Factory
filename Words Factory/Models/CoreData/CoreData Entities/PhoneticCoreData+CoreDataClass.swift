@@ -4,7 +4,7 @@ import CoreData
 
 public class PhoneticCoreData: NSManagedObject {
 
-    // MARK: Public methods
+    // MARK: - Public methods
     static func getOrAdd(domainPhonetic: Phonetic,
                          context: NSManagedObjectContext) -> PhoneticCoreData {
         let request = PhoneticCoreData.fetchRequest()
@@ -31,7 +31,7 @@ public class PhoneticCoreData: NSManagedObject {
                  audio: audio ?? "")
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private static func add(domainPhonetic: Phonetic,
                             context: NSManagedObjectContext) -> PhoneticCoreData {
         let phoneticCoreData = PhoneticCoreData(context: context)

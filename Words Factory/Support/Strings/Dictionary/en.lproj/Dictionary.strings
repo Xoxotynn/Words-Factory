@@ -1,0 +1,10 @@
+"noWord.title" = "No word";
+"noWord.subtitle" = "Input something to find it in dictionary";
+
+"search.placeholder" = "Enter a word";
+"addToDictionary" = "Add to Dictionary";
+
+"speechPart.header" = "Part of Speech:";
+"meanings.header" = "Meanings:";
+
+"example.prefix" = "Example: ";
