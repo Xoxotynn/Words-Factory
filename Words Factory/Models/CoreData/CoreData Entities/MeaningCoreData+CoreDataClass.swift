@@ -9,7 +9,7 @@ public class MeaningCoreData: NSManagedObject {
                          context: NSManagedObjectContext) -> MeaningCoreData {
         let request = MeaningCoreData.fetchRequest()
         let speechPartPredicate = NSPredicate(
-            format: "speechPart == \"\(domainMeaning.speechPart)\"")
+            format: "%K == %@", "speechPart", domainMeaning.speechPart)
         request.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [
                 speechPartPredicate

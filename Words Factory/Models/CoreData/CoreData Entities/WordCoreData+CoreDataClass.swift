@@ -8,7 +8,7 @@ public class WordCoreData: NSManagedObject {
     static func get(word: String,
                     context: NSManagedObjectContext) -> WordCoreData? {
         let request = WordCoreData.fetchRequest()
-        request.predicate = NSPredicate(format: "word == \"\(word)\"")
+        request.predicate = NSPredicate(format: "%K == %@", "word", word)
         return try? context.fetch(request).first
     }
     
@@ -16,7 +16,7 @@ public class WordCoreData: NSManagedObject {
                             context: NSManagedObjectContext) -> WordCoreData {
         let request = WordCoreData.fetchRequest()
         request.predicate = NSPredicate(
-            format: "word == \"\(domainWord.word)\"")
+            format: "%K == %@", "word", domainWord.word)
         
         guard let wordCoreData = get(word: domainWord.word,
                                      context: context) else {

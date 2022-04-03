@@ -9,9 +9,9 @@ public class PhoneticCoreData: NSManagedObject {
                          context: NSManagedObjectContext) -> PhoneticCoreData {
         let request = PhoneticCoreData.fetchRequest()
         let textPredicate = NSPredicate(
-            format: "text == \"\(domainPhonetic.text)\"")
+            format: "%K == %@", "text", domainPhonetic.text)
         let audioPredicate = NSPredicate(
-            format: "audio == \"\(domainPhonetic.audio)\"")
+            format: "%K == %@", "audio", domainPhonetic.audio)
         request.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [
                 textPredicate,

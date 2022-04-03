@@ -10,9 +10,9 @@ public class DefinitionCoreData: NSManagedObject {
     -> DefinitionCoreData {
         let request = DefinitionCoreData.fetchRequest()
         let definitionPredicate = NSPredicate(
-            format: "definition == \"\(domainDefinition.definition)\"")
+            format: "%K == %@", "definition", domainDefinition.definition)
         let examplePredicate = NSPredicate(
-            format: "example == \"\(domainDefinition.example)\"")
+            format: "%K == %@", "example", domainDefinition.example)
         request.predicate = NSCompoundPredicate(
             andPredicateWithSubpredicates: [
                 definitionPredicate,
