@@ -21,14 +21,14 @@ extension UIViewController {
                 NSAttributedString(
                     string: title ?? Strings.defaultTitle,
                     attributes: [
-                        .font: UIFont.heading4,
+                        .font: UIFont.heading4 ?? UIFont.systemLarge,
                         .foregroundColor: UIColor.dark ?? .black
                        ]),
             Strings.attributedMessageKey:
                 NSAttributedString(
                     string: message ?? Strings.defaultMessage,
                     attributes: [
-                        .font: UIFont.paragraphLarge,
+                        .font: UIFont.paragraphLarge ?? UIFont.systemMedium,
                         .foregroundColor: UIColor.darkGray ?? .systemGray4
                        ])
         ])

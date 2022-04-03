@@ -43,7 +43,7 @@ class TabBarCoordinator: Coordinator {
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         
@@ -65,7 +65,7 @@ class TabBarCoordinator: Coordinator {
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         
@@ -87,7 +87,7 @@ class TabBarCoordinator: Coordinator {
             selectedImage: nil)
         
         item.setTitleTextAttributes(
-            [.font: UIFont.paragraphMedium],
+            [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
         navController.tabBarItem = item
         
