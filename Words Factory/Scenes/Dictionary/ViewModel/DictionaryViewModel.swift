@@ -150,6 +150,8 @@ class DictionaryViewModel {
     private func updateLoadedWord(_ word: Word?) {
         clearWord()
         guard let word = word else {
+            didHidePlaceholder?(false)
+            didUpdateWord?()
             return
         }
 
