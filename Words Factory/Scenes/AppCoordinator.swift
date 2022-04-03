@@ -16,7 +16,8 @@ class AppCoordinator: Coordinator {
         dependencies = Dependencies(
             wordsRepository: WordsDataRepository(
                 remoteDataSource: NetworkService(),
-                localDataSource: CoreDataService()))
+                localDataSource: CoreDataService()),
+            audioService: AudioService())
         childCoordinators = []
         rootNavigationController = UINavigationController()
         rootNavigationController.isNavigationBarHidden = true

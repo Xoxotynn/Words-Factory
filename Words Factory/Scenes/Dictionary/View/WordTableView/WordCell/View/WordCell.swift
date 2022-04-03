@@ -35,6 +35,9 @@ class WordCell: UITableViewCell {
     // MARK: Private setup methods
     private func setup() {
         selectionStyle = .none
+        addGestureRecognizer(
+            UITapGestureRecognizer(target: self,
+                                   action: #selector(playAudio)))
         
         addSubview(wordLabel)
         addSubview(phoneticsStackView)
@@ -84,5 +87,10 @@ class WordCell: UITableViewCell {
     func updateWord() {
         wordLabel.text = viewModel?.word
         phoneticsLabel.text = viewModel?.phoneticText
+    }
+    
+    // MARK: - Actions
+    @objc private func playAudio() {
+        viewModel?.playAudio()
     }
 }

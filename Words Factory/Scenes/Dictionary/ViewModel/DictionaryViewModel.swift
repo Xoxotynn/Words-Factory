@@ -31,19 +31,23 @@ class DictionaryViewModel {
     var didRecieveError: ((Error) -> Void)?
     
     private let wordsRepository: WordsRepository
-    private let topicViewModel = TopicViewModel(
-        topic: TopicInfo(
-            image: .standingKid ?? UIImage(),
-            title: Strings.noWordTitle,
-            subtitle: Strings.noWordSubtitle))
+    private let audioService: AudioService
+    private let topicViewModel: TopicViewModel
     
     private var wordCellViewModel: WordCellViewModel?
     private var meaningsSectionViewModels: [MeaningsSectionViewModel]
     private var word: Word?
     
     // MARK: Init
-    init(wordsRepository: WordsRepository) {
+    init(wordsRepository: WordsRepository,
+         audioService: AudioService) {
         self.wordsRepository = wordsRepository
+        self.audioService = audioService
+        topicViewModel = TopicViewModel(
+            topic: TopicInfo(
+                image: .standingKid ?? UIImage(),
+                title: Strings.noWordTitle,
+                subtitle: Strings.noWordSubtitle))
         meaningsSectionViewModels = []
     }
     
@@ -159,6 +163,7 @@ class DictionaryViewModel {
         wordCellViewModel = WordCellViewModel(
             word: word.word,
             phonetic: word.phonetic)
+        wordCellViewModel?.delegate = self
         
         meaningsSectionViewModels = word.meanings
             .map { MeaningsSectionViewModel(meaning: $0 ) }
@@ -171,5 +176,12 @@ class DictionaryViewModel {
         word = nil
         wordCellViewModel = nil
         meaningsSectionViewModels = []
+    }
+}
+
+// MARK: - WordCellViewModelDelegate
+extension DictionaryViewModel: WordCellViewModelDelegate {
+    func didPlayAudio(withUrl audio: String) {
+        audioService.playSound(audio: audio)
     }
 }

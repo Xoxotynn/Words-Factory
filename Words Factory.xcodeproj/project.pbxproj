@@ -27,6 +27,7 @@
 		A91F54F027F95D4A00D0DB85 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54EF27F95D4A00D0DB85 /* CoreDataService.swift */; };
 		A91F54F227F95EA700D0DB85 /* WordsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F127F95EA700D0DB85 /* WordsRepository.swift */; };
 		A91F54F427F95F1D00D0DB85 /* WordsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */; };
+		A91F54F827F987DD00D0DB85 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F727F987DD00D0DB85 /* AudioService.swift */; };
 		A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148A27F00AA400299004 /* AppDelegate.swift */; };
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
@@ -111,6 +112,7 @@
 		A91F54EF27F95D4A00D0DB85 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A91F54F127F95EA700D0DB85 /* WordsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsRepository.swift; sourceTree = "<group>"; };
 		A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataRepository.swift; sourceTree = "<group>"; };
+		A91F54F727F987DD00D0DB85 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		A93C148727F00AA400299004 /* Words Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Words Factory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C148A27F00AA400299004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93C148C27F00AA400299004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			children = (
 				A91F54EA27F95BD700D0DB85 /* Data */,
 				A9500E6127F50977001D50B4 /* Validator.swift */,
+				A91F54F727F987DD00D0DB85 /* AudioService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				A9B247AB27F69A7A00FCE45A /* VideoViewController.swift in Sources */,
 				A9B247CA27F8EAC300FCE45A /* ReuseIdentifiers.swift in Sources */,
 				A9B2479927F6989400FCE45A /* TrainingCoordinator.swift in Sources */,
+				A91F54F827F987DD00D0DB85 /* AudioService.swift in Sources */,
 				A966879627F2166400B320B3 /* PageControl.swift in Sources */,
 				A9B247A727F69A4F00FCE45A /* TrainingViewController.swift in Sources */,
 				A9500E6927F64B20001D50B4 /* ActionTextField.swift in Sources */,
