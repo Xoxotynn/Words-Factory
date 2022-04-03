@@ -18,8 +18,8 @@ class NetworkService {
             switch response.result {
             case .success(let data):
                 let decoder = JSONDecoder()
-                if let words = try? decoder.decode([Word].self, from: data),
-                   let word = Word.reduce(contentsOf: words) {
+                if let words = try? decoder.decode([WordDTO].self, from: data),
+                   let word = WordDTO.toDomainModel(contentsOf: words) {
                     success(word)
                 } else {
                     failure(NetworkError.unexpected)

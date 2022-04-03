@@ -1,6 +1,6 @@
 import Foundation
 
-struct Meaning: Codable {
-    let partOfSpeech: String
+struct Meaning {
+    let speechPart: String
     let definitions: [Definition]
 }

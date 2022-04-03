@@ -10,37 +10,31 @@ class DefinitionCellViewModel {
     
     // MARK: Properties
     let definition: String
-    let attributedExample: NSMutableAttributedString?
+    lazy var attributedExample: NSMutableAttributedString = {
+        NSMutableAttributedString(string: Strings.example + example)
+    }()
     
     var didSetupDefinition: (() -> Void)?
     var didSetupExample: ((Bool) -> Void)?
     
-    private let example: String?
+    private let example: String
     
     // MARK: Init
     init(definition: Definition) {
         self.definition = definition.definition
-        if let example = definition.example {
-            self.example = Strings.example + example
-            attributedExample = NSMutableAttributedString(
-                string: Strings.example + example)
-        } else {
-            self.example = nil
-            attributedExample = nil
-        }
+        self.example = definition.example
     }
     
     // MARK: Public methods
     func setupDefinition() {
         didSetupDefinition?()
-        guard let example = example,
-              let attributedExample = attributedExample,
-              !example.isEmpty else {
-            didSetupExample?(true)
+        guard !example.isEmpty else {
+            didSetupExample?(false)
             return
         }
         
-        let range = (example as NSString).range(of: Strings.example)
+        let exampleText = NSString(string: Strings.example + example)
+        let range = exampleText.range(of: Strings.example)
         if range.length > 0 {
             attributedExample.addAttribute(
                 .foregroundColor,
@@ -48,6 +42,6 @@ class DefinitionCellViewModel {
                 range: range)
         }
         
-        didSetupExample?(false)
+        didSetupExample?(true)
     }
 }

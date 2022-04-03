@@ -12,7 +12,7 @@ class WordCellViewModel {
     
     // MARK: Init
     init(word: String, phonetic: Phonetic) {
-        self.word = word.capitalized
+        self.word = word
         self.phonetic = phonetic
         phoneticText = phonetic.text
     }

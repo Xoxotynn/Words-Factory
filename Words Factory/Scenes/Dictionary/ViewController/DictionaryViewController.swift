@@ -132,6 +132,7 @@ class DictionaryViewController: UIViewController {
     }
     
     private func updateWord() {
+        hideKeyboard()
         title = viewModel.title
         wordTableView.reloadData()
     }

@@ -16,7 +16,7 @@ class DictionaryViewModel {
     // MARK: Properties
     var title: String {
         if let word = word?.word {
-            return word.capitalized
+            return word
         }
         return Strings.appTitle
     }
@@ -144,15 +144,13 @@ class DictionaryViewModel {
         }
 
         self.word = word
-        guard let phonetic = word.phonetics.first else {
-            return
-        }
+        wordCellViewModel = WordCellViewModel(
+            word: word.word,
+            phonetic: word.phonetic)
         
-        wordCellViewModel = WordCellViewModel(word: word.word,
-                                              phonetic: phonetic)
         word.meanings.forEach { meaning in
             meaningsHeaderViewModels.append(
-                MeaningsHeaderViewModel(speechPart: meaning.partOfSpeech))
+                MeaningsHeaderViewModel(speechPart: meaning.speechPart))
             definitionCellViewModels.append(
                 meaning.definitions.map { definition in
                     DefinitionCellViewModel(definition: definition)
