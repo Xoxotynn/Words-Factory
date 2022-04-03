@@ -24,7 +24,7 @@
 		A91F54E827F9573F00D0DB85 /* MeaningCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54E027F9573F00D0DB85 /* MeaningCoreData+CoreDataClass.swift */; };
 		A91F54E927F9573F00D0DB85 /* MeaningCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54E127F9573F00D0DB85 /* MeaningCoreData+CoreDataProperties.swift */; };
 		A91F54ED27F95C1400D0DB85 /* WordsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54EC27F95C1400D0DB85 /* WordsDataSource.swift */; };
-		A91F54F027F95D4A00D0DB85 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54EF27F95D4A00D0DB85 /* DatabaseService.swift */; };
+		A91F54F027F95D4A00D0DB85 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54EF27F95D4A00D0DB85 /* CoreDataService.swift */; };
 		A91F54F227F95EA700D0DB85 /* WordsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F127F95EA700D0DB85 /* WordsRepository.swift */; };
 		A91F54F427F95F1D00D0DB85 /* WordsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */; };
 		A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148A27F00AA400299004 /* AppDelegate.swift */; };
@@ -108,7 +108,7 @@
 		A91F54E027F9573F00D0DB85 /* MeaningCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeaningCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A91F54E127F9573F00D0DB85 /* MeaningCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeaningCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A91F54EC27F95C1400D0DB85 /* WordsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataSource.swift; sourceTree = "<group>"; };
-		A91F54EF27F95D4A00D0DB85 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		A91F54EF27F95D4A00D0DB85 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A91F54F127F95EA700D0DB85 /* WordsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsRepository.swift; sourceTree = "<group>"; };
 		A91F54F327F95F1D00D0DB85 /* WordsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDataRepository.swift; sourceTree = "<group>"; };
 		A93C148727F00AA400299004 /* Words Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Words Factory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				A91F54EC27F95C1400D0DB85 /* WordsDataSource.swift */,
-				A91F54EF27F95D4A00D0DB85 /* DatabaseService.swift */,
+				A91F54EF27F95D4A00D0DB85 /* CoreDataService.swift */,
 				A966878227F1288800B320B3 /* NetworkService.swift */,
 			);
 			path = DataSource;
@@ -906,7 +906,7 @@
 				A91F54E327F9573F00D0DB85 /* DefinitionCoreData+CoreDataProperties.swift in Sources */,
 				A96687A327F2ADF800B320B3 /* SignUpViewController.swift in Sources */,
 				A966877427F10A2200B320B3 /* Dimensions.swift in Sources */,
-				A91F54F027F95D4A00D0DB85 /* DatabaseService.swift in Sources */,
+				A91F54F027F95D4A00D0DB85 /* CoreDataService.swift in Sources */,
 				A91F54E227F9573F00D0DB85 /* DefinitionCoreData+CoreDataClass.swift in Sources */,
 				A91F54E427F9573F00D0DB85 /* WordCoreData+CoreDataClass.swift in Sources */,
 				A9B2479027F6916900FCE45A /* TabBarController.swift in Sources */,

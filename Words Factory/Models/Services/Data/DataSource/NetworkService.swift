@@ -7,9 +7,9 @@ class NetworkService: WordsDataSource {
     private let baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
     
     // MARK: Public word methods
-    func getWord(word: String,
-                 onSuccess success: @escaping (_ word: Word) -> Void,
-                 onFailure failure: @escaping (_ error: Error) -> Void) {
+    func get(word: String,
+             onSuccess success: @escaping (_ word: Word) -> Void,
+             onFailure failure: @escaping (_ error: Error) -> Void) {
         AF.request(
             baseUrl + word,
             method: .get,
@@ -35,4 +35,8 @@ class NetworkService: WordsDataSource {
             }
         }
     }
+    
+    func add(domainWord: Word,
+             onSuccess success: @escaping (_ word: Word) -> Void,
+             onFailure failure: @escaping (_ error: Error) -> Void) { }
 }

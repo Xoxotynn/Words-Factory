@@ -63,7 +63,18 @@ class DictionaryViewModel {
     }
     
     func addToDictionary() {
-        
+        guard let word = word else {
+            didRecieveError?(NetworkError.unexpected)
+            return
+        }
+
+        wordsRepository.add(domainWord: word)
+        { word in
+            
+        } onFailure: { [weak self] error in
+            self?.didRecieveError?(error)
+        }
+
     }
     
     func getRowsNumber(inSection section: Int) -> Int {
@@ -130,7 +141,7 @@ class DictionaryViewModel {
  
     // MARK: Private methods
     private func loadWord(_ word: String) {
-        wordsRepository.getWord(word: word)
+        wordsRepository.get(word: word)
         { [weak self] word in
             self?.updateLoadedWord(word)
         } onFailure: { [weak self] error in
