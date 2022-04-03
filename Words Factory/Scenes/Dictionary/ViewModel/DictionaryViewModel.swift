@@ -130,7 +130,7 @@ class DictionaryViewModel {
  
     // MARK: Private methods
     private func loadWord(_ word: String) {
-        networkService.wordRequest(word: word)
+        networkService.getWord(word: word)
         { [weak self] word in
             self?.updateLoadedWord(word)
         } onFailure: { [weak self] error in

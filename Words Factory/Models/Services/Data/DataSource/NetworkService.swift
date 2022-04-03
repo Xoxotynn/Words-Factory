@@ -1,14 +1,15 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
+class NetworkService: WordsDataSource {
     
+    // MARK: Properties
     private let baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
     
     // MARK: Public word methods
-    func wordRequest(word: String,
-                     onSuccess success: @escaping (_ word: Word) -> Void,
-                     onFailure failure: @escaping (_ error: Error) -> Void) {
+    func getWord(word: String,
+                 onSuccess success: @escaping (_ word: Word) -> Void,
+                 onFailure failure: @escaping (_ error: Error) -> Void) {
         AF.request(
             baseUrl + word,
             method: .get,
