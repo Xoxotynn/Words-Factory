@@ -1,6 +1,8 @@
 import Foundation
 
 enum Strings {
+    static let appTitle = "Words Factory"
+    
     // MARK: Button titles
     static let signUp = "Sign Up"
     static let addToDictionary = "Add to Dictionary"

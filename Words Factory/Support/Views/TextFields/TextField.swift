@@ -2,6 +2,7 @@ import UIKit
 
 // MARK: Dimensions
 private extension Dimensions {
+    static let alphaOffset: CGFloat = 0.25
     static let cornerRadius: CGFloat = 12
     static let textPadding: UIEdgeInsets = UIEdgeInsets(
         top: Dimensions.standart,
@@ -36,12 +37,30 @@ class TextField: UITextField {
     }
     
     // MARK: Public methods
-    func setPlaceholder(_ text: String) {
+    func setPlaceholder(_ text: String, withAlpha alpha: CGFloat = 1) {
         attributedPlaceholder = NSAttributedString(
             string: text,
             attributes: [
-                .foregroundColor: UIColor.darkGray ?? .systemGray3
+                .foregroundColor: (UIColor.darkGray ?? .systemGray3)
+                .withAlphaComponent(alpha)
             ])
+    }
+    
+    func updateContent(forChangedHeight height: CGFloat) {
+        let relativeHeight = height / Dimensions.standartHeight
+        isHidden = relativeHeight < 0.5
+        isEnabled = height == Dimensions.standartHeight
+        layer.cornerRadius = relativeHeight * Dimensions.cornerRadius
+        if height == Dimensions.standartHeight {
+            alpha = 1
+            setPlaceholder(placeholder ?? "", withAlpha: 1)
+            return
+        }
+        
+        alpha = relativeHeight - Dimensions.alphaOffset
+        setPlaceholder(
+            placeholder ?? "",
+            withAlpha: relativeHeight - 2 * Dimensions.alphaOffset)
     }
     
     // MARK: Private methods

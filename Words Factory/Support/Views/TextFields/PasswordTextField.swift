@@ -8,7 +8,7 @@ private extension UIImage {
 
 // MARK: PasswordTextFieldDelegate
 protocol PasswordTextFieldDelegate: AnyObject {
-    func passwordTextFieldDidToggleVisibility(_ sender: PasswordTextField)
+    func passwordTextFieldDidToggleVisibility(_ textField: PasswordTextField)
 }
 
 class PasswordTextField: ActionTextField {
