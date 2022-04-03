@@ -123,6 +123,8 @@ class OnboardingViewController: UIViewController {
             for: .touchUpInside)
         
         nextButton.snp.makeConstraints { make in
+            make.top.equalTo(pageControl.snp.bottom)
+                .offset(Dimensions.pageControlBottomMargin)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
                 .inset(Dimensions.standart)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
