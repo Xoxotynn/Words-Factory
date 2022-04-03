@@ -18,7 +18,8 @@ class DictionaryViewModel {
         (word?.meanings.count ?? -1) + 1
     }
     
-    var didSetupTopicInfo: ((TopicViewModel) -> Void)?
+    var didSetupPlaceholderTopicInfo: ((TopicViewModel) -> Void)?
+    var didHidePlaceholder: ((Bool) -> Void)?
     var didUpdateWord: (() -> Void)?
     var didRecieveError: ((Error) -> Void)?
     
@@ -43,7 +44,7 @@ class DictionaryViewModel {
     
     // MARK: Public methods
     func setupTopic() {
-        didSetupTopicInfo?(topicViewModel)
+        didSetupPlaceholderTopicInfo?(topicViewModel)
     }
     
     func getWordCellViewModel() throws -> WordCellViewModel {
@@ -130,12 +131,8 @@ class DictionaryViewModel {
     }
     
     private func updateLoadedWord(_ word: Word?) {
+        clearWord()
         guard let word = word else {
-            self.word = nil
-            wordCellViewModel = nil
-            meaningsHeaderViewModels = []
-            definitionCellViewModels = []
-            didUpdateWord?()
             return
         }
 
@@ -155,6 +152,14 @@ class DictionaryViewModel {
                 })
         }
         
+        didHidePlaceholder?(true)
         didUpdateWord?()
+    }
+    
+    private func clearWord() {
+        word = nil
+        wordCellViewModel = nil
+        meaningsHeaderViewModels = []
+        definitionCellViewModels = []
     }
 }

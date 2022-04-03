@@ -41,12 +41,15 @@ class DictionaryViewController: UIViewController {
     
     // MARK: Private setup methods
     private func bindToViewModel() {
-        viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
+        viewModel.didSetupPlaceholderTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
         }
         
+        viewModel.didHidePlaceholder = { [weak self] hidden in
+            self?.togglePlaceholder(isHidden: hidden)
+        }
+        
         viewModel.didUpdateWord = { [weak self] in
-            self?.togglePlaceholder(isHidden: true)
             self?.wordTableView.reloadData()
         }
         
@@ -124,10 +127,11 @@ class DictionaryViewController: UIViewController {
         wordTableView.isHidden = !isHidden
     }
     
-    private func dequeueWordCell(_ tableView: UITableView, )
+    private func dequeueWordCell(_ tableView: UITableView,
+                                 forRowAt indexPath: IndexPath)
     -> UITableViewCell {
         guard let wordCell = tableView.dequeueReusableCell(
-            withIdentifier: identifier,
+            withIdentifier: ReuseIdentifiers.wordCellId,
             for: indexPath) as? WordCell else {
                 return UITableViewCell()
         }
@@ -138,6 +142,48 @@ class DictionaryViewController: UIViewController {
         } catch {
             showError(error)
         }
+        
+        return wordCell
+    }
+    
+    private func dequeueDefinitionCell(_ tableView: UITableView,
+                                       forRowAt indexPath: IndexPath)
+    -> UITableViewCell {
+        guard let definitionCell = tableView.dequeueReusableCell(
+            withIdentifier: ReuseIdentifiers.definitionCellId,
+            for: indexPath) as? DefinitionCell else {
+                return UITableViewCell()
+        }
+        
+        do {
+            try definitionCell.configure(
+                with: viewModel.getDefinitionCellViewModel(
+                    forRow: indexPath.row,
+                    inSection: indexPath.section))
+        } catch {
+            showError(error)
+        }
+        
+        return definitionCell
+    }
+    
+    func dequeueMeaningsHeader(_ tableView: UITableView,
+                               inSection section: Int) -> UIView? {
+        guard let headerCell = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: ReuseIdentifiers.meaningsHeaderId)
+                as? MeaningsHeader else {
+            return nil
+        }
+        
+        do {
+            try headerCell.configure(
+                with: viewModel.getMeaningsHeaderViewModel(
+                    inSection: section))
+        } catch {
+            showError(error)
+        }
+        
+        return headerCell
     }
 }
 
@@ -160,60 +206,18 @@ extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource 
             
             switch identifier {
             case ReuseIdentifiers.wordCellId:
-                guard let wordCell = tableView.dequeueReusableCell(
-                    withIdentifier: identifier,
-                    for: indexPath) as? WordCell else {
-                        return UITableViewCell()
-                }
-                
-                do {
-                    try wordCell.configure(
-                        with: viewModel.getWordCellViewModel())
-                } catch {
-                    showError(error)
-                }
-                
-                return wordCell
+                return dequeueWordCell(tableView, forRowAt: indexPath)
             default:
-                guard let definitionCell = tableView.dequeueReusableCell(
-                    withIdentifier: identifier,
-                    for: indexPath) as? DefinitionCell else {
-                        return UITableViewCell()
-                }
-                
-                do {
-                    try definitionCell.configure(
-                        with: viewModel.getDefinitionCellViewModel(
-                            forRow: indexPath.row,
-                            inSection: indexPath.section))
-                } catch {
-                    showError(error)
-                }
-                
-                return definitionCell
+                return dequeueDefinitionCell(tableView, forRowAt: indexPath)
             }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let identifier = viewModel.getHeaderReuseIdentifier(inSection: section)
-        guard let identifier = identifier else { return nil }
 
         switch identifier {
         case ReuseIdentifiers.meaningsHeaderId:
-            guard let headerCell = tableView.dequeueReusableHeaderFooterView(
-                withIdentifier: identifier) as? MeaningsHeader else {
-                return nil
-            }
-            
-            do {
-                try headerCell.configure(
-                    with: viewModel.getMeaningsHeaderViewModel(
-                        inSection: section))
-            } catch {
-                showError(error)
-            }
-            
-            return headerCell
+            return dequeueMeaningsHeader(tableView, inSection: section)
         default:
             return nil
         }

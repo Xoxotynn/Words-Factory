@@ -13,9 +13,8 @@ extension Word {
         }
         
         let phonetics = words.flatMap { $0.phonetics }
-        var meanings = firstWord.meanings
+        let meanings = words.flatMap { $0.meanings }
         let speechParts = Set(meanings.map { $0.partOfSpeech })
-        words.forEach { meanings.append(contentsOf: $0.meanings) }
         
         return Word(
             word: firstWord.word,
@@ -36,9 +35,11 @@ extension Word {
         }
     
     private static func reduce(contentsOf phonetics: [Phonetic]) -> Phonetic {
-        let text = phonetics.filter { !($0.text?.isEmpty ?? true) }.first?.text ?? ""
-        let audion = phonetics.filter { !($0.audio?.isEmpty ?? true) }.first?.audio ?? ""
+        let text = phonetics
+            .first(where: { !($0.text?.isEmpty ?? true) })?.text ?? ""
+        let audio = phonetics
+            .first(where: { !($0.audio?.isEmpty ?? true) })?.audio ?? ""
         
-        return Phonetic(text: text, audio: audion)
+        return Phonetic(text: text, audio: audio)
     }
 }

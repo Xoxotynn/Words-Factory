@@ -13,8 +13,7 @@ class DefinitionCellViewModel {
     let attributedExample: NSMutableAttributedString?
     
     var didSetupDefinition: (() -> Void)?
-    var didSetupExample: (() -> Void)?
-    var didNotFoundExample: (() -> Void)?
+    var didSetupExample: ((Bool) -> Void)?
     
     private let example: String?
     
@@ -37,7 +36,7 @@ class DefinitionCellViewModel {
         guard let example = example,
               let attributedExample = attributedExample,
               !example.isEmpty else {
-            didNotFoundExample?()
+            didSetupExample?(true)
             return
         }
         
@@ -49,6 +48,6 @@ class DefinitionCellViewModel {
                 range: range)
         }
         
-        didSetupExample?()
+        didSetupExample?(false)
     }
 }

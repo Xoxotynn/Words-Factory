@@ -31,12 +31,9 @@ class DefinitionCell: UITableViewCell {
             self?.definitionLabel.text = viewModel.definition
         }
         
-        viewModel.didSetupExample = { [weak self] in
+        viewModel.didSetupExample = { [weak self] hidden in
+            self?.exampleLabel.isHidden = hidden
             self?.exampleLabel.attributedText = viewModel.attributedExample
-        }
-        
-        viewModel.didNotFoundExample = { [weak self] in
-            self?.exampleLabel.isHidden = true
         }
         
         viewModel.setupDefinition()
