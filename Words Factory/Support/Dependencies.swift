@@ -1,5 +1,5 @@
 import Foundation
 
 struct Dependencies {
-    let networkService: NetworkService
+    let wordsRepository: WordsRepository
 }

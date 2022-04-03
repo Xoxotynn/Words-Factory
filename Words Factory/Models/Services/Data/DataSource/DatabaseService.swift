@@ -7,7 +7,7 @@ class CoreDataService: WordsDataSource {
     private let context: NSManagedObjectContext
     
     // MARK: Init
-    private init() {
+    init() {
         let container = NSPersistentContainer(name: "WordsDatabase")
         container.loadPersistentStores { _, error in
             if let error = error {
