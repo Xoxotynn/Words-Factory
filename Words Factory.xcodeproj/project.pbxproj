@@ -384,6 +384,31 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		A93C676627F9D19F008C2015 /* OnboardingPageCell */ = {
+			isa = PBXGroup;
+			children = (
+				A93C676827F9D1AE008C2015 /* ViewModel */,
+				A93C676727F9D1A9008C2015 /* View */,
+			);
+			path = OnboardingPageCell;
+			sourceTree = "<group>";
+		};
+		A93C676727F9D1A9008C2015 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A966879727F2169D00B320B3 /* OnboardingPageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A93C676827F9D1AE008C2015 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A966879927F216C200B320B3 /* OnboardingPageCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A948A9A327F4C9AD00FB3658 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,7 +546,6 @@
 			isa = PBXGroup;
 			children = (
 				A966879327F215F100B320B3 /* OnboardingViewModel.swift */,
-				A966879927F216C200B320B3 /* OnboardingPageCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -529,7 +553,7 @@
 		A966878F27F2105500B320B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A966879727F2169D00B320B3 /* OnboardingPageCell.swift */,
+				A93C676627F9D19F008C2015 /* OnboardingPageCell */,
 			);
 			path = View;
 			sourceTree = "<group>";

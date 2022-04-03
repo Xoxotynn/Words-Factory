@@ -3,17 +3,17 @@ import UIKit
 class OnboardingPageCellViewModel {
     
     // MARK: - Properties
-    var didSetupTopicInfo: ((TopicViewModel) -> Void)?
+    var didSetupTopicInfo: ((TopicInfo) -> Void)?
     
-    private let topicViewModel: TopicViewModel
+    private let topic: TopicInfo
     
     // MARK: - Init
     init(topic: TopicInfo) {
-        topicViewModel = TopicViewModel(topic: topic)
+        self.topic = topic
     }
     
     // MARK: - Public methods
     func setupTopicInfo() {
-        didSetupTopicInfo?(topicViewModel)
+        didSetupTopicInfo?(topic)
     }
 }
