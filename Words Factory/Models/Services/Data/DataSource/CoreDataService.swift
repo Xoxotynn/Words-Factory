@@ -4,17 +4,18 @@ import CoreData
 class CoreDataService: WordsDataSource {
     
     // MARK: Properties
-    private let context: NSManagedObjectContext
-    
-    // MARK: Init
-    init() {
+    private static let container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "WordsDatabase")
         container.loadPersistentStores { _, error in
             if let error = error {
                 print(String(describing: error))
             }
         }
-        context = container.viewContext
+        return container
+    }()
+    
+    private var context: NSManagedObjectContext {
+        Self.container.viewContext
     }
     
     // MARK: Public methods
@@ -40,7 +41,6 @@ class CoreDataService: WordsDataSource {
             failure(NetworkError.unexpected)
             return
         }
-        print(String(describing: addedWord))
         success(addedWord)
     }
     

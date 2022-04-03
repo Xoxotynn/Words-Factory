@@ -19,7 +19,8 @@ class DictionaryCoordinator: Coordinator {
     // MARK: Public methods
     func start() {
         let viewModel = DictionaryViewModel(
-            wordsRepository: dependencies.wordsRepository)
+            wordsRepository: dependencies.wordsRepository,
+            audioService: dependencies.audioService)
         let viewController = DictionaryViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController],
                                                     animated: true)
