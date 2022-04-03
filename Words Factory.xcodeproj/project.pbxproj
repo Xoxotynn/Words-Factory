@@ -33,6 +33,7 @@
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
 		A93C149727F00AA500299004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93C149527F00AA500299004 /* LaunchScreen.storyboard */; };
+		A93C674027F9ACD4008C2015 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C673F27F9ACD4008C2015 /* R.generated.swift */; };
 		A948A9A627F4C9CE00FB3658 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */; };
 		A948A9A827F4CD4B00FB3658 /* UILabel+AppLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */; };
 		A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A948A9A927F4CF3D00FB3658 /* TextField.swift */; };
@@ -120,6 +121,7 @@
 		A93C149327F00AA500299004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93C149627F00AA500299004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93C149827F00AA500299004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93C673F27F9ACD4008C2015 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A948A9A527F4C9CE00FB3658 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AppLabels.swift"; sourceTree = "<group>"; };
 		A948A9A927F4CF3D00FB3658 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				A93C148C27F00AA400299004 /* SceneDelegate.swift */,
 				A93C149327F00AA500299004 /* Assets.xcassets */,
 				A93C149827F00AA500299004 /* Info.plist */,
+				A93C673F27F9ACD4008C2015 /* R.generated.swift */,
 			);
 			path = "Words Factory";
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 			buildConfigurationList = A93C149B27F00AA500299004 /* Build configuration list for PBXNativeTarget "Words Factory" */;
 			buildPhases = (
 				1B1A9D4B0E6F7B5A94450AA7 /* [CP] Check Pods Manifest.lock */,
+				A93C673E27F9AC3D008C2015 /* ShellScript */,
 				A93C148327F00AA400299004 /* Sources */,
 				A93C148427F00AA400299004 /* Frameworks */,
 				A93C148527F00AA400299004 /* Resources */,
@@ -847,6 +851,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Words Factory/Pods-Words Factory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A93C673E27F9AC3D008C2015 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -917,6 +940,7 @@
 				A966879E27F219D800B320B3 /* StandartButton.swift in Sources */,
 				A9500E6427F50D27001D50B4 /* Errors.swift in Sources */,
 				A91F54CC27F9352F00D0DB85 /* Word.swift in Sources */,
+				A93C674027F9ACD4008C2015 /* R.generated.swift in Sources */,
 				A91F54F227F95EA700D0DB85 /* WordsRepository.swift in Sources */,
 				A966879A27F216C200B320B3 /* OnboardingPageCellViewModel.swift in Sources */,
 				A9B247C827F7AC4E00FCE45A /* DefinitionCell.swift in Sources */,
