@@ -1,11 +1,6 @@
 import UIKit
 import SnapKit
 
-// MARK: - Strings
-private extension Strings {
-    static let skip = "Skip"
-}
-
 // MARK: - Dimensions
 private extension Dimensions {
     static let pageControlBottomMargin: CGFloat = 72
@@ -113,7 +108,7 @@ class OnboardingViewController: UIViewController {
             for: .touchUpInside)
         skipButton.titleLabel?.font = .buttonSmall
         skipButton.setTitleColor(.darkGray, for: .normal)
-        skipButton.setTitle(Strings.skip, for: .normal)
+        skipButton.setTitle(R.string.onboarding.skip(), for: .normal)
         
         skipButton.snp.makeConstraints { make in
             make.top.trailing.equalTo(view.safeAreaLayoutGuide)

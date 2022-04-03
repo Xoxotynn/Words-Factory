@@ -23,15 +23,15 @@ class NetworkService: WordsDataSource {
                    let word = WordDTO.toDomainModel(contentsOf: words) {
                     success(word)
                 } else {
-                    failure(NetworkError.unexpected)
+                    failure(DataError.unexpected)
                 }
             case .failure(let error):
                 if error.responseCode == 404 {
-                    failure(NetworkError.notFound)
+                    failure(DataError.notFound)
                     return
                 }
                 
-                failure(NetworkError.unexpected)
+                failure(DataError.unexpected)
             }
         }
     }

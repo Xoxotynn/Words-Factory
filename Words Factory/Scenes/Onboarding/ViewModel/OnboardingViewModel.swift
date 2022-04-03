@@ -1,20 +1,5 @@
 import UIKit
 
-// MARK: - Strings
-private extension Strings {
-    static let firstPageTitle = "Learn anytime\nand anywhere"
-    static let firstPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
-    static let secondPageTitle = "Find a course\nfor you"
-    static let secondPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
-    static let thirdPageTitle = "\nImprove your skills"
-    static let thirdPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
-    
-    static let next = "Next"
-    static let start = "Let's Start"
-}
-
 // MARK: - OnboardingViewModelDelegate
 protocol OnboardingViewModelDelegate: AnyObject {
     func showSignUpScene()
@@ -36,18 +21,18 @@ class OnboardingViewModel {
         OnboardingPageCellViewModel(
             topic: TopicInfo(
                 image: R.image.longDistanceRelationshipKids.name,
-                title: Strings.firstPageTitle,
-                subtitle: Strings.firstPageDescription)),
+                title: R.string.onboarding.firstTitle(),
+                subtitle: R.string.onboarding.firstSubtitle())),
         OnboardingPageCellViewModel(
             topic: TopicInfo(
                 image: R.image.stayingHomeKid.name,
-                title: Strings.secondPageTitle,
-                subtitle: Strings.secondPageDescription)),
+                title: R.string.onboarding.secondTitle(),
+                subtitle: R.string.onboarding.secondSubtitle())),
         OnboardingPageCellViewModel(
             topic: TopicInfo(
                 image: R.image.hiTechKid.name,
-                title: Strings.thirdPageTitle,
-                subtitle: Strings.thirdPageDescription))
+                title: R.string.onboarding.thirdTitle(),
+                subtitle: R.string.onboarding.thirdSubtitle()))
     ]
     
     // MARK: - Public methods
@@ -61,7 +46,9 @@ class OnboardingViewModel {
     }
     
     func changeNextButtonTitleIfNeeded(page: Int) {
-        let newTitle = page == pagesCount - 1 ? Strings.start : Strings.next
+        let newTitle = page == pagesCount - 1
+        ? R.string.onboarding.letsStart()
+        : R.string.onboarding.next()
         didChangeNextButtonTitle?(newTitle)
     }
     

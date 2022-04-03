@@ -1,10 +1,5 @@
 import UIKit
 
-// MARK: - Strings
-private extension Strings {
-    static let createAccount = "Create your account"
-}
-
 // MARK: - SignUpViewModelDelegate
 protocol SignUpViewModelDelegate: AnyObject {
     func showTabBarScene()
@@ -21,8 +16,8 @@ class SignUpViewModel {
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
             image: R.image.standingKid2.name,
-            title: Strings.signUp,
-            subtitle: Strings.createAccount))
+            title: R.string.signUp.signUp(),
+            subtitle: R.string.signUp.createAccount()))
     
     // MARK: - Public methods
     func setupTopic() {

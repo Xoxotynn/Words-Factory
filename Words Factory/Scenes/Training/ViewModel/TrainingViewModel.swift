@@ -8,8 +8,8 @@ class TrainingViewModel {
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
             image: R.image.hiTechKid.name,
-            title: Strings.sceneNotReadyTitle,
-            subtitle: Strings.sceneNotReadySubtitle))
+            title: R.string.localizable.notReadyTitle(),
+            subtitle: R.string.localizable.notReadySubtitle()))
     
     // MARK: - Public methods
     func setupTopic() {

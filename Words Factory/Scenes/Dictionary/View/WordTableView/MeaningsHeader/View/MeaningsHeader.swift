@@ -1,12 +1,6 @@
 import UIKit
 import SnapKit
 
-// MARK: Strings
-private extension Strings {
-    static let partOfSpeech = "Part of Speech:"
-    static let meanings = "Meanings:"
-}
-
 // MARK: Dimensions
 private extension Dimensions {
     static let bottomHeaderPadding: CGFloat = 11
@@ -50,7 +44,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupSpeechPartTitleLabel() {
-        speechPartTitleLabel.text = Strings.partOfSpeech
+        speechPartTitleLabel.text = R.string.dictionary.speechPartHeader()
         speechPartTitleLabel.textColor = R.color.black()
         speechPartTitleLabel.font = .heading5
         
@@ -73,7 +67,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupMeaningsTitleLabel() {
-        meaningsTitleLabel.text = Strings.meanings
+        meaningsTitleLabel.text = R.string.dictionary.meaningsHeader()
         meaningsTitleLabel.textColor = R.color.black()
         meaningsTitleLabel.font = .heading5
         

@@ -1,14 +1,5 @@
 import UIKit
 
-// MARK: - Strings
-private extension Strings {
-    static let defaultTitle = "Oops..."
-    static let defaultMessage = "It seems something went wrong"
-    static let ok = "Ok"
-    static let attributedTitleKey = "attributedTitle"
-    static let attributedMessageKey = "attributedMessage"
-}
-
 extension UIViewController {
     
     // MARK: Public methods
@@ -17,25 +8,26 @@ extension UIViewController {
                                       message: "",
                                       preferredStyle: .alert)
         alert.setValuesForKeys([
-            Strings.attributedTitleKey:
+            R.string.alertKeys.attributedTitle():
                 NSAttributedString(
-                    string: title ?? Strings.defaultTitle,
+                    string: title ?? R.string.localizable.alertTitle(),
                     attributes: [
                         .font: UIFont.heading4 ?? UIFont.systemLarge,
                         .foregroundColor: R.color.black() ?? .black
                        ]),
-            Strings.attributedMessageKey:
+            R.string.alertKeys.attributedMessage():
                 NSAttributedString(
-                    string: message ?? Strings.defaultMessage,
+                    string: message ?? R.string.localizable.alertMessage(),
                     attributes: [
                         .font: UIFont.paragraphLarge ?? UIFont.systemMedium,
                         .foregroundColor: R.color.darkGray() ?? .systemGray4
                        ])
         ])
         
-        let okAction = UIAlertAction(title: Strings.ok,
-                                     style: .default,
-                                     handler: nil)
+        let okAction = UIAlertAction(
+            title: R.string.localizable.alertButtonTitle(),
+            style: .default,
+            handler: nil)
         alert.view.tintColor = R.color.orange()
         alert.addAction(okAction)
         

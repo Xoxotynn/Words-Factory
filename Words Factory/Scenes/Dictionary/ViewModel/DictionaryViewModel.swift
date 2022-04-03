@@ -1,11 +1,5 @@
 import UIKit
 
-// MARK: - Strings
-extension Strings {
-    static let noWordTitle = "No word"
-    static let noWordSubtitle = "Input something to find it in dictionary"
-}
-
 // MARK: - Dimensions
 private extension Dimensions {
     static let showingNavBarHeight: CGFloat = 0.25
@@ -18,7 +12,7 @@ class DictionaryViewModel {
         if let word = word?.word {
             return word
         }
-        return Strings.appTitle
+        return R.string.localizable.appTitle()
     }
     
     var numberOfSections: Int {
@@ -46,8 +40,8 @@ class DictionaryViewModel {
         topicViewModel = TopicViewModel(
             topic: TopicInfo(
                 image: R.image.standingKid.name,
-                title: Strings.noWordTitle,
-                subtitle: Strings.noWordSubtitle))
+                title: R.string.dictionary.noWordTitle(),
+                subtitle: R.string.dictionary.noWordSubtitle()))
         meaningsSectionViewModels = []
     }
     
@@ -68,7 +62,7 @@ class DictionaryViewModel {
     
     func addToDictionary() {
         guard let word = word else {
-            didRecieveError?(NetworkError.unexpected)
+            didRecieveError?(DataError.unexpected)
             return
         }
 
@@ -104,7 +98,7 @@ class DictionaryViewModel {
     
     func getWordCellViewModel() throws -> WordCellViewModel {
         guard let wordCellViewModel = wordCellViewModel else {
-            throw NetworkError.notFound
+            throw DataError.notFound
         }
 
         return wordCellViewModel

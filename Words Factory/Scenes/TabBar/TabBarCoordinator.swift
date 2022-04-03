@@ -38,7 +38,7 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.dictionary,
+            title: R.string.localizable.tabBarDictionary(),
             image: R.image.dictionaryIcon(),
             selectedImage: nil)
         
@@ -60,7 +60,7 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.training,
+            title: R.string.localizable.tabBarTraining(),
             image: R.image.trainingIcon(),
             selectedImage: nil)
         
@@ -82,7 +82,7 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
-            title: Strings.video,
+            title: R.string.localizable.tabBarVideo(),
             image: R.image.videoIcon(),
             selectedImage: nil)
         

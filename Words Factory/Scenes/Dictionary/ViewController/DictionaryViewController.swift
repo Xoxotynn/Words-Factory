@@ -2,11 +2,6 @@ import UIKit
 import SnapKit
 import TPKeyboardAvoidingSwift
 
-// MARK: - Strings
-private extension Strings {
-    static let searchPlaceholder = "Enter a word"
-}
-
 // MARK: - Dimensions
 private extension Dimensions {
     static let additionalSafeAreaInsets: CGFloat = -22
@@ -120,7 +115,7 @@ class DictionaryViewController: UIViewController {
     private func setupSearchTextField() {
         searchTextField.delegate = self
         searchTextField.actionTextFieldDelegate = self
-        searchTextField.setPlaceholder(Strings.searchPlaceholder)
+        searchTextField.setPlaceholder(R.string.dictionary.searchPlaceholder())
         
         searchTextField.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -134,7 +129,9 @@ class DictionaryViewController: UIViewController {
             self,
             action: #selector(addToDictionary),
             for: .touchUpInside)
-        addToDictionaryButton.setTitle(Strings.addToDictionary, for: .normal)
+        addToDictionaryButton.setTitle(
+            R.string.dictionary.addToDictionary(),
+            for: .normal)
         addToDictionaryButton.isHidden = true
         
         addToDictionaryButton.snp.makeConstraints { make in

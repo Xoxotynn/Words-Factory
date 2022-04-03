@@ -1,17 +1,13 @@
 import Foundation
 import UIKit
 
-// MARK: - Strings
-private extension Strings {
-    static let example = "Example: "
-}
-
 class DefinitionCellViewModel {
     
     // MARK: - Properties
     let definition: String
     lazy var attributedExample: NSMutableAttributedString = {
-        NSMutableAttributedString(string: Strings.example + example)
+        NSMutableAttributedString(
+            string: R.string.dictionary.examplePrefix() + example)
     }()
     
     var didSetupDefinition: (() -> Void)?
@@ -33,8 +29,11 @@ class DefinitionCellViewModel {
             return
         }
         
-        let exampleText = NSString(string: Strings.example + example)
-        let range = exampleText.range(of: Strings.example)
+        let exampleText = NSString(
+            string: R.string.dictionary.examplePrefix() + example)
+        let range = exampleText.range(
+            of: R.string.dictionary.examplePrefix())
+        
         if range.length > 0 {
             attributedExample.addAttribute(
                 .foregroundColor,

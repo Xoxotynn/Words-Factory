@@ -14,9 +14,10 @@ enum ValidationError {
     case unexpected
 }
 
-// MARK: - NetworkError
-enum NetworkError {
+// MARK: - DataError
+enum DataError {
     case notFound
+    case creationFailed
     case unexpected
 }
 
@@ -25,7 +26,7 @@ extension SystemError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .indexOutOfRange:
-            return "Element index is out of range"
+            return R.string.errors.systemOutOfRange()
         }
     }
 }
@@ -35,27 +36,29 @@ extension ValidationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .emptyField:
-            return "One or more fields are empty"
+            return R.string.errors.validationEmptyField()
         case .invalidName:
-            return "Name must contains 3 or more symbols"
+            return R.string.errors.validationName()
         case .invalidEmail:
-            return "Invalid email provided"
+            return R.string.errors.validationEmail()
         case .invalidPassword:
-            return "Password must contains 8 or more symbols"
+            return R.string.errors.validationPassword()
         case .unexpected:
-            return "Unexpected error"
+            return R.string.errors.unexpected()
         }
     }
 }
 
-// MARK: - NetworkError description
-extension NetworkError: LocalizedError {
+// MARK: - DataError description
+extension DataError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .notFound:
-            return "We can't find this word"
+            return R.string.errors.dataNotFound()
+        case .creationFailed:
+            return R.string.errors.dataSave()
         case .unexpected:
-            return "Something went wrong during retrieving a word"
+            return R.string.errors.unexpected()
         }
     }
 }

@@ -1,0 +1,14 @@
+// MARK: - Common
+"appTitle" = "Words Factory";
+"notReady.title" = "Coming soon...";
+"notReady.subtitle" = "It seems we didn't finish this screen yet :c";
+
+// MARK: - Tab Bar
+"tabBar.dictionary" = "Dictionary";
+"tabBar.training" = "Training";
+"tabBar.video" = "Video";
+
+// MARK: - Alert
+"alert.title" = "Oops...";
+"alert.message" = "It seems something went wrong";
+"alert.button.title" = "Ok";

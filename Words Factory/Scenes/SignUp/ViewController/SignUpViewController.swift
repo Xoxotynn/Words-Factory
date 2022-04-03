@@ -2,13 +2,6 @@ import UIKit
 import SnapKit
 import TPKeyboardAvoidingSwift
 
-// MARK: - Strings
-private extension Strings {
-    static let namePlaceholder = "Name"
-    static let emailPlaceholder = "E-mail"
-    static let passwordPlaceholder = "Password"
-}
-
 // MARK: - Dimensions
 private extension Dimensions {
     static let topScreenMargin: CGFloat = 58
@@ -114,7 +107,7 @@ class SignUpViewController: UIViewController {
     
     private func setupNameTextField() {
         nameTextField.textContentType = .name
-        nameTextField.setPlaceholder(Strings.namePlaceholder)
+        nameTextField.setPlaceholder(R.string.signUp.namePlaceholder())
         
         nameTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
@@ -125,7 +118,7 @@ class SignUpViewController: UIViewController {
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
         emailTextField.textContentType = .emailAddress
-        emailTextField.setPlaceholder(Strings.emailPlaceholder)
+        emailTextField.setPlaceholder(R.string.signUp.emailPlaceholder())
         
         emailTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
@@ -133,7 +126,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupPasswordTextField() {
-        passwordTextField.setPlaceholder(Strings.passwordPlaceholder)
+        passwordTextField.setPlaceholder(R.string.signUp.passwordPlaceholder())
         
         passwordTextField.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)
@@ -146,7 +139,7 @@ class SignUpViewController: UIViewController {
             self,
             action: #selector(signUp),
             for: .touchUpInside)
-        signUpButton.setTitle(Strings.signUp, for: .normal)
+        signUpButton.setTitle(R.string.signUp.signUp(), for: .normal)
         
         signUpButton.snp.makeConstraints { make in
             make.height.equalTo(Dimensions.standartHeight)

@@ -24,7 +24,7 @@ class CoreDataService: WordsDataSource {
              onFailure failure: @escaping (Error) -> Void) {
         guard let wordCoreData = WordCoreData.get(word: word, context: context),
               let wordDomain = wordCoreData.toDomainModel() else {
-            failure(NetworkError.notFound)
+            failure(DataError.notFound)
             return
         }
         
@@ -38,7 +38,7 @@ class CoreDataService: WordsDataSource {
         saveContext()
         
         guard let addedWord = word.toDomainModel() else {
-            failure(NetworkError.unexpected)
+            failure(DataError.unexpected)
             return
         }
         success(addedWord)

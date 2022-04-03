@@ -8,8 +8,8 @@ class VideoViewModel {
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
             image: R.image.skateboardKid.name,
-            title: Strings.sceneNotReadyTitle,
-            subtitle: Strings.sceneNotReadySubtitle))
+            title: R.string.localizable.notReadyTitle(),
+            subtitle: R.string.localizable.notReadySubtitle()))
     
     // MARK: - Public methods
     func setupTopic() {
