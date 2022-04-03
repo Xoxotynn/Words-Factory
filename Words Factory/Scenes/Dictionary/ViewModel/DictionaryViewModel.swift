@@ -30,7 +30,7 @@ class DictionaryViewModel {
     var didUpdateWord: (() -> Void)?
     var didRecieveError: ((Error) -> Void)?
     
-    private let networkService: NetworkService
+    private let wordsRepository: WordsRepository
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
             image: .standingKid ?? UIImage(),
@@ -42,8 +42,8 @@ class DictionaryViewModel {
     private var word: Word?
     
     // MARK: Init
-    init(networkService: NetworkService) {
-        self.networkService = networkService
+    init(wordsRepository: WordsRepository) {
+        self.wordsRepository = wordsRepository
         meaningsSectionViewModels = []
     }
     
@@ -63,7 +63,18 @@ class DictionaryViewModel {
     }
     
     func addToDictionary() {
-        
+        guard let word = word else {
+            didRecieveError?(NetworkError.unexpected)
+            return
+        }
+
+        wordsRepository.add(domainWord: word)
+        { word in
+            
+        } onFailure: { [weak self] error in
+            self?.didRecieveError?(error)
+        }
+
     }
     
     func getRowsNumber(inSection section: Int) -> Int {
@@ -130,7 +141,7 @@ class DictionaryViewModel {
  
     // MARK: Private methods
     private func loadWord(_ word: String) {
-        networkService.wordRequest(word: word)
+        wordsRepository.get(word: word)
         { [weak self] word in
             self?.updateLoadedWord(word)
         } onFailure: { [weak self] error in

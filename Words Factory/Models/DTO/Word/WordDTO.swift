@@ -15,6 +15,7 @@ struct WordDTO: Codable {
             phonetic: PhoneticDTO
                 .toDomainModel(contentsOf: words.flatMap { $0.phonetics }),
             meanings: MeaningDTO
-                .toDomainModel(contentsOf: words.flatMap { $0.meanings }))
+                .toDomainModel(contentsOf: words.flatMap { $0.meanings },
+                               forWord: firstWord.word.capitalized))
     }
 }

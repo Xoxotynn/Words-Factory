@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Definition" representedClassName=".DefinitionCoreData" syncable="YES">
+        <attribute name="definition" attributeType="String"/>
+        <attribute name="example" optional="YES" attributeType="String"/>
+        <relationship name="meaning" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meaning" inverseName="definitions" inverseEntity="Meaning"/>
+    </entity>
+    <entity name="Meaning" representedClassName=".MeaningCoreData" syncable="YES">
+        <attribute name="speechPart" attributeType="String"/>
+        <relationship name="definitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Definition" inverseName="meaning" inverseEntity="Definition"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="meanings" inverseEntity="Word"/>
+    </entity>
+    <entity name="Phonetic" representedClassName=".PhoneticCoreData" syncable="YES">
+        <attribute name="audio" optional="YES" attributeType="String"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="phonetic" inverseEntity="Word"/>
+    </entity>
+    <entity name="Word" representedClassName=".WordCoreData" syncable="YES">
+        <attribute name="word" attributeType="String"/>
+        <relationship name="meanings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meaning" inverseName="word" inverseEntity="Meaning"/>
+        <relationship name="phonetic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phonetic" inverseName="word" inverseEntity="Phonetic"/>
+    </entity>
+    <elements>
+        <element name="Definition" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Phonetic" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="Meaning" positionX="-36" positionY="27" width="128" height="74"/>
+        <element name="Word" positionX="-18" positionY="36" width="128" height="74"/>
+    </elements>
+</model>

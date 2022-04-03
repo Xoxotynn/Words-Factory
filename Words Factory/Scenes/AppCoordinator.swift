@@ -13,7 +13,10 @@ class AppCoordinator: Coordinator {
     // MARK: - Init
     init(window: UIWindow) {
         self.window = window
-        dependencies = Dependencies(networkService: NetworkService())
+        dependencies = Dependencies(
+            wordsRepository: WordsDataRepository(
+                remoteDataSource: NetworkService(),
+                localDataSource: CoreDataService()))
         childCoordinators = []
         rootNavigationController = UINavigationController()
         rootNavigationController.isNavigationBarHidden = true
