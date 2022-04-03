@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		281B818762DB472266D61C9C /* Pods_Words_Factory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BA9D17DBD33FB43DD8B677 /* Pods_Words_Factory.framework */; };
+		A91F54C627F92EE600D0DB85 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91F54C527F92EE600D0DB85 /* UIViewController+Keyboard.swift */; };
 		A93C148B27F00AA400299004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148A27F00AA400299004 /* AppDelegate.swift */; };
 		A93C148D27F00AA400299004 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C148C27F00AA400299004 /* SceneDelegate.swift */; };
 		A93C149427F00AA500299004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93C149327F00AA500299004 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		1A40869135E60F5C3F38727C /* Pods-Words Factory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Words Factory.debug.xcconfig"; path = "Target Support Files/Pods-Words Factory/Pods-Words Factory.debug.xcconfig"; sourceTree = "<group>"; };
 		A0BA9D17DBD33FB43DD8B677 /* Pods_Words_Factory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Words_Factory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91F54C527F92EE600D0DB85 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		A93C148727F00AA400299004 /* Words Factory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Words Factory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C148A27F00AA400299004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93C148C27F00AA400299004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,15 @@
 				A0BA9D17DBD33FB43DD8B677 /* Pods_Words_Factory.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A91F54C727F92F2400D0DB85 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A91F54C527F92EE600D0DB85 /* UIViewController+Keyboard.swift */,
+				A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		A93C147E27F00AA400299004 = {
@@ -313,11 +324,11 @@
 		A966878927F12EAE00B320B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A91F54C727F92F2400D0DB85 /* UIViewController */,
 				A966876F27F109C600B320B3 /* UIColor+AppColors.swift */,
 				A966877127F109EB00B320B3 /* UIImage+AppImages.swift */,
 				A966877527F10A3E00B320B3 /* UIFont+RubikFont.swift */,
 				A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */,
-				A9500E6527F518CA001D50B4 /* UIViewController+Alerts.swift */,
 				A9B2479127F6957C00FCE45A /* UINavigationController+AppNavigationControllers.swift */,
 			);
 			path = Extensions;
@@ -733,6 +744,7 @@
 				A9B247C627F7AC3B00FCE45A /* MeaningsHeader.swift in Sources */,
 				A948A9AA27F4CF3D00FB3658 /* TextField.swift in Sources */,
 				A966878327F1288800B320B3 /* NetworkService.swift in Sources */,
+				A91F54C627F92EE600D0DB85 /* UIViewController+Keyboard.swift in Sources */,
 				A9B2479727F6988800FCE45A /* DictionaryCoordinator.swift in Sources */,
 				A966877627F10A3E00B320B3 /* UIFont+RubikFont.swift in Sources */,
 				A9B247B127F69FD300FCE45A /* TabBar.swift in Sources */,

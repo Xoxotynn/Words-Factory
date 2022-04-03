@@ -14,6 +14,13 @@ private extension Dimensions {
 class DictionaryViewModel {
     
     // MARK: Properties
+    var title: String {
+        if let word = word?.word {
+            return word.capitalized
+        }
+        return Strings.appTitle
+    }
+    
     var numberOfSections: Int {
         (word?.meanings.count ?? -1) + 1
     }

@@ -50,7 +50,7 @@ class DictionaryViewController: UIViewController {
         }
         
         viewModel.didUpdateWord = { [weak self] in
-            self?.wordTableView.reloadData()
+            self?.updateWord()
         }
         
         viewModel.didRecieveError = { [weak self] error in
@@ -66,8 +66,11 @@ class DictionaryViewController: UIViewController {
     }
     
     private func setupView() {
+        view.addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(hideKeyboard)))
         view.backgroundColor = .appWhite
-        title = Strings.appTitle
+        title = viewModel.title
         additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
         view.addSubview(searchTextField)
@@ -105,6 +108,7 @@ class DictionaryViewController: UIViewController {
     }
     
     private func setupSearchTextField() {
+        searchTextField.delegate = self
         searchTextField.actionTextFieldDelegate = self
         searchTextField.setPlaceholder(Strings.searchPlaceholder)
         
@@ -125,6 +129,11 @@ class DictionaryViewController: UIViewController {
     private func togglePlaceholder(isHidden: Bool) {
         topicView.isHidden = isHidden
         wordTableView.isHidden = !isHidden
+    }
+    
+    private func updateWord() {
+        title = viewModel.title
+        wordTableView.reloadData()
     }
     
     private func dequeueWordCell(_ tableView: UITableView,
@@ -242,9 +251,17 @@ extension DictionaryViewController: UITableViewDelegate & UITableViewDataSource 
     }
 }
 
-// MARK: ActionTextFieldDelegate
-extension DictionaryViewController: ActionTextFieldDelegate {
-    func actionTextFieldDidTapAction(_ sender: ActionTextField) {
-        viewModel.getWord(sender.text)
+// MARK: ActionTextFieldDelegate, UITextFieldDelegate
+extension DictionaryViewController:
+    ActionTextFieldDelegate, UITextFieldDelegate {
+    func actionTextFieldDidTapAction(_ textField: ActionTextField) {
+        viewModel.getWord(textField.text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        viewModel.getWord(textField.text)
+        
+        return true
     }
 }

@@ -3,7 +3,7 @@ import SnapKit
 
 // MARK: ActionTextFieldDelegate
 protocol ActionTextFieldDelegate: AnyObject {
-    func actionTextFieldDidTapAction(_ sender: ActionTextField)
+    func actionTextFieldDidTapAction(_ textField: ActionTextField)
 }
 
 class ActionTextField: TextField {
