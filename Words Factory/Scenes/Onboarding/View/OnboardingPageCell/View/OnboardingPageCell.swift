@@ -49,6 +49,8 @@ class OnboardingPageCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         
         imageView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualToSuperview()
+                .inset(Dimensions.small)
             make.top.lessThanOrEqualToSuperview()
                 .inset(Dimensions.topCellPadding)
             make.leading.trailing.equalToSuperview()
@@ -59,6 +61,9 @@ class OnboardingPageCell: UICollectionViewCell {
         titleLabel.setupAsTitle()
         titleLabel.numberOfLines = 2
         
+        titleLabel.setContentCompressionResistancePriority(
+            .required,
+            for: .vertical)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom)
                 .offset(Dimensions.standart)
@@ -73,6 +78,9 @@ class OnboardingPageCell: UICollectionViewCell {
         subtitleLabel.setupAsSubtitle()
         subtitleLabel.numberOfLines = 0
         
+        subtitleLabel.setContentCompressionResistancePriority(
+            .required,
+            for: .vertical)
         subtitleLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
