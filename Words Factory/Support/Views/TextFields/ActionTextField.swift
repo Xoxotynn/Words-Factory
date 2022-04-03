@@ -1,19 +1,19 @@
 import UIKit
 import SnapKit
 
-// MARK: ActionTextFieldDelegate
+// MARK: - ActionTextFieldDelegate
 protocol ActionTextFieldDelegate: AnyObject {
     func actionTextFieldDidTapAction(_ textField: ActionTextField)
 }
 
 class ActionTextField: TextField {
     
-    // MARK: Properties
+    // MARK: - Properties
     weak var actionTextFieldDelegate: ActionTextFieldDelegate?
     
     private let actionImageView = UIImageView()
     
-    // MARK: Init
+    // MARK: - Init
     init(actionImage: UIImage?) {
         super.init()
         actionImageView.image = actionImage
@@ -24,7 +24,7 @@ class ActionTextField: TextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Overrided methods
+    // MARK: - Overrided methods
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: getTextInset(forBounds: bounds))
     }
@@ -37,12 +37,12 @@ class ActionTextField: TextField {
         bounds.inset(by: getTextInset(forBounds: bounds))
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setRightActionImage(withImage image: UIImage?) {
         actionImageView.image = image
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupActionImageView() {
         addSubview(actionImageView)
         
@@ -67,7 +67,7 @@ class ActionTextField: TextField {
             right: bounds.height)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @objc private func performAction() {
         actionTextFieldDelegate?.actionTextFieldDidTapAction(self)
     }

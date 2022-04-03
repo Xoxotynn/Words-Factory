@@ -1,13 +1,13 @@
 import UIKit
 
-// MARK: SignUpCoordinatorDelegate
+// MARK: - SignUpCoordinatorDelegate
 protocol SignUpCoordinatorDelegate: AnyObject {
     func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator)
 }
 
 class SignUpCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     weak var delegate: SignUpCoordinatorDelegate?
@@ -22,7 +22,7 @@ class SignUpCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let viewModel = SignUpViewModel()
         viewModel.delegate = self
@@ -32,7 +32,7 @@ class SignUpCoordinator: Coordinator {
     }
 }
 
-// MARK: SignUpViewModelDelegate
+// MARK: - SignUpViewModelDelegate
 extension SignUpCoordinator: SignUpViewModelDelegate {
     func showTabBarScene() {
         delegate?.replaceSignUpWithTabBar(self)

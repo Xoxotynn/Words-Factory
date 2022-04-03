@@ -3,7 +3,7 @@ import CoreData
 
 class CoreDataService: WordsDataSource {
     
-    // MARK: Properties
+    // MARK: - Properties
     private static let container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "WordsDatabase")
         container.loadPersistentStores { _, error in
@@ -18,7 +18,7 @@ class CoreDataService: WordsDataSource {
         Self.container.viewContext
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func get(word: String,
              onSuccess success: @escaping (Word) -> Void,
              onFailure failure: @escaping (Error) -> Void) {
@@ -44,7 +44,7 @@ class CoreDataService: WordsDataSource {
         success(addedWord)
     }
     
-    // MARK: Private Methods
+    // MARK: - Private Methods
     private func saveContext() {
         if context.hasChanges {
             do {

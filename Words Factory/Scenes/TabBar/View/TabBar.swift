@@ -1,13 +1,13 @@
 import UIKit
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let tabBarHeight: CGFloat = 64
 }
 
 class TabBar: UITabBar {
     
-    // MARK: Overrided methods
+    // MARK: - Overrided methods
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         super.sizeThatFits(size)
         let window = UIApplication

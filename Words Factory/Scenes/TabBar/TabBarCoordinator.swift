@@ -2,7 +2,7 @@ import UIKit
 
 class TabBarCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -16,7 +16,7 @@ class TabBarCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let tabBarController = TabBarController()
         
@@ -33,7 +33,7 @@ class TabBarCoordinator: Coordinator {
             animated: true)
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func createDictionaryController() -> UINavigationController {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()

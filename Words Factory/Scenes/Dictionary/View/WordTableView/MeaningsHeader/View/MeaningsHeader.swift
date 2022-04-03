@@ -14,12 +14,12 @@ private extension Dimensions {
 
 class MeaningsHeader: UITableViewHeaderFooterView {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let speechPartTitleLabel = UILabel()
     private let speechPartLabel = UILabel()
     private let meaningsTitleLabel = UILabel()
 
-    // MARK: Init
+    // MARK: - Init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setup()
@@ -29,7 +29,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func configure(with viewModel: MeaningsHeaderViewModel) {
         viewModel.didSetupSpeechPart = { [weak self] in
             self?.speechPartLabel.text = viewModel.speechPart
@@ -38,7 +38,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
         viewModel.setupSpeechPArt()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func setup() {
         addSubview(speechPartTitleLabel)
         addSubview(speechPartLabel)

@@ -1,19 +1,19 @@
 import UIKit
 
-// MARK: Strings
+// MARK: - Strings
 extension Strings {
     static let noWordTitle = "No word"
     static let noWordSubtitle = "Input something to find it in dictionary"
 }
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let showingNavBarHeight: CGFloat = 0.25
 }
 
 class DictionaryViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     var title: String {
         if let word = word?.word {
             return word
@@ -38,7 +38,7 @@ class DictionaryViewModel {
     private var meaningsSectionViewModels: [MeaningsSectionViewModel]
     private var word: Word?
     
-    // MARK: Init
+    // MARK: - Init
     init(wordsRepository: WordsRepository,
          audioService: AudioService) {
         self.wordsRepository = wordsRepository
@@ -51,7 +51,7 @@ class DictionaryViewModel {
         meaningsSectionViewModels = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupTopic() {
         didSetupPlaceholderTopicInfo?(topicViewModel)
     }
@@ -143,7 +143,7 @@ class DictionaryViewModel {
         (height / Dimensions.standartHeight) > Dimensions.showingNavBarHeight
     }
  
-    // MARK: Private methods
+    // MARK: - Private methods
     private func loadWord(_ word: String) {
         wordsRepository.get(word: word)
         { [weak self] word in

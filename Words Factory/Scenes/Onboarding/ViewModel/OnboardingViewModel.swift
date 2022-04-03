@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let firstPageTitle = "Learn anytime\nand anywhere"
     static let firstPageDescription = "Quarantine is the perfect time to spend your day learning something new, from anywhere!"
@@ -15,14 +15,14 @@ private extension Strings {
     static let start = "Let's Start"
 }
 
-// MARK: OnboardingViewModelDelegate
+// MARK: - OnboardingViewModelDelegate
 protocol OnboardingViewModelDelegate: AnyObject {
     func showSignUpScene()
 }
 
 class OnboardingViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     weak var delegate: OnboardingViewModelDelegate?
     
     var didChangeNextButtonTitle: ((String) -> Void)?
@@ -50,7 +50,7 @@ class OnboardingViewModel {
                 subtitle: Strings.thirdPageDescription))
     ]
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func getPageCellViewModel(at index: Int) throws
     -> OnboardingPageCellViewModel {
         guard index >= 0 && index < pagesCount else {

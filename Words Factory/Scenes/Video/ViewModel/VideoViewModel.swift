@@ -2,7 +2,7 @@ import UIKit
 
 class VideoViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     var didSetupTopicInfo: ((TopicViewModel) -> Void)?
     
     private let topicViewModel = TopicViewModel(
@@ -11,7 +11,7 @@ class VideoViewModel {
             title: Strings.sceneNotReadyTitle,
             subtitle: Strings.sceneNotReadySubtitle))
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupTopic() {
         didSetupTopicInfo?(topicViewModel)
     }

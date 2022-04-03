@@ -2,7 +2,7 @@ import UIKit
 
 class StandartButton: UIButton {
     
-    // MARK: Init
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         setup()
@@ -12,7 +12,7 @@ class StandartButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setup() {
         backgroundColor = .primary
         layer.cornerRadius = Dimensions.standart

@@ -2,7 +2,7 @@ import UIKit
 
 class TrainingCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -16,7 +16,7 @@ class TrainingCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let viewModel = TrainingViewModel()
         let viewController = TrainingViewController(viewModel: viewModel)

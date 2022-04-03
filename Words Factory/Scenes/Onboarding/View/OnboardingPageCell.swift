@@ -1,17 +1,17 @@
 import UIKit
 import SnapKit
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let topCellPadding: CGFloat = 112
 }
 
 class OnboardingPageCell: UICollectionViewCell {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let topicView = TopicView()
     
-    // MARK: Init
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -21,7 +21,7 @@ class OnboardingPageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func configure(with viewModel: OnboardingPageCellViewModel) {
         viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
@@ -30,7 +30,7 @@ class OnboardingPageCell: UICollectionViewCell {
         viewModel.setupTopicInfo()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func setup() {
         backgroundColor = .clear
         addSubview(topicView)

@@ -1,19 +1,19 @@
 import UIKit
 
-// MARK: Images
+// MARK: - Images
 private extension UIImage {
     static let selectedDotIcon = UIImage(named: "SelectedDotIcon")
     static let dotIcon = UIImage(named: "DotIcon")
 }
 
-// MARK: PageControlDelegate
+// MARK: - PageControlDelegate
 protocol PageControlDelegate: AnyObject {
     func pageControl(selectedPageAt page: Int)
 }
 
 class PageControl: UIPageControl {
     
-    // MARK: Properties
+    // MARK: - Properties
     override var numberOfPages: Int {
         didSet {
             setupDots()
@@ -29,7 +29,7 @@ class PageControl: UIPageControl {
     
     weak var delegate: PageControlDelegate?
     
-    // MARK: Init
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         pageIndicatorTintColor = .gray
@@ -49,7 +49,7 @@ class PageControl: UIPageControl {
         setupDots()
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupDots() {
         let dots = getDots()
         

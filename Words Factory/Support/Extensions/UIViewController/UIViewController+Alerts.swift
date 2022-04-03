@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let defaultTitle = "Oops..."
     static let defaultMessage = "It seems something went wrong"
@@ -9,9 +9,9 @@ private extension Strings {
     static let attributedMessageKey = "attributedMessage"
 }
 
-// MARK: UIViewController+Alerts
 extension UIViewController {
     
+    // MARK: Public methods
     func showAlert(title: String? = nil, message: String? = nil) {
         let alert = UIAlertController(title: "",
                                       message: "",

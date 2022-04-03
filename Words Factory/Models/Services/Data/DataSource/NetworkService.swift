@@ -3,10 +3,10 @@ import Alamofire
 
 class NetworkService: WordsDataSource {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
     
-    // MARK: Public word methods
+    // MARK: - Public word methods
     func get(word: String,
              onSuccess success: @escaping (_ word: Word) -> Void,
              onFailure failure: @escaping (_ error: Error) -> Void) {

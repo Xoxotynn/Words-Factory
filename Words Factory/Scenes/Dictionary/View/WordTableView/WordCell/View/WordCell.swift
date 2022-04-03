@@ -3,7 +3,7 @@ import SnapKit
 
 class WordCell: UITableViewCell {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let wordLabel = UILabel()
     private let phoneticsStackView = UIStackView()
     private let phoneticsLabel = UILabel()
@@ -11,7 +11,7 @@ class WordCell: UITableViewCell {
     
     private var viewModel: WordCellViewModel?
 
-    // MARK: Init
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
@@ -21,7 +21,7 @@ class WordCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func configure(with viewModel: WordCellViewModel) {
         self.viewModel = viewModel
         
@@ -32,7 +32,7 @@ class WordCell: UITableViewCell {
         viewModel.setupWord()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func setup() {
         selectionStyle = .none
         addGestureRecognizer(
@@ -83,7 +83,7 @@ class WordCell: UITableViewCell {
         audioImageView.contentMode = .scaleAspectFit
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     func updateWord() {
         wordLabel.text = viewModel?.word
         phoneticsLabel.text = viewModel?.phoneticText

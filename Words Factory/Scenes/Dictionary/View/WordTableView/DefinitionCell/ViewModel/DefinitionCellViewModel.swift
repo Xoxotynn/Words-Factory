@@ -1,14 +1,14 @@
 import Foundation
 import UIKit
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let example = "Example: "
 }
 
 class DefinitionCellViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     let definition: String
     lazy var attributedExample: NSMutableAttributedString = {
         NSMutableAttributedString(string: Strings.example + example)
@@ -19,13 +19,13 @@ class DefinitionCellViewModel {
     
     private let example: String
     
-    // MARK: Init
+    // MARK: - Init
     init(definition: Definition) {
         self.definition = definition.definition
         self.example = definition.example
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupDefinition() {
         didSetupDefinition?()
         guard !example.isEmpty else {

@@ -2,10 +2,10 @@ import Foundation
 
 final class Validator {
     
-    // MARK: Init
+    // MARK: - Init
     private init() { }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     static func validateSignUpCredentials(name: String?,
                                           email: String?,
                                           password: String?) -> [Error] {
@@ -37,7 +37,7 @@ final class Validator {
         return errors
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private static func validate(name: String) -> Error? {
         return name.count < 3 ? ValidationError.invalidName : nil
     }

@@ -1,18 +1,18 @@
 import UIKit
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let createAccount = "Create your account"
 }
 
-// MARK: SignUpViewModelDelegate
+// MARK: - SignUpViewModelDelegate
 protocol SignUpViewModelDelegate: AnyObject {
     func showTabBarScene()
 }
 
 class SignUpViewModel {
     
-    // MARK: Properties
+    // MARK: - Properties
     weak var delegate: SignUpViewModelDelegate?
     
     var didSetupTopicInfo: ((TopicViewModel) -> Void)?
@@ -24,7 +24,7 @@ class SignUpViewModel {
             title: Strings.signUp,
             subtitle: Strings.createAccount))
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func setupTopic() {
         didSetupTopicInfo?(topicViewModel)
     }

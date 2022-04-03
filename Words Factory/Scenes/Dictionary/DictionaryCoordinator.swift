@@ -2,7 +2,7 @@ import UIKit
 
 class DictionaryCoordinator: Coordinator {
     
-    // MARK: Properties
+    // MARK: - Properties
     let dependencies: Dependencies
     
     var rootNavigationController: UINavigationController
@@ -16,7 +16,7 @@ class DictionaryCoordinator: Coordinator {
         childCoordinators = []
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     func start() {
         let viewModel = DictionaryViewModel(
             wordsRepository: dependencies.wordsRepository,

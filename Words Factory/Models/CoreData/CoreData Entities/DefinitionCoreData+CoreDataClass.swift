@@ -4,7 +4,7 @@ import CoreData
 
 public class DefinitionCoreData: NSManagedObject {
     
-    // MARK: Public methods
+    // MARK: - Public methods
     static func getOrAdd(domainDefinition: Definition,
                          context: NSManagedObjectContext)
     -> DefinitionCoreData {
@@ -33,7 +33,7 @@ public class DefinitionCoreData: NSManagedObject {
                    example: example ?? "")
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private static func add(domainDefinition: Definition,
                             context: NSManagedObjectContext)
     -> DefinitionCoreData {

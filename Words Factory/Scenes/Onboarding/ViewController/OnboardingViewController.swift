@@ -1,19 +1,19 @@
 import UIKit
 import SnapKit
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let skip = "Skip"
 }
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let pageControlBottomMargin: CGFloat = 72
 }
 
 class OnboardingViewController: UIViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
     private let viewModel: OnboardingViewModel
     
     private let pagesCollectionView = UICollectionView(
@@ -23,7 +23,7 @@ class OnboardingViewController: UIViewController {
     private let skipButton = UIButton()
     private let nextButton = StandartButton()
     
-    // MARK: Init
+    // MARK: - Init
     init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,14 +33,14 @@ class OnboardingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
         setup()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func bindToViewModel() {
         viewModel.didChangeNextButtonTitle = { [weak self] title in
             self?.nextButton.setTitle(title, for: .normal)
@@ -136,7 +136,7 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func scrollToPage(at page: Int) {
         var frame = pagesCollectionView.frame
         frame.origin = CGPoint(x: frame.width * CGFloat(page), y: 0)
@@ -144,7 +144,7 @@ class OnboardingViewController: UIViewController {
         pageControl.currentPage = page
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @objc private func pageControlTapped(_ sender: UIPageControl) {
         viewModel.showPage(at: sender.currentPage)
     }
@@ -158,7 +158,7 @@ class OnboardingViewController: UIViewController {
     }
 }
 
-// MARK: UICollectionViewDelegate & UICollectionViewDataSource
+// MARK: - UICollectionViewDelegate & UICollectionViewDataSource
 extension OnboardingViewController:
     UICollectionViewDelegate & UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
@@ -191,7 +191,7 @@ extension OnboardingViewController:
     }
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -200,7 +200,7 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: PageControlDelegate
+// MARK: - PageControlDelegate
 extension OnboardingViewController: PageControlDelegate {
     func pageControl(selectedPageAt page: Int) {
         viewModel.changeNextButtonTitleIfNeeded(page: page)

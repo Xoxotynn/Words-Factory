@@ -2,14 +2,14 @@ import UIKit
 import SnapKit
 import TPKeyboardAvoidingSwift
 
-// MARK: Strings
+// MARK: - Strings
 private extension Strings {
     static let namePlaceholder = "Name"
     static let emailPlaceholder = "E-mail"
     static let passwordPlaceholder = "Password"
 }
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let topScreenMargin: CGFloat = 58
     static let bottomScreenMaxMargin: CGFloat = 67
@@ -17,7 +17,7 @@ private extension Dimensions {
 
 class SignUpViewController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
     private let viewModel: SignUpViewModel
     
     private let scrollView = TPKeyboardAvoidingScrollView()
@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
     private let passwordTextField = PasswordTextField()
     private let signUpButton = StandartButton()
     
-    // MARK: Init
+    // MARK: - Init
     init(viewModel: SignUpViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
@@ -46,7 +46,7 @@ class SignUpViewController: UIViewController {
         setup()
     }
     
-    // MARK: Private setup methods
+    // MARK: - Private setup methods
     private func bindToViewModel() {
         viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
             self?.topicView.configure(with: topicViewModel)
@@ -140,7 +140,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupSignUpButton() {
         signUpButton.addTarget(
             self,
@@ -153,7 +153,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @objc private func signUp() {
         viewModel.signUp(
             name: nameTextField.text,

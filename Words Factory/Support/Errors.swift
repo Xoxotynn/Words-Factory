@@ -1,11 +1,11 @@
 import Foundation
 
-// MARK: SystemError
+// MARK: - SystemError
 enum SystemError {
     case indexOutOfRange
 }
 
-// MARK: ValidationError
+// MARK: - ValidationError
 enum ValidationError {
     case emptyField
     case invalidName
@@ -14,13 +14,13 @@ enum ValidationError {
     case unexpected
 }
 
-// MARK: NetworkError
+// MARK: - NetworkError
 enum NetworkError {
     case notFound
     case unexpected
 }
 
-// MARK: SystemError description
+// MARK: - SystemError description
 extension SystemError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -30,7 +30,7 @@ extension SystemError: LocalizedError {
     }
 }
 
-// MARK: ValidationError description
+// MARK: - ValidationError description
 extension ValidationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -48,7 +48,7 @@ extension ValidationError: LocalizedError {
     }
 }
 
-// MARK: NetworkError description
+// MARK: - NetworkError description
 extension NetworkError: LocalizedError {
     public var errorDescription: String? {
         switch self {

@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: Dimensions
+// MARK: - Dimensions
 private extension Dimensions {
     static let tabBarCornerRadius: CGFloat = 16
     static let tabBarItemOffset: UIOffset = UIOffset(horizontal: 0,
@@ -9,7 +9,7 @@ private extension Dimensions {
 
 class TabBarController: UITabBarController {
     
-    // MARK: Init
+    // MARK: - Init
     init() {
         super.init(nibName: nil, bundle: nil)
         setupTabBar()
@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupTabBar() {
         object_setClass(self.tabBar, TabBar.self)
         UITabBarItem
