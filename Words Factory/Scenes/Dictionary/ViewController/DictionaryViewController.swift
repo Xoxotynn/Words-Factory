@@ -22,6 +22,7 @@ class DictionaryViewController: UIViewController {
     private let wordTableView = TPKeyboardAvoidingTableView()
     private let addToDictionaryButton = StandartButton()
     private let topicView = TopicView()
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Init
     init(viewModel: DictionaryViewModel) {
@@ -55,6 +56,14 @@ class DictionaryViewController: UIViewController {
             self?.updateWord()
         }
         
+        viewModel.didStartLoading = { [weak self] in
+            self?.activityIndicator.startAnimating()
+        }
+        
+        viewModel.didEndLoading = { [weak self] in
+            self?.activityIndicator.stopAnimating()
+        }
+        
         viewModel.didRecieveError = { [weak self] error in
             self?.showError(error)
         }
@@ -66,6 +75,7 @@ class DictionaryViewController: UIViewController {
         setupTableView()
         setupAddToDictionaryButton()
         setupTopicView()
+        setupActivityIndicator()
     }
     
     private func setupView() {
@@ -80,6 +90,7 @@ class DictionaryViewController: UIViewController {
         view.addSubview(wordTableView)
         view.addSubview(addToDictionaryButton)
         view.addSubview(topicView)
+        view.addSubview(activityIndicator)
     }
     
     private func setupTableView() {
@@ -146,6 +157,15 @@ class DictionaryViewController: UIViewController {
     private func setupTopicView() {
         topicView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
+        }
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = R.color.darkGray()
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.centerY.centerX.equalTo(view.safeAreaLayoutGuide)
         }
     }
     

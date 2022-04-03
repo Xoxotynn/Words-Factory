@@ -22,6 +22,8 @@ class DictionaryViewModel {
     var didSetupPlaceholderTopicInfo: ((TopicViewModel) -> Void)?
     var didHidePlaceholder: ((Bool) -> Void)?
     var didUpdateWord: (() -> Void)?
+    var didStartLoading: (() -> Void)?
+    var didEndLoading: (() -> Void)?
     var didRecieveError: ((Error) -> Void)?
     
     private let wordsRepository: WordsRepository
@@ -139,11 +141,14 @@ class DictionaryViewModel {
  
     // MARK: - Private methods
     private func loadWord(_ word: String) {
+        didStartLoading?()
         wordsRepository.get(word: word)
         { [weak self] word in
             self?.updateLoadedWord(word)
+            self?.didEndLoading?()
         } onFailure: { [weak self] error in
             self?.didRecieveError?(error)
+            self?.didEndLoading?()
         }
     }
     
