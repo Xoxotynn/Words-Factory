@@ -41,7 +41,7 @@ class TextField: UITextField {
         attributedPlaceholder = NSAttributedString(
             string: text,
             attributes: [
-                .foregroundColor: (UIColor.darkGray ?? .systemGray3)
+                .foregroundColor: (R.color.darkGray() ?? .systemGray3)
                 .withAlphaComponent(alpha)
             ])
     }
@@ -67,8 +67,8 @@ class TextField: UITextField {
     private func setup() {
         autocorrectionType = .no
         font = .paragraphMedium
-        textColor = .dark
-        layer.borderColor = UIColor.gray?.cgColor
+        textColor = R.color.black()
+        layer.borderColor = R.color.gray()?.cgColor
         layer.borderWidth = Dimensions.smallBorderWidth
         layer.cornerRadius = Dimensions.cornerRadius
         layer.masksToBounds = true

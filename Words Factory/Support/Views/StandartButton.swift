@@ -14,11 +14,11 @@ class StandartButton: UIButton {
     
     // MARK: - Private methods
     private func setup() {
-        backgroundColor = .primary
+        backgroundColor = R.color.orange()
         layer.cornerRadius = Dimensions.standart
         layer.masksToBounds = true
         
         titleLabel?.font = .buttonMedium
-        setTitleColor(.appWhite, for: .normal)
+        setTitleColor(R.color.white(), for: .normal)
     }
 }

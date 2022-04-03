@@ -26,12 +26,12 @@ class TabBarController: UITabBarController {
             .appearance()
             .titlePositionAdjustment = Dimensions.tabBarItemOffset
         
-        tabBar.backgroundColor = .appWhite
+        tabBar.backgroundColor = R.color.white()
         tabBar.tintColor = .orange
         
         tabBar.layer.cornerRadius = Dimensions.tabBarCornerRadius
         tabBar.layer.borderWidth = Dimensions.smallBorderWidth
-        tabBar.layer.borderColor = UIColor.gray?.cgColor
+        tabBar.layer.borderColor = R.color.gray()?.cgColor
         tabBar.layer.maskedCorners = [
             .layerMinXMinYCorner,
             .layerMaxXMinYCorner

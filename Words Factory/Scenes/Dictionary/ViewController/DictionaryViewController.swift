@@ -77,7 +77,7 @@ class DictionaryViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(hideKeyboard)))
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         title = viewModel.title
         additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
@@ -92,7 +92,7 @@ class DictionaryViewController: UIViewController {
         wordTableView.dataSource = self
         wordTableView.keyboardDismissMode = .interactive
         wordTableView.contentInset = Dimensions.tableViewInsets
-        wordTableView.backgroundColor = .appWhite
+        wordTableView.backgroundColor = R.color.white()
         wordTableView.separatorStyle = .none
         wordTableView.isHidden = true
         

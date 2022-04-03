@@ -38,7 +38,7 @@ class DefinitionCellViewModel {
         if range.length > 0 {
             attributedExample.addAttribute(
                 .foregroundColor,
-                value: UIColor.secondary ?? .systemBlue,
+                value: R.color.lightBlue() ?? .systemBlue,
                 range: range)
         }
         

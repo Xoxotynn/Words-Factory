@@ -39,7 +39,7 @@ class VideoViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         
         view.addSubview(topicView)
     }

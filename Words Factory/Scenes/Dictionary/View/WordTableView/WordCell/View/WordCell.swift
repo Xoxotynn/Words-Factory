@@ -51,7 +51,7 @@ class WordCell: UITableViewCell {
     }
     
     private func setupWordLabel() {
-        wordLabel.textColor = .dark
+        wordLabel.textColor = R.color.black()
         wordLabel.font = .heading4
         
         wordLabel.snp.makeConstraints { make in
@@ -73,13 +73,13 @@ class WordCell: UITableViewCell {
     }
     
     private func setupPhoneticsLabel() {
-        phoneticsLabel.textColor = .primary
+        phoneticsLabel.textColor = R.color.orange()
         phoneticsLabel.font = .paragraphMedium
     }
     
     private func setupAudioImageView() {
         audioImageView.image = R.image.soundIcon()
-        audioImageView.tintColor = .primary
+        audioImageView.tintColor = R.color.orange()
         audioImageView.contentMode = .scaleAspectFit
     }
     

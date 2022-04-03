@@ -44,7 +44,6 @@
 		A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7027F663DA001D50B4 /* TopicView.swift */; };
 		A9500E7327F663F2001D50B4 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9500E7227F663F2001D50B4 /* TopicViewModel.swift */; };
 		A966876E27F1099B00B320B3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876D27F1099B00B320B3 /* Strings.swift */; };
-		A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966876F27F109C600B320B3 /* UIColor+AppColors.swift */; };
 		A966877427F10A2200B320B3 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877327F10A2200B320B3 /* Dimensions.swift */; };
 		A966877627F10A3E00B320B3 /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966877527F10A3E00B320B3 /* UIFont+AppFonts.swift */; };
 		A966877B27F1142500B320B3 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A966877827F1142500B320B3 /* Rubik-Bold.ttf */; };
@@ -131,7 +130,6 @@
 		A9500E7027F663DA001D50B4 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		A9500E7227F663F2001D50B4 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		A966876D27F1099B00B320B3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		A966876F27F109C600B320B3 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		A966877327F10A2200B320B3 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		A966877527F10A3E00B320B3 /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		A966877827F1142500B320B3 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -446,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				A91F54C727F92F2400D0DB85 /* UIViewController */,
-				A966876F27F109C600B320B3 /* UIColor+AppColors.swift */,
 				A966877527F10A3E00B320B3 /* UIFont+AppFonts.swift */,
 				A948A9A727F4CD4B00FB3658 /* UILabel+AppLabels.swift */,
 				A9B2479127F6957C00FCE45A /* UINavigationController+AppNavigationControllers.swift */,
@@ -912,7 +909,6 @@
 				A966878127F1287D00B320B3 /* Dependencies.swift in Sources */,
 				A9500E7127F663DA001D50B4 /* TopicView.swift in Sources */,
 				A91F54CE27F9355500D0DB85 /* Phonetic.swift in Sources */,
-				A966877027F109C600B320B3 /* UIColor+AppColors.swift in Sources */,
 				A91F54E927F9573F00D0DB85 /* MeaningCoreData+CoreDataProperties.swift in Sources */,
 				A9B247C027F7AB7C00FCE45A /* WordCell.swift in Sources */,
 				A9B247D527F8F76100FCE45A /* WordCellViewModel.swift in Sources */,

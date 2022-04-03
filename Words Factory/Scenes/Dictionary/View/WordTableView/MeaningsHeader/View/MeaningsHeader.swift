@@ -51,7 +51,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     
     private func setupSpeechPartTitleLabel() {
         speechPartTitleLabel.text = Strings.partOfSpeech
-        speechPartTitleLabel.textColor = .dark
+        speechPartTitleLabel.textColor = R.color.black()
         speechPartTitleLabel.font = .heading5
         
         speechPartTitleLabel.snp.makeConstraints { make in
@@ -62,7 +62,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     }
     
     private func setupSpeechPartLabel() {
-        speechPartLabel.textColor = .dark
+        speechPartLabel.textColor = R.color.black()
         speechPartLabel.font = .paragraphMedium
         
         speechPartLabel.snp.makeConstraints { make in
@@ -74,7 +74,7 @@ class MeaningsHeader: UITableViewHeaderFooterView {
     
     private func setupMeaningsTitleLabel() {
         meaningsTitleLabel.text = Strings.meanings
-        meaningsTitleLabel.textColor = .dark
+        meaningsTitleLabel.textColor = R.color.black()
         meaningsTitleLabel.font = .heading5
         
         meaningsTitleLabel.snp.makeConstraints { make in

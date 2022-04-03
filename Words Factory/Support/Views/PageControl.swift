@@ -27,7 +27,7 @@ class PageControl: UIPageControl {
     init() {
         super.init(frame: .zero)
         pageIndicatorTintColor = .gray
-        currentPageIndicatorTintColor = .secondary
+        currentPageIndicatorTintColor = R.color.lightBlue()
         if #available(iOS 14.0, *) {
             allowsContinuousInteraction = false
         }

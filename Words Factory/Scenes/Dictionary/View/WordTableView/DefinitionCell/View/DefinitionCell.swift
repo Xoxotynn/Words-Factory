@@ -59,7 +59,7 @@ class DefinitionCell: UITableViewCell {
     
     private func setupDefinitionContentView() {
         definitionContentView.layer.cornerRadius = Dimensions.cellCornerRadius
-        definitionContentView.layer.borderColor = UIColor.gray?.cgColor
+        definitionContentView.layer.borderColor = R.color.gray()?.cgColor
         definitionContentView.layer.borderWidth = Dimensions.smallBorderWidth
         
         definitionContentView.snp.makeConstraints { make in
@@ -82,13 +82,13 @@ class DefinitionCell: UITableViewCell {
     }
     
     private func setupDefinitionLabel() {
-        definitionLabel.textColor = .dark
+        definitionLabel.textColor = R.color.black()
         definitionLabel.font = .paragraphMedium
         definitionLabel.numberOfLines = 0
     }
     
     private func setupExampleLabel() {
-        exampleLabel.textColor = .dark
+        exampleLabel.textColor = R.color.black()
         exampleLabel.font = .paragraphMedium
         exampleLabel.numberOfLines = 0
     }

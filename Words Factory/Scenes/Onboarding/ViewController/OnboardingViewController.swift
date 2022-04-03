@@ -60,7 +60,7 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         
         view.addSubview(pagesCollectionView)
         view.addSubview(pageControl)

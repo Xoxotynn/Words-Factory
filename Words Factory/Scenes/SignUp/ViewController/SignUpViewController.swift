@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .appWhite
+        view.backgroundColor = R.color.white()
         
         view.addSubview(scrollView)
         scrollView.addSubview(topicView)

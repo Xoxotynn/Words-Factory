@@ -22,21 +22,21 @@ extension UIViewController {
                     string: title ?? Strings.defaultTitle,
                     attributes: [
                         .font: UIFont.heading4 ?? UIFont.systemLarge,
-                        .foregroundColor: UIColor.dark ?? .black
+                        .foregroundColor: R.color.black() ?? .black
                        ]),
             Strings.attributedMessageKey:
                 NSAttributedString(
                     string: message ?? Strings.defaultMessage,
                     attributes: [
                         .font: UIFont.paragraphLarge ?? UIFont.systemMedium,
-                        .foregroundColor: UIColor.darkGray ?? .systemGray4
+                        .foregroundColor: R.color.darkGray() ?? .systemGray4
                        ])
         ])
         
         let okAction = UIAlertAction(title: Strings.ok,
                                      style: .default,
                                      handler: nil)
-        alert.view.tintColor = .primary
+        alert.view.tintColor = R.color.orange()
         alert.addAction(okAction)
         
         present(alert, animated: true)
