@@ -7,7 +7,7 @@ class VideoViewModel {
     
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
-            image: Images.skateboardKid,
+            image: R.image.skateboardKid.name,
             title: Strings.sceneNotReadyTitle,
             subtitle: Strings.sceneNotReadySubtitle))
     

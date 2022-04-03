@@ -21,9 +21,7 @@ class TopicView: UIView {
     // MARK: - Public methods
     func configure(with viewModel: TopicViewModel) {
         viewModel.didSetupTopicInfo = { [weak self] topic in
-            self?.imageView.image = UIImage(named: topic.image)
-            self?.titleLabel.text = topic.title
-            self?.subtitleLabel.text = topic.subtitle
+            self?.updateTopic(topic)
         }
         
         viewModel.setupTopicInfo()
@@ -72,5 +70,12 @@ class TopicView: UIView {
             make.leading.trailing.equalToSuperview()
                 .inset(Dimensions.medium)
         }
+    }
+    
+    // MARK: - Private methods
+    private func updateTopic(_ topic: TopicInfo) {
+        imageView.image = UIImage(named: topic.image)
+        titleLabel.text = topic.title
+        subtitleLabel.text = topic.subtitle
     }
 }

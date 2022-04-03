@@ -23,7 +23,7 @@ class DictionaryViewController: UIViewController {
     private let viewModel: DictionaryViewModel
     
     private let searchTextField = ActionTextField(
-        actionImage: UIImage(named: Images.searchIcon))
+        actionImage: R.image.searchIcon())
     private let wordTableView = TPKeyboardAvoidingTableView()
     private let addToDictionaryButton = StandartButton()
     private let topicView = TopicView()

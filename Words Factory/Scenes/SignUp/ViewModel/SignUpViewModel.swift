@@ -20,7 +20,7 @@ class SignUpViewModel {
     
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
-            image: Images.standingKid2,
+            image: R.image.standingKid2.name,
             title: Strings.signUp,
             subtitle: Strings.createAccount))
     

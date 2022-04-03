@@ -35,17 +35,17 @@ class OnboardingViewModel {
     private let pageCellViewModels = [
         OnboardingPageCellViewModel(
             topic: TopicInfo(
-                image: Images.relationshipKids,
+                image: R.image.longDistanceRelationshipKids.name,
                 title: Strings.firstPageTitle,
                 subtitle: Strings.firstPageDescription)),
         OnboardingPageCellViewModel(
             topic: TopicInfo(
-                image: Images.stayingHomeKid,
+                image: R.image.stayingHomeKid.name,
                 title: Strings.secondPageTitle,
                 subtitle: Strings.secondPageDescription)),
         OnboardingPageCellViewModel(
             topic: TopicInfo(
-                image: Images.hiTechKid,
+                image: R.image.hiTechKid.name,
                 title: Strings.thirdPageTitle,
                 subtitle: Strings.thirdPageDescription))
     ]

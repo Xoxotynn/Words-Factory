@@ -1,11 +1,5 @@
 import UIKit
 
-// MARK: - Images
-private extension Images {
-    static let selectedDotIcon = "SelectedDotIcon"
-    static let dotIcon = "DotIcon"
-}
-
 // MARK: - PageControlDelegate
 protocol PageControlDelegate: AnyObject {
     func pageControl(selectedPageAt page: Int)
@@ -59,8 +53,7 @@ class PageControl: UIPageControl {
             if let existingImageView = getImageView(forSubview: dot) {
                 dotImageView = existingImageView
             } else {
-                dotImageView = UIImageView(
-                    image: UIImage(named: Images.dotIcon))
+                dotImageView = UIImageView(image: R.image.dotIcon())
                 dotImageView.center = dot.center
                 dot.addSubview(dotImageView)
                 dot.clipsToBounds = false
@@ -68,11 +61,10 @@ class PageControl: UIPageControl {
             
             if currentPage == index {
                 UIView.animate(withDuration: 0.2) {
-                    dotImageView.image = UIImage(
-                        named: Images.selectedDotIcon)
+                    dotImageView.image = R.image.selectedDotIcon()
                 }
             } else {
-                dotImageView.image = UIImage(named: Images.dotIcon)
+                dotImageView.image = R.image.dotIcon()
             }
         }
     }
