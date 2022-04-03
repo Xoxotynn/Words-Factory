@@ -52,6 +52,41 @@ class DictionaryViewModel {
         didSetupPlaceholderTopicInfo?(topicViewModel)
     }
     
+    func getWord(_ word: String?) {
+        guard let word = word?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !word.isEmpty else {
+            updateLoadedWord(nil)
+            return
+        }
+
+        loadWord(word)
+    }
+    
+    func addToDictionary() {
+        
+    }
+    
+    func getRowsNumber(inSection section: Int) -> Int {
+        guard let _ = word,
+              section <= meaningsSectionViewModels.count else { return 0 }
+        guard section > 0 else { return 1 }
+        
+        return meaningsSectionViewModels[section - 1].rowsNumber
+    }
+    
+    func getHeaderReuseIdentifier(inSection section: Int) -> String? {
+        section > 0 ? ReuseIdentifiers.meaningsHeaderId : nil
+    }
+    
+    func getReuseIdentifier(inSection section: Int) -> String {
+        switch section {
+        case 0:
+            return ReuseIdentifiers.wordCellId
+        default:
+            return ReuseIdentifiers.definitionCellId
+        }
+    }
+    
     func getWordCellViewModel() throws -> WordCellViewModel {
         guard let wordCellViewModel = wordCellViewModel else {
             throw NetworkError.notFound
@@ -78,37 +113,6 @@ class DictionaryViewModel {
         
         return try meaningsSectionViewModels[section - 1]
             .getDefinitionCellViewModel(forRow: row)
-    }
-    
-    func getWord(_ word: String?) {
-        guard let word = word?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !word.isEmpty else {
-            updateLoadedWord(nil)
-            return
-        }
-
-        loadWord(word)
-    }
-    
-    func getRowsNumber(inSection section: Int) -> Int {
-        guard let _ = word,
-              section <= meaningsSectionViewModels.count else { return 0 }
-        guard section > 0 else { return 1 }
-        
-        return meaningsSectionViewModels[section - 1].rowsNumber
-    }
-    
-    func getReuseIdentifier(inSection section: Int) -> String {
-        switch section {
-        case 0:
-            return ReuseIdentifiers.wordCellId
-        default:
-            return ReuseIdentifiers.definitionCellId
-        }
-    }
-    
-    func getHeaderReuseIdentifier(inSection section: Int) -> String? {
-        section > 0 ? ReuseIdentifiers.meaningsHeaderId : nil
     }
     
     func getHeightForHeader(inSection section: Int) -> CGFloat {

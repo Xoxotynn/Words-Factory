@@ -10,6 +10,11 @@ private extension Strings {
 // MARK: Dimensions
 private extension Dimensions {
     static let additionalSafeAreaInsets: CGFloat = -22
+    static let tableViewInsets: UIEdgeInsets = UIEdgeInsets(
+        top: 0,
+        left: 0,
+        bottom: Dimensions.standartHeight + 2 * Dimensions.standart,
+        right: 0)
 }
 
 class DictionaryViewController: UIViewController {
@@ -19,6 +24,7 @@ class DictionaryViewController: UIViewController {
     
     private let searchTextField = ActionTextField(actionImage: .searchIcon)
     private let wordTableView = TPKeyboardAvoidingTableView()
+    private let addToDictionaryButton = StandartButton()
     private let topicView = TopicView()
     
     // MARK: Init
@@ -60,8 +66,9 @@ class DictionaryViewController: UIViewController {
     
     private func setup() {
         setupView()
-        setupTableView()
         setupSearchTextField()
+        setupTableView()
+        setupAddToDictionaryButton()
         setupTopicView()
     }
     
@@ -75,6 +82,7 @@ class DictionaryViewController: UIViewController {
         
         view.addSubview(searchTextField)
         view.addSubview(wordTableView)
+        view.addSubview(addToDictionaryButton)
         view.addSubview(topicView)
     }
     
@@ -82,6 +90,7 @@ class DictionaryViewController: UIViewController {
         wordTableView.delegate = self
         wordTableView.dataSource = self
         wordTableView.keyboardDismissMode = .interactive
+        wordTableView.contentInset = Dimensions.tableViewInsets
         wordTableView.backgroundColor = .appWhite
         wordTableView.separatorStyle = .none
         wordTableView.isHidden = true
@@ -119,6 +128,23 @@ class DictionaryViewController: UIViewController {
         }
     }
     
+    private func setupAddToDictionaryButton() {
+        addToDictionaryButton.addTarget(
+            self,
+            action: #selector(addToDictionary),
+            for: .touchUpInside)
+        addToDictionaryButton.setTitle(Strings.addToDictionary, for: .normal)
+        addToDictionaryButton.isHidden = true
+        
+        addToDictionaryButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+                .inset(Dimensions.standart)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+                .inset(Dimensions.medium)
+            make.height.equalTo(Dimensions.standartHeight)
+        }
+    }
+    
     private func setupTopicView() {
         topicView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
@@ -129,6 +155,7 @@ class DictionaryViewController: UIViewController {
     private func togglePlaceholder(isHidden: Bool) {
         topicView.isHidden = isHidden
         wordTableView.isHidden = !isHidden
+        addToDictionaryButton.isHidden = !isHidden
     }
     
     private func updateWord() {
@@ -194,6 +221,11 @@ class DictionaryViewController: UIViewController {
         }
         
         return headerCell
+    }
+    
+    // MARK: Actions
+    @objc private func addToDictionary() {
+        viewModel.addToDictionary()
     }
 }
 
