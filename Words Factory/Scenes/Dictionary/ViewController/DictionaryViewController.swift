@@ -38,16 +38,12 @@ class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
-        viewModel.setupTopic()
+        topicView.configure(with: viewModel.topicViewModel)
         setup()
     }
     
     // MARK: - Private setup methods
     private func bindToViewModel() {
-        viewModel.didSetupPlaceholderTopicInfo = { [weak self] topicViewModel in
-            self?.topicView.configure(with: topicViewModel)
-        }
-        
         viewModel.didHidePlaceholder = { [weak self] hidden in
             self?.togglePlaceholder(isHidden: hidden)
         }
