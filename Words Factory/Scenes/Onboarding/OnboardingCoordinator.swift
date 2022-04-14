@@ -11,8 +11,12 @@ class OnboardingCoordinator: Coordinator {
     let dependencies: Dependencies
     
     weak var delegate: OnboardingCoordinatorDelegate?
-    var rootNavigationController: UINavigationController
+    var rootViewController: UIViewController {
+        rootNavigationController
+    }
     var childCoordinators: [Coordinator]
+    
+    private let rootNavigationController: UINavigationController
     
     // MARK: - Init
     init(rootNavigationController: UINavigationController,
@@ -27,8 +31,9 @@ class OnboardingCoordinator: Coordinator {
         let viewModel = OnboardingViewModel()
         viewModel.delegate = self
         let viewController = OnboardingViewController(viewModel: viewModel)
-        rootNavigationController.setViewControllers([viewController],
-                                                    animated: true)
+        rootNavigationController.setViewControllers(
+            [viewController],
+            animated: true)
     }
 }
 

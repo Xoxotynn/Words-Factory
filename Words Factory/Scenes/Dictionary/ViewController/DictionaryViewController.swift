@@ -79,7 +79,7 @@ class DictionaryViewController: UIViewController {
             target: self,
             action: #selector(hideKeyboard)))
         view.backgroundColor = R.color.white()
-        title = viewModel.title
+        navigationItem.title = viewModel.title
         additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
         view.addSubview(searchTextField)
@@ -174,7 +174,7 @@ class DictionaryViewController: UIViewController {
     
     private func updateWord() {
         hideKeyboard()
-        title = viewModel.title
+        navigationItem.title = viewModel.title
         wordTableView.reloadData()
     }
     

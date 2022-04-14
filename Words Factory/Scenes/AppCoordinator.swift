@@ -5,10 +5,13 @@ class AppCoordinator: Coordinator {
     // MARK: - Properties
     let dependencies: Dependencies
     
-    var rootNavigationController: UINavigationController
+    var rootViewController: UIViewController {
+        rootNavigationController
+    }
     var childCoordinators: [Coordinator]
     
     private let window: UIWindow
+    private let rootNavigationController: UINavigationController
     
     // MARK: - Init
     init(window: UIWindow) {
@@ -19,13 +22,13 @@ class AppCoordinator: Coordinator {
                 localDataSource: CoreDataService()),
             audioService: AudioService())
         childCoordinators = []
-        rootNavigationController = UINavigationController()
-        rootNavigationController.isNavigationBarHidden = true
+        rootNavigationController = UINavigationController
+            .createWithHiddenNavigationBar()
     }
     
     // MARK: - Public methods
     func start() {
-        window.rootViewController = rootNavigationController
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         
         let startCoordinator = OnboardingCoordinator(
@@ -55,7 +58,7 @@ extension AppCoordinator: SignUpCoordinatorDelegate {
     func replaceSignUpWithTabBar(_ signUpCoordinator: SignUpCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: signUpCoordinator))
         let coordinator = TabBarCoordinator(
-            rootNavigationController: rootNavigationController,
+            window: window,
             dependencies: dependencies)
         childCoordinators.append(coordinator)
         coordinator.start()

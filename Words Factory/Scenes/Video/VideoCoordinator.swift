@@ -5,13 +5,12 @@ class VideoCoordinator: Coordinator {
     // MARK: - Properties
     let dependencies: Dependencies
     
-    var rootNavigationController: UINavigationController
+    private(set) var rootViewController: UIViewController
     var childCoordinators: [Coordinator]
     
     // MARK: - Init
-    init(rootNavigationController: UINavigationController,
-         dependencies: Dependencies) {
-        self.rootNavigationController = rootNavigationController
+    init(dependencies: Dependencies) {
+        rootViewController = UIViewController()
         self.dependencies = dependencies
         childCoordinators = []
     }
@@ -20,7 +19,6 @@ class VideoCoordinator: Coordinator {
     func start() {
         let viewModel = VideoViewModel()
         let viewController = VideoViewController(viewModel: viewModel)
-        rootNavigationController.setViewControllers([viewController],
-                                                    animated: true)
+        rootViewController = viewController
     }
 }
