@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
             self?.topicView.configure(with: topicViewModel)
         }
         
-        viewModel.didRecieveErrors = { [weak self] errors in
+        viewModel.didReceiveErrors = { [weak self] errors in
             self?.showMultipleErrors(errors)
         }
     }

@@ -24,7 +24,7 @@ class DictionaryViewModel {
     var didUpdateWord: (() -> Void)?
     var didStartLoading: (() -> Void)?
     var didEndLoading: (() -> Void)?
-    var didRecieveError: ((Error) -> Void)?
+    var didReceiveError: ((Error) -> Void)?
     
     private let wordsRepository: WordsRepository
     private let audioService: AudioService
@@ -64,7 +64,7 @@ class DictionaryViewModel {
     
     func addToDictionary() {
         guard let word = word else {
-            didRecieveError?(DataError.unexpected)
+            didReceiveError?(DataError.unexpected)
             return
         }
 
@@ -72,7 +72,7 @@ class DictionaryViewModel {
         { word in
             
         } onFailure: { [weak self] error in
-            self?.didRecieveError?(error)
+            self?.didReceiveError?(error)
         }
 
     }
@@ -147,7 +147,7 @@ class DictionaryViewModel {
             self?.updateLoadedWord(word)
             self?.didEndLoading?()
         } onFailure: { [weak self] error in
-            self?.didRecieveError?(error)
+            self?.didReceiveError?(error)
             self?.didEndLoading?()
         }
     }

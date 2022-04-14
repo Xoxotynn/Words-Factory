@@ -64,7 +64,7 @@ class DictionaryViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
         }
         
-        viewModel.didRecieveError = { [weak self] error in
+        viewModel.didReceiveError = { [weak self] error in
             self?.showError(error)
         }
     }

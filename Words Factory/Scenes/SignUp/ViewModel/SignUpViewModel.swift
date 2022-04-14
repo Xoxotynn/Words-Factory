@@ -11,7 +11,7 @@ class SignUpViewModel {
     weak var delegate: SignUpViewModelDelegate?
     
     var didSetupTopicInfo: ((TopicViewModel) -> Void)?
-    var didRecieveErrors: (([Error]) -> Void)?
+    var didReceiveErrors: (([Error]) -> Void)?
     
     private let topicViewModel = TopicViewModel(
         topic: TopicInfo(
@@ -31,7 +31,7 @@ class SignUpViewModel {
             password: password)
         
         guard errors.isEmpty else {
-            didRecieveErrors?(errors)
+            didReceiveErrors?(errors)
             return
         }
         
