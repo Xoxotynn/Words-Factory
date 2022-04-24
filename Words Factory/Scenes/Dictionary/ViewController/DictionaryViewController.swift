@@ -38,16 +38,12 @@ class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
-        viewModel.setupTopic()
+        topicView.configure(with: viewModel.topicViewModel)
         setup()
     }
     
     // MARK: - Private setup methods
     private func bindToViewModel() {
-        viewModel.didSetupPlaceholderTopicInfo = { [weak self] topicViewModel in
-            self?.topicView.configure(with: topicViewModel)
-        }
-        
         viewModel.didHidePlaceholder = { [weak self] hidden in
             self?.togglePlaceholder(isHidden: hidden)
         }
@@ -64,7 +60,7 @@ class DictionaryViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
         }
         
-        viewModel.didRecieveError = { [weak self] error in
+        viewModel.didReceiveError = { [weak self] error in
             self?.showError(error)
         }
     }
@@ -83,7 +79,7 @@ class DictionaryViewController: UIViewController {
             target: self,
             action: #selector(hideKeyboard)))
         view.backgroundColor = R.color.white()
-        title = viewModel.title
+        navigationItem.title = viewModel.title
         additionalSafeAreaInsets.top = Dimensions.additionalSafeAreaInsets
         
         view.addSubview(searchTextField)
@@ -178,7 +174,7 @@ class DictionaryViewController: UIViewController {
     
     private func updateWord() {
         hideKeyboard()
-        title = viewModel.title
+        navigationItem.title = viewModel.title
         wordTableView.reloadData()
     }
     

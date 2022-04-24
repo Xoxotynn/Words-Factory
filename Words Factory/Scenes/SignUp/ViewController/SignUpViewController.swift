@@ -35,17 +35,13 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindToViewModel()
-        viewModel.setupTopic()
+        topicView.configure(with: viewModel.topicViewModel)
         setup()
     }
     
     // MARK: - Private setup methods
     private func bindToViewModel() {
-        viewModel.didSetupTopicInfo = { [weak self] topicViewModel in
-            self?.topicView.configure(with: topicViewModel)
-        }
-        
-        viewModel.didRecieveErrors = { [weak self] errors in
+        viewModel.didReceiveErrors = { [weak self] errors in
             self?.showMultipleErrors(errors)
         }
     }

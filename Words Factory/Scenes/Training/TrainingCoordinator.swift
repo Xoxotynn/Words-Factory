@@ -5,8 +5,12 @@ class TrainingCoordinator: Coordinator {
     // MARK: - Properties
     let dependencies: Dependencies
     
-    var rootNavigationController: UINavigationController
+    var rootViewController: UIViewController {
+        rootNavigationController
+    }
     var childCoordinators: [Coordinator]
+    
+    private let rootNavigationController: UINavigationController
     
     // MARK: - Init
     init(rootNavigationController: UINavigationController,
@@ -20,7 +24,8 @@ class TrainingCoordinator: Coordinator {
     func start() {
         let viewModel = TrainingViewModel()
         let viewController = TrainingViewController(viewModel: viewModel)
-        rootNavigationController.setViewControllers([viewController],
-                                                    animated: true)
+        rootNavigationController.setViewControllers(
+            [viewController],
+            animated: true)
     }
 }

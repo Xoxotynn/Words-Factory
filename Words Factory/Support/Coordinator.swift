@@ -1,7 +1,7 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var rootNavigationController: UINavigationController { get set }
+    var rootViewController: UIViewController { get }
     var childCoordinators: [Coordinator] { get set }
     func start()
     func removeAllChildCoordinatorsWithType<T: Coordinator>(_ type: T.Type)

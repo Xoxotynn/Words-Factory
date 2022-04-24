@@ -8,6 +8,8 @@ private extension Dimensions {
 class DictionaryViewModel {
     
     // MARK: - Properties
+    let topicViewModel: TopicViewModel
+    
     var title: String {
         if let word = word?.word {
             return word
@@ -19,16 +21,14 @@ class DictionaryViewModel {
         (word?.meanings.count ?? -1) + 1
     }
     
-    var didSetupPlaceholderTopicInfo: ((TopicViewModel) -> Void)?
     var didHidePlaceholder: ((Bool) -> Void)?
     var didUpdateWord: (() -> Void)?
     var didStartLoading: (() -> Void)?
     var didEndLoading: (() -> Void)?
-    var didRecieveError: ((Error) -> Void)?
+    var didReceiveError: ((Error) -> Void)?
     
     private let wordsRepository: WordsRepository
     private let audioService: AudioService
-    private let topicViewModel: TopicViewModel
     
     private var wordCellViewModel: WordCellViewModel?
     private var meaningsSectionViewModels: [MeaningsSectionViewModel]
@@ -48,10 +48,6 @@ class DictionaryViewModel {
     }
     
     // MARK: - Public methods
-    func setupTopic() {
-        didSetupPlaceholderTopicInfo?(topicViewModel)
-    }
-    
     func getWord(_ word: String?) {
         guard let word = word?.trimmingCharacters(in: .whitespacesAndNewlines),
               !word.isEmpty else {
@@ -64,7 +60,7 @@ class DictionaryViewModel {
     
     func addToDictionary() {
         guard let word = word else {
-            didRecieveError?(DataError.unexpected)
+            didReceiveError?(DataError.unexpected)
             return
         }
 
@@ -72,7 +68,7 @@ class DictionaryViewModel {
         { word in
             
         } onFailure: { [weak self] error in
-            self?.didRecieveError?(error)
+            self?.didReceiveError?(error)
         }
 
     }
@@ -147,7 +143,7 @@ class DictionaryViewModel {
             self?.updateLoadedWord(word)
             self?.didEndLoading?()
         } onFailure: { [weak self] error in
-            self?.didRecieveError?(error)
+            self?.didReceiveError?(error)
             self?.didEndLoading?()
         }
     }

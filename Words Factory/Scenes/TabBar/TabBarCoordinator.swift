@@ -5,22 +5,26 @@ class TabBarCoordinator: Coordinator {
     // MARK: - Properties
     let dependencies: Dependencies
     
-    var rootNavigationController: UINavigationController
+    var rootViewController: UIViewController {
+        rootTabBarController
+    }
     var childCoordinators: [Coordinator]
     
+    private let window: UIWindow
+    private let rootTabBarController: UITabBarController
+    
     // MARK: - Init
-    init(rootNavigationController: UINavigationController,
+    init(window: UIWindow,
          dependencies: Dependencies) {
-        self.rootNavigationController = rootNavigationController
+        self.window = window
+        self.rootTabBarController = TabBarController()
         self.dependencies = dependencies
         childCoordinators = []
     }
     
     // MARK: - Public methods
     func start() {
-        let tabBarController = TabBarController()
-        
-        tabBarController.setViewControllers(
+        rootTabBarController.setViewControllers(
             [
                 createDictionaryController(),
                 createTrainingController(),
@@ -28,13 +32,11 @@ class TabBarCoordinator: Coordinator {
             ],
             animated: true)
         
-        rootNavigationController.setViewControllers(
-            [tabBarController],
-            animated: true)
+        window.rootViewController = rootTabBarController
     }
     
     // MARK: - Private methods
-    private func createDictionaryController() -> UINavigationController {
+    private func createDictionaryController() -> UIViewController {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
@@ -56,7 +58,7 @@ class TabBarCoordinator: Coordinator {
         return navController
     }
     
-    private func createTrainingController() -> UINavigationController {
+    private func createTrainingController() -> UIViewController {
         let navController = UINavigationController
             .createWithHiddenNavigationBar()
         let item = UITabBarItem(
@@ -78,9 +80,12 @@ class TabBarCoordinator: Coordinator {
         return navController
     }
     
-    private func createVideoController() -> UINavigationController {
-        let navController = UINavigationController
-            .createWithHiddenNavigationBar()
+    private func createVideoController() -> UIViewController {
+        let coordinator = VideoCoordinator(dependencies: dependencies)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+        
+        let viewController = coordinator.rootViewController
         let item = UITabBarItem(
             title: R.string.localizable.tabBarVideo(),
             image: R.image.videoIcon(),
@@ -89,14 +94,8 @@ class TabBarCoordinator: Coordinator {
         item.setTitleTextAttributes(
             [.font: UIFont.paragraphMedium ?? UIFont.systemMedium],
             for: .normal)
-        navController.tabBarItem = item
+        viewController.tabBarItem = item
         
-        let coordinator = VideoCoordinator(
-            rootNavigationController: navController,
-            dependencies: dependencies)
-        childCoordinators.append(coordinator)
-        coordinator.start()
-        
-        return navController
+        return viewController
     }
 }
