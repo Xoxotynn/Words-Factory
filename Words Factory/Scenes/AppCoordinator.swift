@@ -28,21 +28,15 @@ class AppCoordinator: Coordinator {
     
     // MARK: - Public methods
     func start() {
-//        window.rootViewController = rootViewController
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         
-//        let startCoordinator = OnboardingCoordinator(
-//            rootNavigationController: rootNavigationController,
-//            dependencies: dependencies)
-//        startCoordinator.delegate = self
-//        childCoordinators.append(startCoordinator)
-//        startCoordinator.start()
-        
-        let coordinator = TabBarCoordinator(
-            window: window,
+        let startCoordinator = OnboardingCoordinator(
+            rootNavigationController: rootNavigationController,
             dependencies: dependencies)
-        childCoordinators.append(coordinator)
-        coordinator.start()
+        startCoordinator.delegate = self
+        childCoordinators.append(startCoordinator)
+        startCoordinator.start()
     }
 }
 
