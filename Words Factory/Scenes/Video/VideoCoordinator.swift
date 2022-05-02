@@ -17,7 +17,7 @@ class VideoCoordinator: Coordinator {
     
     // MARK: - Public methods
     func start() {
-        let viewModel = VideoViewModel()
+        let viewModel = VideoViewModel(videoService: VideoWebViewNetworkService())
         let viewController = VideoViewController(viewModel: viewModel)
         rootViewController = viewController
     }
